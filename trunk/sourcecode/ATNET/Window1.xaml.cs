@@ -59,8 +59,7 @@ namespace ATNET
         private bool InitMainWindowConfig()
         {
             //从配置文件中读出当前用户的界面风格
-            toolWindow.DockableStyle = AvalonDock.DockableStyle.AutoHide;
-            toolBoxPanel.Visibility = Visibility.Collapsed;
+            dockingManager.Show(toolWindow, AvalonDock.DockableContentState.Docked);
             return true;
         }
 
