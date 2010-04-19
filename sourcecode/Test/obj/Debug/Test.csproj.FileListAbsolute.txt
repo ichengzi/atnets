@@ -1,0 +1,16 @@
+D:\eric\项目\机房系统\源码\ATNET\Test\bin\Debug\Test.exe
+D:\eric\项目\机房系统\源码\ATNET\Test\bin\Debug\Test.pdb
+D:\eric\项目\机房系统\源码\ATNET\Test\obj\Debug\ResolveAssemblyReference.cache
+D:\eric\项目\机房系统\源码\ATNET\Test\obj\Debug\Window1.baml
+D:\eric\项目\机房系统\源码\ATNET\Test\obj\Debug\Window1.g.cs
+D:\eric\项目\机房系统\源码\ATNET\Test\obj\Debug\App.g.cs
+D:\eric\项目\机房系统\源码\ATNET\Test\obj\Debug\Test_MarkupCompile.cache
+D:\eric\项目\机房系统\源码\ATNET\Test\obj\Debug\Test.g.resources
+D:\eric\项目\机房系统\源码\ATNET\Test\obj\Debug\Test.Properties.Resources.resources
+D:\eric\项目\机房系统\源码\ATNET\Test\obj\Debug\Test.csproj.GenerateResource.Cache
+D:\eric\项目\机房系统\源码\ATNET\Test\obj\Debug\Test.exe
+D:\eric\项目\机房系统\源码\ATNET\Test\obj\Debug\Test.pdb
+D:\eric\项目\机房系统\源码\ATNET\Test\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\eric\项目\机房系统\源码\ATNET\Test\obj\Debug\Test_MarkupCompile.lref
+D:\eric\项目\机房系统\源码\ATNET\Test\obj\Debug\Test_Content.g.cs
+D:\eric\项目\机房系统\源码\ATNET\Test\bin\Debug\DynamicDataDisplay.dll
