@@ -27,24 +27,38 @@ namespace ATNET
 
         private void ShowToolBox_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            if (toolWindow.DockableStyle == DockableStyle.Dockable)
+            if (toolWindow.State != DockableContentState.AutoHide)
             {
-                //toolWindow.DockableStyle = DockableContentState.Hidden;
+                dockingManager.Show(toolWindow, DockableContentState.AutoHide);
             }
             else
             {
-                //toolWindow.SetValue(toolWindow.DockableStyle, DockableStyle.Dockable);
+                dockingManager.Show(toolWindow, DockableContentState.Docked);
             }
         }
 
         private void ShowProjectWindow_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            
+            if (projectWindow.State != DockableContentState.AutoHide)
+            {
+                dockingManager.Show(projectWindow, DockableContentState.AutoHide);
+            }
+            else
+            {
+                dockingManager.Show(projectWindow, DockableContentState.Docked);
+            }
         }
 
         private void ShowPropertyWindow_Executed(object sender, ExecutedRoutedEventArgs e)
         {
- 
+            if (propertyWindow.State != DockableContentState.AutoHide)
+            {
+                dockingManager.Show(propertyWindow, DockableContentState.AutoHide);
+            }
+            else
+            {
+                dockingManager.Show(propertyWindow, DockableContentState.Docked);
+            }
         }
     }
 }
