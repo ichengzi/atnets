@@ -1,0 +1,30 @@
+﻿<Application x:Class="ATNET.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    StartupUri="Window1.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/SoftArt.WPF.Styles;component/Common/Shared.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/SoftArt.WPF.Styles;component/Common/ScrollBar.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/SoftArt.WPF.Styles;component/Common/Expander.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/SoftArt.WPF.Styles;component/Common/GroupBox.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/SoftArt.WPF.Styles;component/Common/ToolTip.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/SoftArt.WPF.Styles;component/Common/ScrollViewer.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/SoftArt.WPF.Styles;component/Common/GlassButtonStyle.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/SoftArt.WPF.Styles;component/Common/Canvas.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/SoftArt.WPF.Styles;component/Common/ScrollViewerRuler.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/SoftArt.WPF.Styles;component/Common/BlendStyleMenuItem.xaml"/>
+                
+                <ResourceDictionary Source="pack://application:,,,/SoftArt.WPF.Graph;component/Resources/DesignerItem.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/SoftArt.WPF.Graph;component/Resources/ToolboxItem.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/SoftArt.WPF.Graph;component/Resources/Toolbox.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/SoftArt.WPF.Graph;component/Resources/Connection.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/SoftArt.WPF.Styles;component/Customization/FlowChartStencils.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/SoftArt.WPF.Styles;component/Customization/ShapeStencils.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/SoftArt.WPF.Styles;component/Customization/SymbolStencils.xaml"/>
+   
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
