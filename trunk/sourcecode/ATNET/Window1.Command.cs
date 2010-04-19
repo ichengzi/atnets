@@ -29,7 +29,7 @@ namespace ATNET
         {
             if (toolWindow.DockableStyle == DockableStyle.Dockable)
             {
-                toolWindow.DockableStyle = DockableContentState.Hidden;
+                //toolWindow.DockableStyle = DockableContentState.Hidden;
             }
             else
             {
