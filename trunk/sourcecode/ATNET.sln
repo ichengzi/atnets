@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftArt.WPF.Styles", "SoftA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATNET", "ATNET\ATNET.csproj", "{D6419631-D399-4DFA-BEB4-3AEEBF278760}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{1C5E8F3A-C34D-4E1F-9203-0328FD12741D}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,10 +25,6 @@ Global
 		{D6419631-D399-4DFA-BEB4-3AEEBF278760}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6419631-D399-4DFA-BEB4-3AEEBF278760}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6419631-D399-4DFA-BEB4-3AEEBF278760}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1C5E8F3A-C34D-4E1F-9203-0328FD12741D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1C5E8F3A-C34D-4E1F-9203-0328FD12741D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1C5E8F3A-C34D-4E1F-9203-0328FD12741D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1C5E8F3A-C34D-4E1F-9203-0328FD12741D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
