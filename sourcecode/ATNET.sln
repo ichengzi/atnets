@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftArt.WPF.Graph", "SoftArt.WPF.Graph\SoftArt.WPF.Graph.csproj", "{8DBA09F1-6533-41E6-8C1A-5B9839D83390}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftArt.WPF.Styles", "SoftArt.WPF.Styles\SoftArt.WPF.Styles.csproj", "{867AFE73-B05B-4FD7-8263-4BF73A1C1583}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATNET", "ATNET\ATNET.csproj", "{D6419631-D399-4DFA-BEB4-3AEEBF278760}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{1C5E8F3A-C34D-4E1F-9203-0328FD12741D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8DBA09F1-6533-41E6-8C1A-5B9839D83390}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DBA09F1-6533-41E6-8C1A-5B9839D83390}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DBA09F1-6533-41E6-8C1A-5B9839D83390}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DBA09F1-6533-41E6-8C1A-5B9839D83390}.Release|Any CPU.Build.0 = Release|Any CPU
+		{867AFE73-B05B-4FD7-8263-4BF73A1C1583}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{867AFE73-B05B-4FD7-8263-4BF73A1C1583}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{867AFE73-B05B-4FD7-8263-4BF73A1C1583}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{867AFE73-B05B-4FD7-8263-4BF73A1C1583}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6419631-D399-4DFA-BEB4-3AEEBF278760}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6419631-D399-4DFA-BEB4-3AEEBF278760}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6419631-D399-4DFA-BEB4-3AEEBF278760}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6419631-D399-4DFA-BEB4-3AEEBF278760}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C5E8F3A-C34D-4E1F-9203-0328FD12741D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C5E8F3A-C34D-4E1F-9203-0328FD12741D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C5E8F3A-C34D-4E1F-9203-0328FD12741D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C5E8F3A-C34D-4E1F-9203-0328FD12741D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
