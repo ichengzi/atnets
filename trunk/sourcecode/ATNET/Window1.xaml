@@ -26,13 +26,13 @@
                 <Setter Property="Height" Value="16"/>
             </Style.Setters>
         </Style>
-        <Style TargetType="MenuItem">
+        <!--<Style TargetType="MenuItem">
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="Gray"/>
+                    <Setter Property="Background" Value="Blue"/>
                 </Trigger>
             </Style.Triggers>
-        </Style>
+        </Style>-->
         <Image x:Key="newToolImage" Style="{StaticResource toolImage}" Source="icons/new.png"  ToolTip="新建"/>
         <Image x:Key="addToolImage" Style="{StaticResource toolImage}" Source="icons/add.png"  ToolTip="添加新项"/>
         <Image x:Key="openToolImage" Style="{StaticResource toolImage}" Source="icons/open.png" ToolTip="打开"/>
@@ -71,36 +71,36 @@
     </Window.Resources>
 
     <DockPanel LastChildFill="True">
-        <Menu DockPanel.Dock="Top" FontSize="12" Height="22" Background="Black" Foreground="White" >
-            <MenuItem Header="文件(F)" Style="{StaticResource MLB_MenuItem}">
-                <MenuItem Header="新建项目" x:Name="addNewProjectMenuItem" Click="addNewProjectMenuItem_Click" Style="{StaticResource MLB_MenuItem}"/>
-                <MenuItem Header="新建" x:Name="addNewCanvas" Icon="{StaticResource newMenuImage}" Click="addNewCanvas_Click" Style="{StaticResource MLB_MenuItem}"/>
-                <MenuItem Header="打开" x:Name="openProjectMenuItem" Icon="{StaticResource openMenuImage}" Click="openProjectMenuItem_Click" Style="{StaticResource MLB_MenuItem}"/>
-                <Separator Style="{StaticResource MLB_Separator}"/>
-                <MenuItem Header="添加" Icon="{StaticResource addMenuImage}" Style="{StaticResource MLB_MenuItem}"/>
-                <MenuItem Header="关闭" Icon="{StaticResource closeMenuImage}" Style="{StaticResource MLB_MenuItem}"/>
-                <MenuItem Header="保存" Icon="{StaticResource saveMenuImage}" Command="{x:Static ApplicationCommands.Save}" Style="{StaticResource MLB_MenuItem}"/>
-                <MenuItem Header="打印" Click="MenuItem_Click" Icon="{StaticResource printMenuImage}" Style="{StaticResource MLB_MenuItem}"/>
-                <MenuItem Header="最近的文件" Style="{StaticResource MLB_MenuItem}"/>
-                <MenuItem Header="退出" Icon="{StaticResource closeMenuImage}" Style="{StaticResource MLB_MenuItem}"/>
+        <Menu DockPanel.Dock="Top" FontSize="12" Height="22">
+            <MenuItem Header="文件(F)"> <!-- Style="{StaticResource MLB_MenuItem}" Blend的菜单样式-->
+                <MenuItem Header="新建项目" x:Name="addNewProjectMenuItem" Click="addNewProjectMenuItem_Click" />
+                <MenuItem Header="新建" x:Name="addNewCanvas" Icon="{StaticResource newMenuImage}" Click="addNewCanvas_Click"/>
+                <MenuItem Header="打开" x:Name="openProjectMenuItem" Icon="{StaticResource openMenuImage}" Click="openProjectMenuItem_Click"/>
+                <Separator/>
+                <MenuItem Header="添加" Icon="{StaticResource addMenuImage}"/>
+                <MenuItem Header="关闭" Icon="{StaticResource closeMenuImage}"/>
+                <MenuItem Header="保存" Icon="{StaticResource saveMenuImage}" Command="{x:Static ApplicationCommands.Save}"/>
+                <MenuItem Header="打印" Click="MenuItem_Click" Icon="{StaticResource printMenuImage}"/>
+                <MenuItem Header="最近的文件"/>
+                <MenuItem Header="退出" Icon="{StaticResource closeMenuImage}"/>
             </MenuItem>
-            <MenuItem Header="编辑(E)" Style="{StaticResource MLB_MenuItem}">
-                <MenuItem Header="剪切" Icon="{StaticResource cutMenuImage}" Command="{x:Static ApplicationCommands.Cut}" Style="{StaticResource MLB_MenuItem}"/>
-                <MenuItem Header="复制" Icon="{StaticResource copyMenuImage}" Command="{x:Static ApplicationCommands.Copy}" Style="{StaticResource MLB_MenuItem}"/>
-                <MenuItem Header="粘贴" Icon="{StaticResource pasteMenuImage}" Command="{x:Static ApplicationCommands.Paste}" Style="{StaticResource MLB_MenuItem}"/>
+            <MenuItem Header="编辑(E)">
+                <MenuItem Header="剪切" Icon="{StaticResource cutMenuImage}" Command="{x:Static ApplicationCommands.Cut}" />
+                <MenuItem Header="复制" Icon="{StaticResource copyMenuImage}" Command="{x:Static ApplicationCommands.Copy}" />
+                <MenuItem Header="粘贴" Icon="{StaticResource pasteMenuImage}" Command="{x:Static ApplicationCommands.Paste}"/>
             </MenuItem>
-            <MenuItem Header="视图(V)" Style="{StaticResource MLB_MenuItem}">
-                <MenuItem Header="工程浏览器"  Style="{StaticResource MLB_MenuItem}" Command="{x:Static local:Window1.ShowProjectWindow}">
+            <MenuItem Header="视图(V)">
+                <MenuItem Header="工程浏览器" Command="{x:Static local:Window1.ShowProjectWindow}">
                     <MenuItem.Icon>
                         <Image Source="icons/display.png" Width="16" Height="16"/>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="对象属性浏览器" Style="{StaticResource MLB_MenuItem}" Command="{x:Static local:Window1.ShowPropertyWindow}">
+                <MenuItem Header="对象属性浏览器" Command="{x:Static local:Window1.ShowPropertyWindow}">
                     <MenuItem.Icon>
                         <Image Source="icons/property.png" Width="16" Height="16"/>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="工具箱" Style="{StaticResource MLB_MenuItem}" Command="{x:Static local:Window1.ShowToolBox}">
+                <MenuItem Header="工具箱"  Command="{x:Static local:Window1.ShowToolBox}">
                     <MenuItem.Icon>
                         <Image Source="icons/tool.ico" Width="16" Height="16"/>
                     </MenuItem.Icon>
@@ -135,6 +135,9 @@
                     <ComboBoxItem Content="400%" Tag="4.0"/>
                 </ComboBox>
             </ToolBar>
+            <ToolBar>
+                <Button Content="ss"/>
+            </ToolBar>
         </ToolBarTray>
         <Grid >
             <Grid.RowDefinitions>
@@ -157,7 +160,7 @@
                             </StackPanel>
                         </ad:DockableContent>        
                     </ad:DockablePane>
-                    <ad:DocumentPane x:Name="documentView" Background="Gray">
+                    <ad:DocumentPane x:Name="documentView">
         
                     </ad:DocumentPane>
                     <ad:ResizingPanel Orientation="Vertical" ad:ResizingPanel.ResizeWidth="200">
@@ -184,14 +187,14 @@
                 </ad:ResizingPanel>
              </ad:DockingManager>
         </ContentControl>
-        <StatusBar Grid.Row="1" x:Name="statusBar"> 
+        <StatusBar Grid.Row="1" x:Name="statusBar" FontSize="10"> 
             <Label Content="X:" />
             <TextBlock Text="{Binding Path=MousePoint.X,Converter={StaticResource pointConverter}}">
                          </TextBlock>
             <Separator/>
             <Label Content="Y:" />
             <TextBlock Text="{Binding Path=MousePoint.Y,Converter={StaticResource pointConverter}}"/>
-                    </StatusBar>
+        </StatusBar>
         </Grid>
     </DockPanel>
 
