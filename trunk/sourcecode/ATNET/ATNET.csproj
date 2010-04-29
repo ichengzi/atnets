@@ -33,7 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AvalonDock, Version=1.2.2702.0, Culture=neutral, PublicKeyToken=85a1e0ada7ec13e4, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -102,6 +101,22 @@
       <DependentUpon>CanvasDocument.xaml</DependentUpon>
     </Compile>
     <Compile Include="CanvasMousePointConverter.cs" />
+    <Compile Include="Entity\tblCables.cs" />
+    <Compile Include="Entity\tblCableType.cs" />
+    <Compile Include="Entity\tblCompany.cs" />
+    <Compile Include="Entity\tblContainers.cs" />
+    <Compile Include="Entity\tblContainerType.cs" />
+    <Compile Include="Entity\tblDataDictionary.cs" />
+    <Compile Include="Entity\tblEuipments.cs" />
+    <Compile Include="Entity\tblEuipType.cs" />
+    <Compile Include="Entity\tblInnerColumn.cs" />
+    <Compile Include="Entity\tblLabels.cs" />
+    <Compile Include="Entity\tblLabelType.cs" />
+    <Compile Include="Entity\tblLogs.cs" />
+    <Compile Include="Entity\tblModule.cs" />
+    <Compile Include="Entity\tblRoleRight.cs" />
+    <Compile Include="Entity\tblRoles.cs" />
+    <Compile Include="Entity\tblUsers.cs" />
     <Compile Include="NewProjectWindow.xaml.cs">
       <DependentUpon>NewProjectWindow.xaml</DependentUpon>
     </Compile>
@@ -135,6 +150,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\libraries\AvalonDock\AvalonDock\AvalonDock.csproj">
+      <Project>{2FF700C2-A38A-48BD-A637-8CAFD4FE6237}</Project>
+      <Name>AvalonDock</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SoftArt.WPF.Graph\SoftArt.WPF.Graph.csproj">
       <Project>{8DBA09F1-6533-41E6-8C1A-5B9839D83390}</Project>
       <Name>SoftArt.WPF.Graph</Name>
@@ -177,9 +196,6 @@
     <Resource Include="icons\display.png" />
     <Resource Include="icons\property.png" />
     <Resource Include="project.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="lib\AvalonDock.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
