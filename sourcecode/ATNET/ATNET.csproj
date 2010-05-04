@@ -91,12 +91,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Project\BuildTarget.cs" />
-    <Compile Include="Project\IBuildable.cs" />
-    <Compile Include="Project\IBuildFeedbackSink.cs" />
-    <Compile Include="Project\ISolutionFolder.cs" />
-    <Compile Include="Project\LocalizeObject.cs" />
-    <Compile Include="Project\ProjectBuildOptions.cs" />
+    <Compile Include="Project\AbstractProject.cs" />
+    <Compile Include="Project\IProject.cs" />
+    <Compile Include="Project\ItemType.cs" />
+    <Compile Include="Project\ProjectItem.cs" />
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
       <SubType>Code</SubType>
