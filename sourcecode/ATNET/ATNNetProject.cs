@@ -12,7 +12,7 @@ namespace ATNET
     /// <summary>
     /// ATNET的工程类
     /// </summary>
-    internal class ATNetProject
+    public class ATNetProject
     {
         private string projectName;
         private Guid projectGuid;
@@ -253,7 +253,7 @@ namespace ATNET
     /// <summary>
     /// ATNET工程的类型
     /// </summary>
-    internal enum ATNETProjectType
+    public enum ATNETProjectType
     {
         /// <summary>
         /// 从楼宇开始
@@ -279,7 +279,7 @@ namespace ATNET
     /// <summary>
     /// 工程的状态
     /// </summary>
-    internal enum ProjectStatus
+    public enum ProjectStatus
     {
         /// <summary>
         /// 新建工程

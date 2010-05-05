@@ -8,7 +8,7 @@ namespace ATNET
     /// <summary>
     /// 工程的子项类
     /// </summary>
-    internal class ProjectItem
+    public class ProjectItem
     {
         private string itemName;
         private Guid itemGuid;
@@ -67,7 +67,7 @@ namespace ATNET
         }
     }
 
-    internal enum ProjectItemType
+    public enum ProjectItemType
     {
         /// <summary>
         /// 楼宇
