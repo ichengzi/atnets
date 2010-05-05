@@ -93,13 +93,12 @@
     </Compile>
     <Compile Include="Project\AbstractProject.cs" />
     <Compile Include="Project\IProject.cs" />
-    <Compile Include="Project\ItemType.cs" />
-    <Compile Include="Project\ProjectItem.cs" />
+    <Compile Include="Project\Item\ItemType.cs" />
+    <Compile Include="Project\Item\ProjectItem.cs" />
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Folder Include="Project" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ATNNetProject.cs" />
@@ -140,6 +139,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Project\CommonProject.cs" />
+    <Compile Include="Services\ParseService\ParseProject.cs" />
+    <Compile Include="Services\ProjectService\IProjectLoader.cs" />
+    <Compile Include="Services\ProjectService\LoadProject.cs" />
+    <Compile Include="Services\ProjectService\ProjectEventHandler.cs" />
+    <Compile Include="Services\ProjectService\ProjectService.cs" />
     <Compile Include="StartWindow.xaml.cs">
       <DependentUpon>StartWindow.xaml</DependentUpon>
     </Compile>
@@ -202,6 +207,9 @@
     <Resource Include="icons\display.png" />
     <Resource Include="icons\property.png" />
     <Resource Include="project.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Gui\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

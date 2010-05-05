@@ -20,6 +20,8 @@ using System.Windows.Threading;
 using SoftArt.WPF.Graph;
 using System.Windows.Forms.Integration;
 
+using ATNET.Project;
+
 
 namespace ATNET
 {
