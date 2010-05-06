@@ -122,11 +122,6 @@
     <Compile Include="Entity\tblRoleRight.cs" />
     <Compile Include="Entity\tblRoles.cs" />
     <Compile Include="Entity\tblUsers.cs" />
-    <Compile Include="Gui\Components\ExTreeNode.cs" />
-    <Compile Include="Gui\Components\ExTreeView.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Gui\Components\ExTreeViewComparer.cs" />
     <Compile Include="NewProjectWindow.xaml.cs">
       <DependentUpon>NewProjectWindow.xaml</DependentUpon>
     </Compile>
