@@ -84,7 +84,7 @@ namespace ATNET.Services.ProjectService
             OnProjectLoading(fileName);
             try
             {
-                currentProject = AbstractProject.Load(fileName);
+                currentProject = CommonProject.Load(fileName);
                 if (currentProject == null)
                     return;
             }
