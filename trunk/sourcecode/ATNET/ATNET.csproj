@@ -122,10 +122,17 @@
     <Compile Include="Entity\tblRoleRight.cs" />
     <Compile Include="Entity\tblRoles.cs" />
     <Compile Include="Entity\tblUsers.cs" />
+    <Compile Include="Gui\Components\ExtTreeNode.cs" />
+    <Compile Include="Gui\Components\ExtTreeView.cs" />
+    <Compile Include="Gui\Pads\ProjectBrowser\TreeNode\AbstractProjectBrowserTreeNode.cs" />
+    <Compile Include="Gui\Pads\ProjectBrowser\TreeNode\CustomTreeNode.cs" />
+    <Compile Include="Gui\Pads\ProjectBrowser\TreeNode\DirectoryTreeNode.cs" />
     <Compile Include="NewProjectWindow.xaml.cs">
       <DependentUpon>NewProjectWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ProjectItem.cs" />
+    <Compile Include="Project\Item\CustomProjectItem.cs" />
+    <Compile Include="Project\Item\DirectoryProjectItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -205,9 +212,6 @@
     <Resource Include="icons\display.png" />
     <Resource Include="icons\property.png" />
     <Resource Include="project.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Gui\Pads\ProjectBrowser\TreeNode\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
