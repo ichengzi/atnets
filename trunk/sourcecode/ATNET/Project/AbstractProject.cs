@@ -17,7 +17,7 @@ using ATNET.Services.ParseService;
 namespace ATNET.Project
 {
     /// <summary>
-    /// Description of AbstractProject.
+    /// 工程的抽象类
     /// </summary>
     public abstract class AbstractProject : IProject
     {
@@ -44,7 +44,9 @@ namespace ATNET.Project
             this.fileName = fileName;
             this.guidID = new Guid(guid);
         }
-
+        /// <summary>
+        /// 获取工程子项
+        /// </summary>
         public ReadOnlyCollection<ProjectItem> Items
         {
             get
@@ -54,12 +56,18 @@ namespace ATNET.Project
         }
 
         bool isDisposed;
+        /// <summary>
+        /// 获取是否Disposed
+        /// </summary>
         [Browsable(false)]
         public bool IsDisposed
         {
             get { return isDisposed; }
         }
         public EventHandler Disposed;
+        /// <summary>
+        /// Dispose方法
+        /// </summary>
         public virtual void Dispose()
         {
             isDisposed = true;
@@ -70,6 +78,9 @@ namespace ATNET.Project
         }
 
         private string fileName;
+        /// <summary>
+        /// 工程的完整路径
+        /// </summary>
         [ReadOnly(true)]
         public string FileName
         {
@@ -83,6 +94,9 @@ namespace ATNET.Project
         }
 
         private string directory;
+        /// <summary>
+        /// 工程的路径
+        /// </summary>
         [Browsable(true)]
         public string Directory
         {
@@ -105,6 +119,9 @@ namespace ATNET.Project
         }
 
         private string name;
+        /// <summary>
+        /// 工程的名字
+        /// </summary>
         [Browsable(false)]
         public string Name
         {
@@ -114,9 +131,9 @@ namespace ATNET.Project
                 {
                     try
                     {
-                        int index = this.fileName.LastIndexOf("//");
-                        int index1 = this.fileName.IndexOf("/.");
-                        name = fileName.Substring(index, index1);
+                        int index = this.fileName.LastIndexOf("\\");
+                        int index1 = this.fileName.IndexOf(".");
+                        name = fileName.Substring(index + 1, index1 - index - 1);
                     }
                     catch
                     {
@@ -132,30 +149,36 @@ namespace ATNET.Project
         }
 
         private bool isSaved;
+        /// <summary>
+        /// 获取是否保存
+        /// </summary>
         public bool IsSaved
         {
             get { return isSaved; }
         }
 
         private Guid guidID;
+        /// <summary>
+        /// 获取工程GUID
+        /// </summary>
         public Guid GuidID
         {
             get { return guidID; }
         }
-
+        /// <summary>
+        /// 保存工程
+        /// </summary>
         public void Save()
         {
             Save(this.fileName);
         }
-
-        public virtual void Save(string fileName)
+        /// <summary>
+        /// 保存工程
+        /// </summary>
+        /// <param name="fileName">工程文件的完整路径</param>
+        protected virtual void Save(string fileName)
         {
-            IProject project = new CommonProject(fileName);
-            XElement xElement = new XElement("Project",
-                new XElement("Name", project.Name),
-                new XElement("GuidID", project.GuidID),
-                new XElement("Items", ""));
-            xElement.Save(fileName);
+          
         }
 
         public virtual void SaveAs(string fileName)
@@ -197,17 +220,6 @@ namespace ATNET.Project
         public ItemType GetDefaultItemType(string fileName)
         {
             return new ItemType();
-        }
-
-        /// <summary>
-        /// 载入工程
-        /// </summary>
-        /// <param name="fileName"></param>
-        /// <returns></returns>
-        public static IProject Load(string fileName)
-        {
-            IProject project = ParseProject.ParseToProject(fileName);
-            return project;
         }
     }
 }
