@@ -21,6 +21,7 @@ using SoftArt.WPF.Graph;
 using System.Windows.Forms.Integration;
 
 using ATNET.Project;
+using ATNET.Services.ProjectService;
 
 
 namespace ATNET
@@ -270,7 +271,7 @@ namespace ATNET
             openFileDialog.DefaultExt = "atnprj";
             openFileDialog.Filter = "Atnet Project files (*.atnprj)|*.atnprj";
             openFileDialog.ShowDialog();
-            ATNetProject.OpenProjectFile(openFileDialog.FileName);
+            ProjectService.LoadProject(openFileDialog.FileName);
             LoadProject();
         }
     }
