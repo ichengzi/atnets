@@ -30,6 +30,25 @@ namespace WpfTest
 
         void Window1_Loaded(object sender, RoutedEventArgs e)
         {
+            //CreateTree();
+            CreateCustomTree();
+        }
+
+        private void CreateTree()
+        {
+            TreeView treeView = new TreeView();
+            TreeViewItem baseItem = new TreeViewItem();
+            baseItem.Header = "Base";
+            TreeViewItem item1 = new TreeViewItem();
+            item1.Header = "1";
+            baseItem.Items.Add(item1);
+            treeView.Items.Add(baseItem);
+
+            mainGrid.Children.Add(treeView);
+        }
+
+        private void CreateCustomTree()
+        {
             Image icon = LoadImage();
 
             CustomTreeNode baseNode = new CustomTreeNode(icon, "工程");
@@ -38,7 +57,10 @@ namespace WpfTest
             {
                 CustomTreeNode node = new CustomTreeNode(LoadImage(), "子项" + i);
                 node.AddTo(treeView);
+                CustomTreeNode node1 = new CustomTreeNode(LoadImage(), "子子项" + 2);
+                node1.AddTo(node);
             }
+            
             mainGrid.Children.Add(treeView);
         }
 
