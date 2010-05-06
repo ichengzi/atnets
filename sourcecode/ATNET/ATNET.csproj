@@ -122,6 +122,11 @@
     <Compile Include="Entity\tblRoleRight.cs" />
     <Compile Include="Entity\tblRoles.cs" />
     <Compile Include="Entity\tblUsers.cs" />
+    <Compile Include="Gui\Components\ExTreeNode.cs" />
+    <Compile Include="Gui\Components\ExTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Gui\Components\ExTreeViewComparer.cs" />
     <Compile Include="NewProjectWindow.xaml.cs">
       <DependentUpon>NewProjectWindow.xaml</DependentUpon>
     </Compile>
@@ -141,8 +146,6 @@
     </Compile>
     <Compile Include="Project\CommonProject.cs" />
     <Compile Include="Services\ParseService\ParseProject.cs" />
-    <Compile Include="Services\ProjectService\IProjectLoader.cs" />
-    <Compile Include="Services\ProjectService\LoadProject.cs" />
     <Compile Include="Services\ProjectService\ProjectEventHandler.cs" />
     <Compile Include="Services\ProjectService\ProjectService.cs" />
     <Compile Include="StartWindow.xaml.cs">
@@ -209,7 +212,7 @@
     <Resource Include="project.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Gui\" />
+    <Folder Include="Gui\Pads\ProjectBrowser\TreeNode\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
