@@ -44,14 +44,15 @@ namespace ATNET.Project
             this.fileName = fileName;
             this.guidID = new Guid(guid);
         }
+        private IList<ProjectItem> items = new List<ProjectItem>();
         /// <summary>
         /// 获取工程子项
         /// </summary>
-        public ReadOnlyCollection<ProjectItem> Items
+        public IList<ProjectItem> Items
         {
             get
             {
-                return new ReadOnlyCollection<ProjectItem>(new ProjectItem[0]);
+                return items;
             }
         }
 

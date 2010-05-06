@@ -23,7 +23,7 @@ namespace ATNET.Project
 		/// <summary>
 		/// 获取全部的ProjectItem
 		/// </summary>
-		ReadOnlyCollection<ProjectItem> Items{get;}
+		IList<ProjectItem> Items{get;}
 
         Guid GuidID
         {

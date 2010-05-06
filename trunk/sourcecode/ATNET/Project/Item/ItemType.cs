@@ -22,7 +22,10 @@ namespace ATNET.Project
             get { return itemName; }
         }
 
-        public static readonly ItemType Reference = new ItemType("Reference");
+        public static readonly ItemType Zone = new ItemType("Zone");
+        public static readonly ItemType Building = new ItemType("Building");
+        public static readonly ItemType Floor = new ItemType("Floor");
+        public static readonly ItemType Room = new ItemType("Room");
 
         public ItemType(string name)
         {
