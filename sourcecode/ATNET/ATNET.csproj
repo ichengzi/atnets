@@ -75,6 +75,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Gui\Pads\ProjectBrowser\ProjectBrowser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="NewProjectWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -124,6 +128,9 @@
     <Compile Include="Entity\tblUsers.cs" />
     <Compile Include="Gui\Components\ExtTreeNode.cs" />
     <Compile Include="Gui\Components\ExtTreeView.cs" />
+    <Compile Include="Gui\Pads\ProjectBrowser\ProjectBrowser.xaml.cs">
+      <DependentUpon>ProjectBrowser.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Gui\Pads\ProjectBrowser\TreeNode\AbstractProjectBrowserTreeNode.cs" />
     <Compile Include="Gui\Pads\ProjectBrowser\TreeNode\CustomTreeNode.cs" />
     <Compile Include="Gui\Pads\ProjectBrowser\TreeNode\DirectoryTreeNode.cs" />
