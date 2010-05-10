@@ -63,10 +63,26 @@ namespace ATNET.Gui.Components
 
         public ExtTreeNode(Image icon, string title)
         {
-            this.icon = icon;
-            this.title = title;
+            if (icon != null)
+            {
+                this.icon = icon;
+            }
+            else//test inti icon
+            {
+                //BitmapImage bitmapImage = new BitmapImage();
+                //bitmapImage.UriSource = new Uri(@"pack://application:,,,/ATNET;component/icons/add.png", UriKind.RelativeOrAbsolute);
+                //bitmapImage.BeginInit();
+                //this.icon.Source = bitmapImage;
+                //bitmapImage.EndInit();
+
+                this.icon.Source = App.Current.Windows[0].Icon.Clone();
+            }
+
             icon.Width = 16;
             icon.Height = 16;
+
+            this.title = title;
+
             TextBlock tb = new TextBlock();
             tb.Text = title;
             Grid grid = new Grid();
