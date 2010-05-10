@@ -189,7 +189,7 @@ namespace ATNET.Project
 
         public virtual void AddProjectItem(ProjectItem item)
         {
- 
+            this.items.Add(item);
         }
 
         public virtual void RemoveProjectItem(ProjectItem item)
