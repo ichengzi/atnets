@@ -20,6 +20,13 @@ namespace ATNET.Project
 
         }
 
+        public DirectoryProjectItem(IProject project, ItemType itemType,string name)
+            : base(project, itemType)
+        {
+            this.Name = name;
+        }
+
+
         private IList<ProjectItem> items = new List<ProjectItem>();
         public IList<ProjectItem> Items
         {

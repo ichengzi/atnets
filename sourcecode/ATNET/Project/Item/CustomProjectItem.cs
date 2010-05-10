@@ -18,5 +18,10 @@ namespace ATNET.Project
         {
 
         }
+
+        public CustomProjectItem(IProject project, ItemType itemType, string name):base(project,itemType)
+        {
+            this.Name = name;
+        }
     }
 }
