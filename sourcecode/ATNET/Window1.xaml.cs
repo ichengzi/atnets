@@ -22,6 +22,7 @@ using System.Windows.Forms.Integration;
 
 using ATNET.Project;
 using ATNET.Services.ProjectService;
+using ATNET.Gui.Pads.ProjectBrowser;
 
 
 namespace ATNET
@@ -156,25 +157,29 @@ namespace ATNET
         /// 载入Project
         /// </summary>
         /// <returns></returns>
-        private bool LoadProject()
+        private void LoadProject()
         {
 
-            //创建了新工程的xml文件，创建了Project的实例
-            if (ATNetProject.ProjectInstance != null)
-            {
-                //将新工程的实例的画布添加到主界面上
-                dockingManager.MainDocumentPane.Items.Add(ATNetProject.ProjectInstance.ProjectDocument);
-                //将工程的TreeView视图添加到主界面上
-                projectWindow.Content = ATNetProject.ProjectInstance.ItemTreeView;
-                ((TreeView)projectWindow.Content).SelectedItemChanged += new RoutedPropertyChangedEventHandler<object>(Window1_SelectedItemChanged);
-                toolWindow.DockableStyle = AvalonDock.DockableStyle.Dockable;
-                toolBoxPanel.Visibility = Visibility.Visible;
-                //将当前工程的画布添加到“属性”窗口
-                propertyGrid.SelectedObject = currentCanvas;
-                ChangeCurrentDocument();
-                return true;
-            }
-            return false;
+            ////创建了新工程的xml文件，创建了Project的实例
+            //if (ATNetProject.ProjectInstance != null)
+            //{
+            //    //将新工程的实例的画布添加到主界面上
+            //    dockingManager.MainDocumentPane.Items.Add(ATNetProject.ProjectInstance.ProjectDocument);
+            //    //将工程的TreeView视图添加到主界面上
+            //    projectWindow.Content = ATNetProject.ProjectInstance.ItemTreeView;
+            //    ((TreeView)projectWindow.Content).SelectedItemChanged += new RoutedPropertyChangedEventHandler<object>(Window1_SelectedItemChanged);
+            //    toolWindow.DockableStyle = AvalonDock.DockableStyle.Dockable;
+            //    toolBoxPanel.Visibility = Visibility.Visible;
+            //    //将当前工程的画布添加到“属性”窗口
+            //    propertyGrid.SelectedObject = currentCanvas;
+            //    ChangeCurrentDocument();
+            //    return true;
+            //}
+            //return false;
+
+            ProjectBrowser projectBrowser = new ProjectBrowser();
+            projectBrowser.ViewProject(ProjectService.CurrentProject);
+            projectWindow.Content = projectBrowser;
         }
 
         private void Window1_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
