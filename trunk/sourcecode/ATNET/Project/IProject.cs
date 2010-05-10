@@ -1,11 +1,4 @@
-﻿/*
- * Created by SharpDevelop.
- * User: eric
- * Date: 2010/5/4
- * Time: 19:02
- * 
- * To change this template use Tools | Options | Coding | Edit Standard Headers.
- */
+﻿
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,7 +9,7 @@ using System.Xml;
 namespace ATNET.Project
 {
 	/// <summary>
-	/// Description of IProject.
+	/// IPorject 的描述
 	/// </summary>
 	public interface IProject:IDisposable
 	{
