@@ -25,6 +25,18 @@ namespace ATNET.Gui.Components
             get { return internalParent; }
         }
 
+        public ExtTreeNode ParentNode
+        {
+            get
+            {
+                ExtTreeNode parentNode = this.Parent as ExtTreeNode;
+                if (parentNode != null)
+                {
+                    return parentNode;
+                }
+                return null;
+            }
+        }
 
         public ExtTreeNode()
         {

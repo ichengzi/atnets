@@ -8,19 +8,22 @@ namespace ATNET.Gui.Components
 {
     public class ExtTreeView:TreeView
     {
-        private ExtTreeNode baseItem;
+        private ExtTreeNode baseNode;
         /// <summary>
         /// 树的根节点
         /// </summary>
-        public ExtTreeNode BaseItem
+        public ExtTreeNode BaseNode
         {
-            get { return baseItem; }
+            get { return baseNode; }
         }
 
         public ExtTreeView(ExtTreeNode item)
         {
-            this.baseItem = item;
-            this.Items.Add(baseItem);
+            if (base.Items.Count == 0)
+            {
+                this.baseNode = item;
+                this.Items.Add(baseNode);
+            }
         }
     }
 }
