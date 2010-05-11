@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <Name>tt</Name>
+  <GuidID>d5a49933-60e6-40b1-88bd-63fbab1daaef</GuidID>
+  <Items>
+  <Item Type="Zone" Name="item1">
+	  <Item Type="Building" Name="item11">
+		  <Item Type="Room" Name="item111"/>
+		  <Item Type="Room" Name="item112"/>
+	  </Item>
+	  <Item Type="Building" Name="item12"/>
+	   <Item Type="Building" Name="item13"/>
+  </Item>
+    <Item Type="Zone" Name="item2">
+	  <Item Type="Building" Name="item21"/>
+	  <Item Type="Building" Name="item22"/>
+	   <Item Type="Building" Name="item23"/>
+  </Item>
+ <Item Type="Zone" Name="item1"/>
+  </Items>
+</Project>
