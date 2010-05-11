@@ -12,5 +12,9 @@ namespace WpfTest
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            this.Run(new WpfTest.Windows.Window1());
+        }
     }
 }
