@@ -153,6 +153,7 @@
     </Compile>
     <Compile Include="Project\CommonProject.cs" />
     <Compile Include="Services\ParseService\ParseProject.cs" />
+    <Compile Include="Services\ProjectService\CanvasDocumentService.cs" />
     <Compile Include="Services\ProjectService\ProjectEventHandler.cs" />
     <Compile Include="Services\ProjectService\ProjectService.cs" />
     <Compile Include="StartWindow.xaml.cs">

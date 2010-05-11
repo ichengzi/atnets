@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using AvalonDock;
 using SoftArt.WPF.Styles.Common;
+using SoftArt.WPF.Graph;
 
 namespace ATNET
 {
@@ -24,6 +25,13 @@ namespace ATNET
         public CanvasDocument()
         {
             InitializeComponent();
+        }
+        /// <summary>
+        /// 获取Document中的Canvas
+        /// </summary>
+        public DesignerCanvas Canvas
+        {
+            get { return mainCanvas; }
         }
 
         private void mainCanvas_PreviewMouseMove(object sender, MouseEventArgs e)

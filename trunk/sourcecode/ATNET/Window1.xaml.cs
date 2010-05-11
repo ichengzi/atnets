@@ -23,6 +23,7 @@ using System.Windows.Forms.Integration;
 using ATNET.Project;
 using ATNET.Services.ProjectService;
 using ATNET.Gui.Pads.ProjectBrowser;
+using AvalonDock;
 
 
 namespace ATNET
@@ -45,7 +46,13 @@ namespace ATNET
             //this.IsEnabled = false;
 
         }
-
+        /// <summary>
+        /// 获取Document的管理类
+        /// </summary>
+        public DocumentPane DockingManager
+        {
+            get { return dockingManager.MainDocumentPane; }
+        }
 
         private bool InitMainWindowConfig()
         {

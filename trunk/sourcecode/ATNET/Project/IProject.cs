@@ -13,7 +13,15 @@ namespace ATNET.Project
 	/// </summary>
 	public interface IProject:IDisposable
 	{
-		/// <summary>
+        /// <summary>
+        /// 工程包含的CanvasDocument对象
+        /// </summary>
+        CanvasDocument CanvasDocument
+        {
+            get;
+        }
+
+        /// <summary>
 		/// 获取全部的ProjectItem
 		/// </summary>
 		IList<ProjectItem> Items{get;}

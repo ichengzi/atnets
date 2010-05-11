@@ -102,11 +102,11 @@ namespace ATNET.Gui.Pads.ProjectBrowser
         /// <returns></returns>
         private ExtTreeNode BuildNode(ATNET.Project.ProjectItem item)
         {
-            ExtTreeNode node = new CustomTreeNode(null, item.Name);
+            ExtTreeNode node = new CustomTreeNode(null, item);
             DirectoryProjectItem directoryItem = item as DirectoryProjectItem;
             if (directoryItem != null)
             {
-                node = new DirectoryTreeNode(null, item.Name);
+                node = new DirectoryTreeNode(null, item);
                 if (directoryItem.Items.Count > 0)
                 {
                     foreach (ATNET.Project.ProjectItem pitem in directoryItem.Items)

@@ -12,6 +12,8 @@ namespace ATNET.Services.ProjectService
     /// </summary>
     public static class ProjectService
     {
+        private static bool Isinitialized = false;
+
         private static IProject currentProject;
         /// <summary>
         /// 当前使用的工程
@@ -31,9 +33,17 @@ namespace ATNET.Services.ProjectService
                 }
             }
         }
-
+        /// <summary>
+        /// 当前工程变化
+        /// </summary>
         public static ProjectEventHandler CurrentProjectChanged;
+        /// <summary>
+        /// 工程正在加载时
+        /// </summary>
         public static EventHandler ProjectLoading;
+        /// <summary>
+        /// 工程加载完成时
+        /// </summary>
         public static ProjectEventHandler ProjectLoaded;
 
         private static void OnCurrentProjectChanged(ProjectEventArgs e)
@@ -48,8 +58,18 @@ namespace ATNET.Services.ProjectService
         /// </summary>
         private static void BeforeLoadProject()
         {
-
+            if (!Isinitialized)
+            {
+                Isinitialized = true;
+                ProjectService.ProjectLoaded += ProjectSeviceProjectLoaded;
+            }
         }
+
+        private static void ProjectSeviceProjectLoaded(object sender, ProjectEventArgs e)
+        {
+            CanvasDocumentService.AddCanvasDocument(e.Project.CanvasDocument);
+        }
+
         /// <summary>
         /// 正在加载工程
         /// </summary>

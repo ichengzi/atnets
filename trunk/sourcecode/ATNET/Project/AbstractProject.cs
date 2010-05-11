@@ -33,6 +33,9 @@ namespace ATNET.Project
         {
             this.fileName = fileName;
             this.guidID = Guid.NewGuid();
+            this.canvasDocument = new CanvasDocument();
+            this.CanvasDocument.Name = this.Name;
+            this.canvasDocument.Title = this.Name;
         }
         /// <summary>
         /// 构造函数，打开工程时使用
@@ -43,7 +46,20 @@ namespace ATNET.Project
         {
             this.fileName = fileName;
             this.guidID = new Guid(guid);
+            this.canvasDocument = new CanvasDocument();
+            this.CanvasDocument.Name = this.Name;
+            this.canvasDocument.Title = this.Name;
         }
+
+        private CanvasDocument canvasDocument;
+        /// <summary>
+        /// 工程的CanvasDocument对象
+        /// </summary>
+        public CanvasDocument CanvasDocument
+        {
+            get { return canvasDocument; }
+        }
+
         private IList<ProjectItem> items = new List<ProjectItem>();
         /// <summary>
         /// 获取工程子项
