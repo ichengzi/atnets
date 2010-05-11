@@ -5,6 +5,9 @@ using System.Text;
 
 namespace ATNET.Project
 {
+    /// <summary>
+    /// 不包括子项的工程子项类
+    /// </summary>
     public class CustomProjectItem:ProjectItem
     {
         public CustomProjectItem(IProject project)

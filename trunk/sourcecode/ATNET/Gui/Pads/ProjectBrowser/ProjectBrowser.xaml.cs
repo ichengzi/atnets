@@ -87,7 +87,13 @@ namespace ATNET.Gui.Pads.ProjectBrowser
         public void ViewProject(IProject project)
         {
             treeView = new ExtTreeView(new ExtTreeNode(null, project.Name));
-            BuildNode(project.Items[0]).AddTo(treeView.BaseNode);
+            foreach (ATNET.Project.ProjectItem item in project.Items)
+            {
+                ExtTreeNode node = BuildNode(item);
+                node.AddTo(treeView.BaseNode);
+            }
+            treeView.BaseNode.Refresh();
+           
         }
         /// <summary>
         /// 返回这个工程子项的生成的节点
@@ -96,11 +102,11 @@ namespace ATNET.Gui.Pads.ProjectBrowser
         /// <returns></returns>
         private ExtTreeNode BuildNode(ATNET.Project.ProjectItem item)
         {
-            ExtTreeNode node = new ExtTreeNode(null, item.Name);
+            ExtTreeNode node = new CustomTreeNode(null, item.Name);
             DirectoryProjectItem directoryItem = item as DirectoryProjectItem;
-            //CustomProjectItem customItem = item as CustomProjectItem;
             if (directoryItem != null)
             {
+                node = new DirectoryTreeNode(null, item.Name);
                 if (directoryItem.Items.Count > 0)
                 {
                     foreach (ATNET.Project.ProjectItem pitem in directoryItem.Items)

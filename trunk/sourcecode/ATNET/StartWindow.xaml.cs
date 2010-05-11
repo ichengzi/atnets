@@ -70,7 +70,6 @@ namespace ATNET {
                     saveFileDialog.DefaultExt = "atnprj";
                     saveFileDialog.Filter = "Atnet Project files (*.atnprj)|*.atnprj";
                     saveFileDialog.ShowDialog();
-                    ATNetProject.SaveProjectFile(saveFileDialog.FileName);
                     OpenProjectFile = saveFileDialog.FileName;
                 }
                 this.Close();

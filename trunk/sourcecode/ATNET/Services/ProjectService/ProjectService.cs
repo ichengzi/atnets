@@ -7,11 +7,14 @@ using ATNET.Project;
 
 namespace ATNET.Services.ProjectService
 {
+    /// <summary>
+    /// 工程服务类，工程的主要逻辑
+    /// </summary>
     public static class ProjectService
     {
         private static IProject currentProject;
         /// <summary>
-        /// 当前打开的工程
+        /// 当前使用的工程
         /// </summary>
         public static IProject CurrentProject
         {
@@ -45,7 +48,7 @@ namespace ATNET.Services.ProjectService
         /// </summary>
         private static void BeforeLoadProject()
         {
- 
+
         }
         /// <summary>
         /// 正在加载工程
@@ -98,13 +101,46 @@ namespace ATNET.Services.ProjectService
             }
             OnProjectLoaded(new ProjectEventArgs(currentProject));
         }
-
+        /// <summary>
+        /// 添加工程子项
+        /// </summary>
+        /// <param name="project"></param>
+        /// <param name="item"></param>
         public static void AddProjectItem(IProject project, ATNET.Project.ProjectItem item)
+        {
+
+        }
+        /// <summary>
+        /// 移除工程子项
+        /// </summary>
+        /// <param name="project"></param>
+        /// <param name="item"></param>
+        public static void RemoveProjectItem(IProject project, ATNET.Project.ProjectItem item)
+        {
+
+        }
+        /// <summary>
+        /// 保存工程
+        /// </summary>
+        /// <param name="project"></param>
+        public static void SaveProject(IProject project)
         {
  
         }
-
-        public static void RemoveProjectItem(IProject project, ATNET.Project.ProjectItem item)
+        /// <summary>
+        /// 关闭工程
+        /// </summary>
+        /// <param name="project"></param>
+        public static void CloseProject(IProject project)
+        {
+ 
+        }
+        /// <summary>
+        /// 保存工程子项
+        /// </summary>
+        /// <param name="project"></param>
+        /// <param name="projectItem"></param>
+        private static void SaveProjectItem(IProject project, ProjectItem projectItem)
         {
  
         }

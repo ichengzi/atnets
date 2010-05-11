@@ -13,6 +13,7 @@ using System.Windows.Shapes;
 using System.Windows.Forms;
 using System.IO;
 using ATNET.Project;
+using ATNET.Services.ProjectService;
 
 namespace ATNET
 {
@@ -65,8 +66,8 @@ namespace ATNET
                     }
                 }
                 //建立新工程，进入主界面
-                //ATNetProject.SaveProjectFile(projName.Text, projPath.Text);
-                CommonProject.NewProject(projPath.Text + "\\" + projName.Text);
+                IProject project=CommonProject.NewProject(projPath.Text + "\\" + projName.Text);
+                ProjectService.CurrentProject = project;
                 this.Close();
             }
             else
