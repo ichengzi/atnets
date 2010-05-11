@@ -40,6 +40,11 @@ namespace ATNET.Gui.Components
 
         public ExtTreeNode()
         {
+            this.Selected += new System.Windows.RoutedEventHandler(ExtTreeNode_Selected);
+        }
+
+        protected virtual void ExtTreeNode_Selected(object sender, System.Windows.RoutedEventArgs e)
+        {
             
         }
 
@@ -61,7 +66,7 @@ namespace ATNET.Gui.Components
             get { return title; }
         }
 
-        public ExtTreeNode(Image icon, string title)
+        public ExtTreeNode(Image icon, string title):this()
         {
             if (icon != null)
             {

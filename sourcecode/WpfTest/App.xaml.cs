@@ -14,7 +14,7 @@ namespace WpfTest
     {
         public App()
         {
-            this.Run(new WpfTest.Windows.Window1());
+            //this.Run(new WpfTest.Windows.Window1());
         }
     }
 }

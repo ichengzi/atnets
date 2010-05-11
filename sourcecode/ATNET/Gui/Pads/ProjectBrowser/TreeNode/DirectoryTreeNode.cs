@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Controls;
+using ATNET.Project;
+using ATNET.Services.ProjectService;
 
 namespace ATNET.Gui.Pads
 {
@@ -11,10 +13,18 @@ namespace ATNET.Gui.Pads
     /// </summary>
     public class DirectoryTreeNode:AbstractProjectBrowserTreeNode
     {
-        public DirectoryTreeNode(Image icon, string title)
-            : base(icon, title)
+        public DirectoryTreeNode(Image icon, ProjectItem projectItem)
+            : base(icon, projectItem.Name)
         {
- 
+            this.projectItem = projectItem;
         }
+
+        protected override void ExtTreeNode_Selected(object sender, System.Windows.RoutedEventArgs e)
+        {
+            base.ExtTreeNode_Selected(sender, e);
+            //选中节点的操作
+            CanvasDocumentService.AddCanvasDocument(((DirectoryProjectItem)projectItem).CanvasDocument);
+        }
+
     }
 }
