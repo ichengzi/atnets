@@ -236,5 +236,8 @@
     <Resource Include="Resources\images\Classic\PinMenu.png" />
     <Resource Include="Resources\images\Classic\PinMenuSelected.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="license.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
