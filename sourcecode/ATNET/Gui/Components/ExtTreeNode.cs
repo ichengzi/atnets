@@ -8,7 +8,7 @@ using System.Windows.Media.Imaging;
 namespace ATNET.Gui.Components
 {
     /// <summary>
-    /// 树节点
+    /// 树节点的基类
     /// </summary>
     public class ExtTreeNode:TreeViewItem
     {
@@ -69,17 +69,17 @@ namespace ATNET.Gui.Components
             }
             else//test inti icon
             {
-                //BitmapImage bitmapImage = new BitmapImage();
-                //bitmapImage.UriSource = new Uri(@"pack://application:,,,/ATNET;component/icons/add.png", UriKind.RelativeOrAbsolute);
-                //bitmapImage.BeginInit();
-                //this.icon.Source = bitmapImage;
-                //bitmapImage.EndInit();
-
-                this.icon.Source = App.Current.Windows[0].Icon.Clone();
+                this.icon = new Image();
+                BitmapImage bitmapImage = new BitmapImage();
+                bitmapImage.BeginInit();
+                bitmapImage.UriSource = new Uri(@"pack://application:,,,/ATNET;component/icons/add.png", UriKind.RelativeOrAbsolute);
+                //bitmapImage.UriSource = new Uri(@"../../icons/add.png", UriKind.RelativeOrAbsolute);
+                bitmapImage.EndInit();
+                this.icon.Source = bitmapImage;
             }
 
-            icon.Width = 16;
-            icon.Height = 16;
+            this.icon.Width = 16;
+            this.icon.Height = 16;
 
             this.title = title;
 
@@ -88,9 +88,9 @@ namespace ATNET.Gui.Components
             Grid grid = new Grid();
             grid.ColumnDefinitions.Add(new ColumnDefinition());
             grid.ColumnDefinitions.Add(new ColumnDefinition());
-            grid.Children.Add(icon);
+            grid.Children.Add(this.icon);
             grid.Children.Add(tb);
-            Grid.SetColumn(icon, 0);
+            Grid.SetColumn(this.icon, 0);
             Grid.SetColumn(tb, 1);
             this.Header = grid;
         }

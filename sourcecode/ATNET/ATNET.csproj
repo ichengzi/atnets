@@ -105,7 +105,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ATNNetProject.cs" />
     <Compile Include="CanvasDocument.xaml.cs">
       <DependentUpon>CanvasDocument.xaml</DependentUpon>
     </Compile>
@@ -137,7 +136,6 @@
     <Compile Include="NewProjectWindow.xaml.cs">
       <DependentUpon>NewProjectWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ProjectItem.cs" />
     <Compile Include="Project\Item\CustomProjectItem.cs" />
     <Compile Include="Project\Item\DirectoryProjectItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -219,9 +217,6 @@
     <Resource Include="icons\display.png" />
     <Resource Include="icons\property.png" />
     <Resource Include="project.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Gui\Components\add.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

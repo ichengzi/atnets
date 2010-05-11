@@ -1,17 +1,10 @@
-﻿/*
- * Created by SharpDevelop.
- * User: eric
- * Date: 2010/5/4
- * Time: 19:11
- * 
- * To change this template use Tools | Options | Coding | Edit Standard Headers.
- */
+﻿
 using System;
 
 namespace ATNET.Project
 {
 	/// <summary>
-	/// Description of ItemType.
+	/// 工程子项的类型
 	/// </summary>
     public struct ItemType : IEquatable<ItemType>, IComparable<ItemType>
     {

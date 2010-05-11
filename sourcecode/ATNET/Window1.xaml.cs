@@ -32,19 +32,6 @@ namespace ATNET
     /// </summary>
     public partial class Window1 : Window
     {
-        /// <summary>
-        /// 当前正在使用的CanvaDocument对象
-        /// </summary>
-        private CanvasDocument currentCanvasDocument = new CanvasDocument();
-        /// <summary>
-        /// 当前正在使用的Canvas对象
-        /// </summary>
-        private DesignerCanvas currentCanvas = new DesignerCanvas();
-        /// <summary>
-        /// 当前被选中的DesignerItem对象
-        /// </summary>
-        private DesignerItem currentItem = new DesignerItem();
-
         public Window1()
         {
             RegeditCommands();
@@ -138,10 +125,6 @@ namespace ATNET
             {
                 ComboBoxItem item = comboxRate.SelectedValue as ComboBoxItem;
                 var rate = double.Parse(item.Tag.ToString());
-                if (currentCanvas != null)
-                {
-                    currentCanvas.CoordinateRate = rate;
-                }
             }
         }
 
@@ -151,122 +134,17 @@ namespace ATNET
             //“新工程”窗口
             NewProjectWindow newProjWindow = new NewProjectWindow();
             newProjWindow.ShowDialog();
-            LoadProject();
+            ShowProjectTree();
         }
         /// <summary>
-        /// 载入Project
+        /// 在主窗体上显示Project的Tree
         /// </summary>
         /// <returns></returns>
-        private void LoadProject()
+        private void ShowProjectTree()
         {
-
-            ////创建了新工程的xml文件，创建了Project的实例
-            //if (ATNetProject.ProjectInstance != null)
-            //{
-            //    //将新工程的实例的画布添加到主界面上
-            //    dockingManager.MainDocumentPane.Items.Add(ATNetProject.ProjectInstance.ProjectDocument);
-            //    //将工程的TreeView视图添加到主界面上
-            //    projectWindow.Content = ATNetProject.ProjectInstance.ItemTreeView;
-            //    ((TreeView)projectWindow.Content).SelectedItemChanged += new RoutedPropertyChangedEventHandler<object>(Window1_SelectedItemChanged);
-            //    toolWindow.DockableStyle = AvalonDock.DockableStyle.Dockable;
-            //    toolBoxPanel.Visibility = Visibility.Visible;
-            //    //将当前工程的画布添加到“属性”窗口
-            //    propertyGrid.SelectedObject = currentCanvas;
-            //    ChangeCurrentDocument();
-            //    return true;
-            //}
-            //return false;
-
             ProjectBrowser projectBrowser = new ProjectBrowser();
             projectBrowser.ViewProject(ProjectService.CurrentProject);
-            projectWindow.Content = projectBrowser;
-        }
-
-        private void Window1_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
-        {
-            propertyGrid.SelectedObject = ATNetProject.ProjectInstance;
-        }
-
-        private void addNewCanvas_Click(object sender, RoutedEventArgs e)
-        {
-            //CanvasDocument newDocument = new CanvasDocument();
-            //newDocument.Title = "Page";
-            //newDocument.InfoTip = "Test Page";
-            //newDocument.ContentTypeDescription = "Sample Page";
-            //dockingManager.MainDocumentPane.Items.Add(newDocument);
-            //ProjectItem item=new ProjectItem("page1",newDocument);
-            //project.AddProjectItem(item);
-            //dockingManager.MainDocumentPane.SelectedIndex = dockingManager.MainDocumentPane.Items.Count - 1;
-            //ChangeCurrentDocument();
-        }
-        /// <summary>
-        /// 改变当前的文档信息
-        /// </summary>
-        /// <returns></returns>
-        private bool ChangeCurrentDocument()
-        {
-            currentCanvasDocument = dockingManager.MainDocumentPane.SelectedItem as CanvasDocument;
-            currentCanvas = currentCanvasDocument.FindName("mainCanvas") as DesignerCanvas;
-            currentCanvas.PreviewMouseDown += new MouseButtonEventHandler(currentCanvas_PreviewMouseDown);
-            currentItem = (DesignerItem)currentCanvas.CurrentItem;
-            if (currentItem == null)
-            {
-                propertyGrid.SelectedObject = currentCanvas;
-                currentCanvas.SelectedItemChangedEvent += new DesignerCanvas.SelectedItemChangedEventHandle(currentCanvas_SelectedItemChangedEvent);
-                currentCanvas.PreviewMouseMove += new MouseEventHandler(currentCanvas_PreviewMouseMove);
-            }
-            else
-            {
-                propertyGrid.SelectedObject = currentItem;
-            }
-            statusBar.DataContext = currentCanvas;
-            return true;
-        }
-
-        private void currentCanvas_PreviewMouseMove(object sender, MouseEventArgs e)
-        {
-            ScrollViewer scroll = currentCanvas.Parent as ScrollViewer;
-            RulerRectangle vRect = scroll.Template.FindName("verticalRuler", scroll) as RulerRectangle;
-            //vRect.RulerLine = e.GetPosition(currentCanvas);
-            RulerRectangle hRect = scroll.Template.FindName("horizontalRuler", scroll) as RulerRectangle;
-            //hRect.RulerLine = e.GetPosition(currentCanvas);
-        }
-
-        private void currentCanvas_PreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed)
-            {
-                //选中Canvas，将Canvas赋值给属性窗口
-                propertyGrid.SelectedObject = currentCanvas;
-            }
-            else if (e.RightButton == MouseButtonState.Pressed)
-            {
-                //生成Canvas右键菜单
-                ContextMenu canvasContextMenu = this.FindResource("canvasContextMenu") as ContextMenu;
-                if (canvasContextMenu != null)
-                {
-                    DesignerCanvas canvas = sender as DesignerCanvas;
-                    canvas.ContextMenu = canvasContextMenu;
-                }
-            }
-        }
-
-        private void currentItem_PreviewMouseRightButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            //designerItem的右键菜单
-            ContextMenu itemContextMenu = this.FindResource("itemContextMenu") as ContextMenu;
-            if (itemContextMenu != null)
-            {
-                DesignerItem item = sender as DesignerItem;
-                item.ContextMenu = itemContextMenu;
-            }
-        }
-
-        private void currentCanvas_SelectedItemChangedEvent(object sender, ISelectable item)
-        {
-            currentItem = (DesignerItem)item;
-            propertyGrid.SelectedObject = currentItem;
-            currentItem.PreviewMouseRightButtonDown += new MouseButtonEventHandler(currentItem_PreviewMouseRightButtonDown);
+            projectWindow.Content = projectBrowser.TreeView;
         }
 
         private void openProjectMenuItem_Click(object sender, RoutedEventArgs e)
@@ -277,7 +155,7 @@ namespace ATNET
             openFileDialog.Filter = "Atnet Project files (*.atnprj)|*.atnprj";
             openFileDialog.ShowDialog();
             ProjectService.LoadProject(openFileDialog.FileName);
-            LoadProject();
+            ShowProjectTree();
         }
     }
 }

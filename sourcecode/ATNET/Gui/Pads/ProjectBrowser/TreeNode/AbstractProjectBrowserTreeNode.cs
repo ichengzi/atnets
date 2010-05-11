@@ -9,6 +9,9 @@ using ATNET.Project;
 
 namespace ATNET.Gui.Pads
 {
+    /// <summary>
+    /// 应用于Project的树节点抽象类
+    /// </summary>
     public abstract class AbstractProjectBrowserTreeNode:ExtTreeNode
     {
         private IProject project;

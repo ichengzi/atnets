@@ -1,18 +1,11 @@
-﻿/*
- * Created by SharpDevelop.
- * User: eric
- * Date: 2010/5/4
- * Time: 22:28
- * 
- * To change this template use Tools | Options | Coding | Edit Standard Headers.
- */
+﻿
 using System;
 using System.ComponentModel;
 
 namespace ATNET.Project
 {
 	/// <summary>
-	/// Description of ProjectItem.
+	/// 工程子项类.
 	/// </summary>
     public abstract class ProjectItem : IDisposable, ICloneable
     {

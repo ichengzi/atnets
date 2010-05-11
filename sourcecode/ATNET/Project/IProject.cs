@@ -9,7 +9,7 @@ using System.Xml;
 namespace ATNET.Project
 {
 	/// <summary>
-	/// IPorject 的描述
+	/// IPorject 的接口描述
 	/// </summary>
 	public interface IProject:IDisposable
 	{

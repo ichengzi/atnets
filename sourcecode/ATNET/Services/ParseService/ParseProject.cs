@@ -34,7 +34,11 @@ namespace ATNET.Services.ParseService
             ParseToProjectItem(rootElement,project);
             return project;
         }
-
+        /// <summary>
+        /// 降XElement元素转换成工程子项
+        /// </summary>
+        /// <param name="rootElement">工程文件中包含的根元素</param>
+        /// <param name="project">子项属于的工程</param>
         private static void ParseToProjectItem(XElement rootElement,IProject project)
         {
             IEnumerable<XElement> element = from el in rootElement.Elements() select el;
@@ -57,7 +61,12 @@ namespace ATNET.Services.ParseService
                 }
             }
         }
-
+        /// <summary>
+        /// 根据XElement元素生成工程子项（递归使用）
+        /// </summary>
+        /// <param name="project"></param>
+        /// <param name="projectItem"></param>
+        /// <param name="el"></param>
         private static void BuildDirectoryItem(IProject project,DirectoryProjectItem projectItem, XElement el)
         {
             foreach (XElement e1 in el.Elements())
@@ -77,17 +86,6 @@ namespace ATNET.Services.ParseService
             }
         }
 
-
-        //private static ATNET.Project.ProjectItem BuildProjectItem(IEnumerable<XElement> element)
-        //{
-        //    foreach (XElement el in element.Nodes())
-        //    {
-        //        ATNET.Project.ProjectItem projectItem = BuildProjectItem(el.Elements());
-        
-        //        //XElement el2 = el1.First<XElement>();
-        //    }
-        //    return new CustomProjectItem(new CommonProject());
-        //}
-     
+   
     }
 }
