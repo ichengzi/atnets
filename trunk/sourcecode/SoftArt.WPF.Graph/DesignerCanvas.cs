@@ -68,7 +68,7 @@ namespace SoftArt.WPF.Graph
             get { return this.Background; }
             set { this.Background = value; }
         }
-        [Browser("ChildCount", "子项个数"), Category("自定义")] 
+        [Browser("ChildCount", "子项个数"), Category("自定义"),Description("画布中包含的子项的个数")] 
         public int ChildCount
         {
             get { return this.Children.Count; }
