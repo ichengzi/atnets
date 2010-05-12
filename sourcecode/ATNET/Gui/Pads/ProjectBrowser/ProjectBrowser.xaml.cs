@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using ATNET.Gui.Components;
 using ATNET.Gui.Pads;
 using ATNET.Project;
+using ATNET.Services.ProjectService;
 
 namespace ATNET.Gui.Pads.ProjectBrowser
 {
@@ -89,6 +90,7 @@ namespace ATNET.Gui.Pads.ProjectBrowser
         public void ViewProject(IProject project)
         {
             treeView = new ExtTreeView(new ExtTreeNode(null, project.Name));
+            treeView.SelectedItemChanged += new RoutedPropertyChangedEventHandler<object>(treeView_SelectedItemChanged);
             foreach (ATNET.Project.ProjectItem item in project.Items)
             {
                 ExtTreeNode node = BuildNode(item);
@@ -98,6 +100,13 @@ namespace ATNET.Gui.Pads.ProjectBrowser
             mainGrid.Children.Add(treeView);
             Grid.SetRow(treeView, 1);
             Grid.SetColumn(treeView, 0);
+        }
+
+        private void treeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            ExtTreeNode treeNode = e.NewValue as ExtTreeNode;
+            Window1 mainWindow = CanvasDocumentService.MainWindow;
+            mainWindow.PropertyBrowser.SelectedObject = treeNode;
         }
         /// <summary>
         /// 返回这个工程子项的生成的节点
