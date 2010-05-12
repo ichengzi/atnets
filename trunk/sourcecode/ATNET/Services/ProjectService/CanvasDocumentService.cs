@@ -30,8 +30,15 @@ namespace ATNET.Services.ProjectService
         {
             get
             {
-                return canvasDocuments;
+                return currentCanvas;
             }
+        }
+        /// <summary>
+        /// 获取主窗体
+        /// </summary>
+        public static Window1 MainWindow
+        {
+            get { return GetMainWindow(); }
         }
         /// <summary>
         /// 添加新的Document

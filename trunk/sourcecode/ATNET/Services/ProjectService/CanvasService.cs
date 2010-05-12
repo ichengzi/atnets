@@ -11,11 +11,11 @@ namespace ATNET.Services.ProjectService
     /// </summary>
     public static class CanvasService
     {
-        private DesignerCanvas canvas;
+        private static DesignerCanvas canvas;
         /// <summary>
         /// 获取当前使用的Canvas对象
         /// </summary>
-        public DesignerCanvas Canvas
+        public static DesignerCanvas Canvas
         {
             get 
             {
