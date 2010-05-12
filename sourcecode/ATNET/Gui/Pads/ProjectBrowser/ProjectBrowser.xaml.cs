@@ -80,6 +80,7 @@ namespace ATNET.Gui.Pads.ProjectBrowser
         {
             InitializeComponent();
         }
+
         /// <summary>
         /// 显示工程的树
         /// </summary>
@@ -93,7 +94,9 @@ namespace ATNET.Gui.Pads.ProjectBrowser
                 node.AddTo(treeView.BaseNode);
             }
             treeView.BaseNode.Refresh();
-           
+            mainGrid.Children.Add(treeView);
+            Grid.SetRow(treeView, 0);
+            Grid.SetColumn(treeView, 0);
         }
         /// <summary>
         /// 返回这个工程子项的生成的节点
