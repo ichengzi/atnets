@@ -21,6 +21,18 @@ namespace ATNET.Services.ProjectService
         {
             get { return canvasDocuments;}
         }
+
+        private static DesignerCanvas currentCanvas;
+        /// <summary>
+        /// 获取当前使用的Canvas对象
+        /// </summary>
+        public static DesignerCanvas CurrentCanvas
+        {
+            get
+            {
+                return canvasDocuments;
+            }
+        }
         /// <summary>
         /// 添加新的Document
         /// </summary>
@@ -48,8 +60,8 @@ namespace ATNET.Services.ProjectService
                 canvasDocuments.Add(document);
                 Window1 mainWindow = GetMainWindow();
                 mainWindow.DockingManager.Items.Add(document);
-                SetDocumentSelected(document);
             }
+            SetDocumentSelected(document);
         }
         /// <summary>
         /// 删除Document
@@ -88,6 +100,7 @@ namespace ATNET.Services.ProjectService
                 if (doc.Equals(document))
                 {
                     mainWindow.DockingManager.SelectedItem = doc;
+                    currentCanvas = doc.Canvas;
                     break;
                 }
             }

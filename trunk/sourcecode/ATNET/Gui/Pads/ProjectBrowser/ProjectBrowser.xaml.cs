@@ -79,6 +79,7 @@ namespace ATNET.Gui.Pads.ProjectBrowser
         public ProjectBrowser()
         {
             InitializeComponent();
+           
         }
 
         /// <summary>
@@ -95,7 +96,7 @@ namespace ATNET.Gui.Pads.ProjectBrowser
             }
             treeView.BaseNode.Refresh();
             mainGrid.Children.Add(treeView);
-            Grid.SetRow(treeView, 0);
+            Grid.SetRow(treeView, 1);
             Grid.SetColumn(treeView, 0);
         }
         /// <summary>
@@ -121,6 +122,44 @@ namespace ATNET.Gui.Pads.ProjectBrowser
                 return node as DirectoryTreeNode;
             }
             return node as CustomTreeNode;
+        }
+
+        private void btn_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = sender as Button;
+            ExtTreeNode baseNode = treeView.BaseNode;
+            if (btn.Name == "btnExpand")
+            {
+                SetExpand(baseNode, true);
+            }
+            else if (btn.Name == "btnCollapse")
+            {
+                SetExpand(baseNode, false);
+            }
+            else if (btn.Name == "btnMoveUp")
+            {
+                treeView.Items.MoveCurrentToPrevious();
+                treeView.Items.Refresh();
+            }
+            else
+            {
+             
+            }
+
+        }
+        /// <summary>
+        /// 设置ExTreeNode的IsExpand属性
+        /// </summary>
+        /// <param name="baseNode">ExTreeNode</param>
+        /// <param name="isExpand">isExpand</param>
+        private void SetExpand(ExtTreeNode baseNode,bool isExpand)
+        {
+            baseNode.IsExpanded = isExpand;
+            foreach (ExtTreeNode node in baseNode.Items)
+            {
+                node.IsExpanded = isExpand;
+                SetExpand(node, isExpand);
+            }
         }
     }
 }
