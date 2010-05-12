@@ -151,7 +151,7 @@ namespace ATNET
         {
             ProjectBrowser projectBrowser = new ProjectBrowser();
             projectBrowser.ViewProject(ProjectService.CurrentProject);
-            projectWindow.Content = projectBrowser.TreeView;
+            projectWindow.Content = projectBrowser;
         }
 
         private void openProjectMenuItem_Click(object sender, RoutedEventArgs e)
