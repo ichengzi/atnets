@@ -20,20 +20,11 @@ namespace ATNET.Gui.Pads
             this.projectItem = projectItem;
         }
 
-        protected override void ExtTreeNode_Selected(object sender, System.Windows.RoutedEventArgs e)
+        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         {
-            base.ExtTreeNode_Selected(sender, e);
-            //选中节点的操作
+            base.OnMouseLeftButtonDown(e);
+            //添加CanvasDocument
             CanvasDocumentService.AddCanvasDocument(projectItem.CanvasDocument);
-        }
-
-        protected override void ExtTreeNode_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            base.ExtTreeNode_MouseDoubleClick(sender, e);
-            if (e.LeftButton == MouseButtonState.Pressed)
-            {
-               
-            }
         }
     }
 }
