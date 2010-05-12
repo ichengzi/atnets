@@ -22,11 +22,36 @@ namespace ATNET.Project
                 throw new ArgumentNullException("project");
             }
             this.project = project;
+            this.canvasDocument = new CanvasDocument();
+            this.canvasDocument.Name = this.Name;
+            this.canvasDocument.Title = this.Name;
         }
         protected ProjectItem(IProject project, ItemType type)
         {
             this.project = project;
             this.itemType = type;
+            this.canvasDocument = new CanvasDocument();
+            this.canvasDocument.Name = this.Name;
+            this.canvasDocument.Title = this.Name;
+        }
+
+        protected ProjectItem(IProject project, ItemType type,string name)
+        {
+            this.project = project;
+            this.itemType = type;
+            this.name = name;
+            this.canvasDocument = new CanvasDocument();
+            this.canvasDocument.Name = this.Name;
+            this.canvasDocument.Title = this.Name;
+        }
+
+        protected CanvasDocument canvasDocument;
+        /// <summary>
+        /// 获取目录型工程子项包含的CanvasDocument对象
+        /// </summary>
+        public CanvasDocument CanvasDocument
+        {
+            get { return canvasDocument; }
         }
 
         [Browsable(false)]
