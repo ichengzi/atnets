@@ -16,6 +16,7 @@ using ATNET.Gui.Components;
 using ATNET.Gui.Pads;
 using ATNET.Project;
 using ATNET.Services.ProjectService;
+using ATNET.Gui.Pads.PropertyBrowser;
 
 namespace ATNET.Gui.Pads.ProjectBrowser
 {
@@ -106,7 +107,9 @@ namespace ATNET.Gui.Pads.ProjectBrowser
         {
             ExtTreeNode treeNode = e.NewValue as ExtTreeNode;
             Window1 mainWindow = CanvasDocumentService.MainWindow;
-            mainWindow.PropertyBrowser.SelectedObject = treeNode;
+            CanvasDocumentService.SetDocumentSelected(((AbstractProjectBrowserTreeNode)treeNode).ProjectItem.CanvasDocument);
+            CustomProperty property = new CustomProperty(CanvasDocumentService.CurrentCanvas);
+            mainWindow.PropertyBrowser.SelectedObject = property;
         }
         /// <summary>
         /// 返回这个工程子项的生成的节点
