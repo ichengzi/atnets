@@ -10,6 +10,7 @@ using System.Xml;
 using System.Windows.Shapes;
 using System.Windows.Media;
 using System.Windows.Threading;
+using System.ComponentModel;
 
 namespace SoftArt.WPF.Graph
 {
@@ -52,6 +53,7 @@ namespace SoftArt.WPF.Graph
         public event SelectedItemChangedEventHandle SelectedItemChangedEvent;
 
         public static readonly DependencyProperty MousePointProperty = DependencyProperty.Register("MousePoint", typeof(Point), typeof(Canvas));
+        [Browser("MousePoint","鼠标坐标"),Category("自定义")] 
         /// <summary>
         /// 鼠标在Canvas上移动的坐标
         /// </summary>
@@ -60,10 +62,34 @@ namespace SoftArt.WPF.Graph
             get { return (Point)GetValue(MousePointProperty); }
             set { SetValue(MousePointProperty, value); }
         }
+        [Browser("BackColor", "画布背景色"), Category("自定义")] 
+        public Brush BackColor
+        {
+            get { return this.Background; }
+            set { this.Background = value; }
+        }
+        [Browser("ChildCount", "子项个数"), Category("自定义")] 
+        public int ChildCount
+        {
+            get { return this.Children.Count; }
+        }
+        [Browser("Name", "名称"), Category("自定义")]
+        public new string Name
+        {
+            get { return this.Name; }
+            set { this.Name = value; }
+        }
+        [Browser("Width", "宽度"), Category("自定义")]
+        public new double Width
+        {
+            get { return this.Width; }
+            set { this.Width = value; }
+        }
 
         private delegate void CoordinateRateChangeEventHandle(object sender, double rate);
         private event CoordinateRateChangeEventHandle CoordinateRateChangeEvent;
         private double coordinateRate = 1.0;
+        [Browsable(true)]
         /// <summary>
         /// Canvas坐标变化的系数
         /// </summary>

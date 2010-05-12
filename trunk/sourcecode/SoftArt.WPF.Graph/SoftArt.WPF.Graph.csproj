@@ -57,6 +57,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BrowserAttribute.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="ConnectionAdorner.cs" />
     <Compile Include="Connector.cs" />
