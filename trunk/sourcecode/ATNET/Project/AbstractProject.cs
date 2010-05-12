@@ -13,6 +13,7 @@ using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Xml.Linq;
 using ATNET.Services.ParseService;
+using SoftArt.WPF.Graph;
 
 namespace ATNET.Project
 {
@@ -99,6 +100,7 @@ namespace ATNET.Project
         /// 工程的完整路径
         /// </summary>
         [ReadOnly(true)]
+        [Browser("FileName", "文件完整目录"), Category("自定义")]
         public string FileName
         {
             get { return fileName ?? ""; }
@@ -115,6 +117,7 @@ namespace ATNET.Project
         /// 工程的路径
         /// </summary>
         [Browsable(true)]
+        [Browser("Directory", "文件目录"), Category("自定义")]
         public string Directory
         {
             get
@@ -139,7 +142,7 @@ namespace ATNET.Project
         /// <summary>
         /// 工程的名字
         /// </summary>
-        [Browsable(false)]
+        [Browser("Name", "文件名"), Category("自定义")]
         public string Name
         {
             get

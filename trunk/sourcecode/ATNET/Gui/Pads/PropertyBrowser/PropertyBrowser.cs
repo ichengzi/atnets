@@ -30,7 +30,7 @@ namespace ATNET.Gui.Pads.PropertyBrowser
             for (int i = 0; i < propertys.Length; i++)
             {
                 PropertyInfo p = propertys[i];
-                object[] attribute = p.GetCustomAttributes(false);
+                object[] attribute = p.GetCustomAttributes(true);
                 for (int j = 0; j < attribute.Length; j++)
                 {
                     if (attribute[j] is BrowserAttribute)
