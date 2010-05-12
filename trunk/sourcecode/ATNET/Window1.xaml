@@ -178,7 +178,7 @@
                                 </ad:DockableContent.Icon>
                                     <ad:DockableContent.Content>
                                         <formHost:WindowsFormsHost x:Name="winFormHost">
-                                            <form:PropertyGrid x:Name="propertyGrid"/>
+                                          
                                         </formHost:WindowsFormsHost>
                                     </ad:DockableContent.Content>
                                 </ad:DockableContent>

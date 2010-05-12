@@ -24,6 +24,7 @@ using ATNET.Project;
 using ATNET.Services.ProjectService;
 using ATNET.Gui.Pads.ProjectBrowser;
 using AvalonDock;
+using ATNET.Gui.Pads.PropertyBrowser;
 
 
 namespace ATNET
@@ -53,6 +54,13 @@ namespace ATNET
         {
             get { return dockingManager.MainDocumentPane; }
         }
+        /// <summary>
+        /// 获取属性窗口
+        /// </summary>
+        public PropertyBrowser PropertyBrowser
+        {
+            get { return (ATNET.Gui.Pads.PropertyBrowser.PropertyBrowser)winFormHost.Child; }
+        }
 
         private bool InitMainWindowConfig()
         {
@@ -63,17 +71,8 @@ namespace ATNET
 
         private void Window1_ContentRendered(object sender, EventArgs e)
         {
-            //StartWindow startWindow = new StartWindow();
-            //startWindow.ShowDialog();
-
-            //project = ATNetProject.GetProjectInstance("", null);
-            //if (project.Status == ProjectStatus.New) {
-            //    dockingManager.MainDocumentPane.Items.Add(project.ProjectDocument);
-            //    project.ProjectDockingManager = dockingManager;
-            //    projectWindow.Content = project.ItemTreeView;
-            //    project.Status = ProjectStatus.Work;
-            //}
-            //this.IsEnabled = true;
+            PropertyBrowser propertyBrowser = new PropertyBrowser();
+            winFormHost.Child = propertyBrowser;
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
