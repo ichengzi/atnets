@@ -107,8 +107,17 @@ namespace ATNET.Gui.Pads.ProjectBrowser
         {
             ExtTreeNode treeNode = e.NewValue as ExtTreeNode;
             Window1 mainWindow = CanvasDocumentService.MainWindow;
-            CanvasDocumentService.SetDocumentSelected(((AbstractProjectBrowserTreeNode)treeNode).ProjectItem.CanvasDocument);
-            CustomProperty property = new CustomProperty(CanvasDocumentService.CurrentCanvas);
+            CustomProperty property;
+            if (treeNode is AbstractProjectBrowserTreeNode)
+            {
+                CanvasDocumentService.SetDocumentSelected(((AbstractProjectBrowserTreeNode)treeNode).ProjectItem.CanvasDocument);
+                 property = new CustomProperty(CanvasDocumentService.CurrentCanvas);
+            }
+            else
+            {
+                property = new CustomProperty(ProjectService.CurrentProject); 
+            }
+           
             mainWindow.PropertyBrowser.SelectedObject = property;
         }
         /// <summary>

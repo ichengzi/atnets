@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
 using System.Xml;
+using SoftArt.WPF.Graph;
 
 namespace ATNET.Project
 {
@@ -30,6 +31,7 @@ namespace ATNET.Project
         {
             get;
         }
+        [Browser("FileName","文件完整路径"),Category("自定义")]
 		/// <summary>
 		/// 获取或者设置工程文件的完整路径
 		/// </summary>
@@ -38,6 +40,7 @@ namespace ATNET.Project
 			get;
 			set;
 		}
+        [Browser("Name", "文件名"), Category("自定义")]
 		/// <summary>
 		/// 获取或者设置工程的名字
 		/// </summary>
