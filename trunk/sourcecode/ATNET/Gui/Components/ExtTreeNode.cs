@@ -41,6 +41,12 @@ namespace ATNET.Gui.Components
         public ExtTreeNode()
         {
             this.Selected += new System.Windows.RoutedEventHandler(ExtTreeNode_Selected);
+            this.MouseDoubleClick += new System.Windows.Input.MouseButtonEventHandler(ExtTreeNode_MouseDoubleClick);
+        }
+
+        protected virtual void ExtTreeNode_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            
         }
 
         protected virtual void ExtTreeNode_Selected(object sender, System.Windows.RoutedEventArgs e)

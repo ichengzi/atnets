@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Controls;
 using ATNET.Project;
+using ATNET.Services.ProjectService;
+using System.Windows.Input;
 
 namespace ATNET.Gui.Pads
 {
@@ -22,7 +24,16 @@ namespace ATNET.Gui.Pads
         {
             base.ExtTreeNode_Selected(sender, e);
             //选中节点的操作
-          
+            CanvasDocumentService.AddCanvasDocument(projectItem.CanvasDocument);
+        }
+
+        protected override void ExtTreeNode_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            base.ExtTreeNode_MouseDoubleClick(sender, e);
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+               
+            }
         }
     }
 }
