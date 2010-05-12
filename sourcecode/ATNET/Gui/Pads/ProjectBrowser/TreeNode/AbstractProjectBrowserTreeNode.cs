@@ -6,6 +6,7 @@ using System.Windows.Controls;
 
 using ATNET.Gui.Components;
 using ATNET.Project;
+using SoftArt.WPF.Graph;
 
 namespace ATNET.Gui.Pads
 {
@@ -15,6 +16,7 @@ namespace ATNET.Gui.Pads
     public abstract class AbstractProjectBrowserTreeNode:ExtTreeNode
     {
         protected IProject project;
+        [Browser("Project","工程")]
         /// <summary>
         /// 节点所属的工程
         /// </summary>
