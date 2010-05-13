@@ -49,6 +49,16 @@ namespace SoftArt.WPF.Graph
             }
         }
 
+        private bool showGrid = true;
+        /// <summary>
+        /// 是否显示网格
+        /// </summary>
+        public bool ShowGrid
+        {
+            get { return showGrid; }
+            set { showGrid = value; }
+        }
+
         public delegate void SelectedItemChangedEventHandle(object sender, ISelectable item);
         public event SelectedItemChangedEventHandle SelectedItemChangedEvent;
 
