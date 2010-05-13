@@ -49,6 +49,13 @@ namespace ATNET.Services.ProjectService
             bool isAdd = true;
             if (canvasDocuments != null)
             {
+                //清除canvasDocuments中没有删除的document，和winodw的保持一致
+
+                if (canvasDocuments.Contains(document))
+                {
+                    canvasDocuments.Remove(document);
+                }
+              
                 foreach (CanvasDocument doc in canvasDocuments)
                 {
                     if (doc.Equals(document))

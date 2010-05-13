@@ -111,13 +111,13 @@ namespace ATNET.Gui.Pads.ProjectBrowser
             if (treeNode is AbstractProjectBrowserTreeNode)
             {
                 CanvasDocumentService.SetDocumentSelected(((AbstractProjectBrowserTreeNode)treeNode).ProjectItem.CanvasDocument);
-                 property = new CustomProperty(CanvasDocumentService.CurrentCanvas);
+                property = new CustomProperty(CanvasDocumentService.CurrentCanvas);
             }
             else
             {
-                property = new CustomProperty(ProjectService.CurrentProject); 
+                property = new CustomProperty(ProjectService.CurrentProject);
             }
-           
+
             mainWindow.PropertyBrowser.SelectedObject = property;
         }
         /// <summary>

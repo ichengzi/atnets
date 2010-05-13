@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:ATNET">
     <ScrollViewer Style="{StaticResource scrollViewerRuler}" HorizontalScrollBarVisibility="Visible" 
                               VerticalScrollBarVisibility="Visible" Margin="0" x:Name="mainScrollViewer">
-        <g:DesignerCanvas  Width="2000" Height="2000"  Background="{StaticResource canvasBrushResource}" 
+        <g:DesignerCanvas  Width="2000" Height="2000"  Background="{DynamicResource canvasBrushResource}" 
                                 Margin="-1,-1,0,0" x:Name="mainCanvas" PreviewMouseMove="mainCanvas_PreviewMouseMove">
         </g:DesignerCanvas>
     </ScrollViewer>
