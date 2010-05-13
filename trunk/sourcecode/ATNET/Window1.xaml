@@ -71,7 +71,7 @@
     </Window.Resources>
 
     <DockPanel LastChildFill="True">
-        <Menu DockPanel.Dock="Top" FontSize="12" Height="22">
+        <Menu DockPanel.Dock="Top" HorizontalAlignment="Stretch" VerticalAlignment="Center" FontSize="12" Height="30">
             <MenuItem Header="文件(_F)"> <!-- Style="{StaticResource MLB_MenuItem}" Blend的菜单样式-->
                 <MenuItem Header="新建项目" x:Name="addNewProjectMenuItem" Click="addNewProjectMenuItem_Click" />
                 <MenuItem Header="新建页面" x:Name="addNewCanvas" Icon="{StaticResource newMenuImage}"/>
