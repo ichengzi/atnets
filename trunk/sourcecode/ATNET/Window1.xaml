@@ -72,30 +72,38 @@
 
     <DockPanel LastChildFill="True">
         <Menu DockPanel.Dock="Top" FontSize="12" Height="22">
-            <MenuItem Header="文件(F)"> <!-- Style="{StaticResource MLB_MenuItem}" Blend的菜单样式-->
+            <MenuItem Header="文件(_F)"> <!-- Style="{StaticResource MLB_MenuItem}" Blend的菜单样式-->
                 <MenuItem Header="新建项目" x:Name="addNewProjectMenuItem" Click="addNewProjectMenuItem_Click" />
-                <MenuItem Header="新建" x:Name="addNewCanvas" Icon="{StaticResource newMenuImage}"/>
-                <MenuItem Header="打开" x:Name="openProjectMenuItem" Icon="{StaticResource openMenuImage}" Click="openProjectMenuItem_Click"/>
+                <MenuItem Header="新建页面" x:Name="addNewCanvas" Icon="{StaticResource newMenuImage}"/>
+                <MenuItem Header="打开项目" x:Name="openProjectMenuItem" Icon="{StaticResource openMenuImage}" Click="openProjectMenuItem_Click"/>
                 <Separator/>
-                <MenuItem Header="添加" Icon="{StaticResource addMenuImage}"/>
-                <MenuItem Header="关闭" Icon="{StaticResource closeMenuImage}"/>
-                <MenuItem Header="保存" Icon="{StaticResource saveMenuImage}" Command="{x:Static ApplicationCommands.Save}"/>
+                <MenuItem Header="保存项目"/>
+                <MenuItem Header="项目另存为"/>
+                <Separator/>
+                <MenuItem Header="关闭当前页" Icon="{StaticResource closeMenuImage}"/>
+                <MenuItem Header="保存当前页" Icon="{StaticResource saveMenuImage}" Command="{x:Static ApplicationCommands.Save}"/>
                 <MenuItem Header="打印" Click="MenuItem_Click" Icon="{StaticResource printMenuImage}"/>
-                <MenuItem Header="最近的文件"/>
+                <MenuItem Header="最近访问的项目"/>
                 <MenuItem Header="退出" Icon="{StaticResource closeMenuImage}"/>
             </MenuItem>
-            <MenuItem Header="编辑(E)">
+            <MenuItem Header="编辑(_E)">
+                <MenuItem Header="撤销"/>
+                <MenuItem Header="重做"/>
+                <Separator/>
                 <MenuItem Header="剪切" Icon="{StaticResource cutMenuImage}" Command="{x:Static ApplicationCommands.Cut}" />
                 <MenuItem Header="复制" Icon="{StaticResource copyMenuImage}" Command="{x:Static ApplicationCommands.Copy}" />
                 <MenuItem Header="粘贴" Icon="{StaticResource pasteMenuImage}" Command="{x:Static ApplicationCommands.Paste}"/>
+                <Separator/>
+                <MenuItem Header="成组"/>
+                <MenuItem Header="组解除"/>
             </MenuItem>
-            <MenuItem Header="视图(V)">
-                <MenuItem Header="工程浏览器" Command="{x:Static local:Window1.ShowProjectWindow}">
+            <MenuItem Header="视图(_V)">
+                <MenuItem Header="项目结构" Command="{x:Static local:Window1.ShowProjectWindow}">
                     <MenuItem.Icon>
                         <Image Source="icons/display.png" Width="16" Height="16"/>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="对象属性浏览器" Command="{x:Static local:Window1.ShowPropertyWindow}">
+                <MenuItem Header="属性列表" Command="{x:Static local:Window1.ShowPropertyWindow}">
                     <MenuItem.Icon>
                         <Image Source="icons/property.png" Width="16" Height="16"/>
                     </MenuItem.Icon>
@@ -105,6 +113,50 @@
                         <Image Source="icons/tool.ico" Width="16" Height="16"/>
                     </MenuItem.Icon>
                 </MenuItem>
+                <Separator/>
+                <MenuItem Header="缩小"/>
+                <MenuItem Header="放大"/>
+            </MenuItem>
+            <MenuItem Header="格式(_O)">
+                <MenuItem Header="统一尺寸">
+                    <MenuItem Header="高度相同"/>
+                    <MenuItem Header="宽度相同"/>
+                    <MenuItem Header="两者都一致"/>
+                </MenuItem>
+                <MenuItem Header="对齐方式">
+                    <MenuItem Header="左边对齐"/>
+                    <MenuItem Header="垂直居中对齐"/>
+                    <MenuItem Header="右边对齐"/>
+                    <Separator/>
+                    <MenuItem Header="上边对齐"/>
+                    <MenuItem Header="水平居中对齐"/>
+                    <MenuItem Header="下边对齐"/>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Header="显示网格"/>
+                <MenuItem Header="网格大小">
+                    <MenuItem Header="大"/>
+                    <MenuItem Header="中"/>
+                    <MenuItem Header="小"/>
+                </MenuItem>
+                <MenuItem Header="锁定页面"/>
+            </MenuItem>
+            <MenuItem Header="工具(_T)">
+                <MenuItem Header="用户管理"/>
+                <Separator/>
+                <MenuItem Header="系统设置"/>
+                <MenuItem Header="操作日志"/>
+            </MenuItem>
+            <MenuItem Header="窗口(_W)">
+                <MenuItem Header="新建水平选项卡组"/>
+                <MenuItem Header="新建垂直选项卡组"/>
+                <MenuItem Header="关闭所有文档"/>
+            </MenuItem>
+            <MenuItem Header="帮助(_H)">
+                <MenuItem Header="项目概要"/>
+                <MenuItem Header="帮助"/>
+                <MenuItem Header="注册"/>
+                <MenuItem Header="关于"/>
             </MenuItem>
         </Menu>
         <ToolBarTray DockPanel.Dock="Top">
