@@ -22,7 +22,7 @@
         <Setter Property="ItemsPanel">
             <Setter.Value>
                 <ItemsPanelTemplate>
-                    <WrapPanel Margin="0,5,0,5"
+                    <WrapPanel Margin="0,0,0,0"
                      ItemHeight="{Binding Path=ItemSize.Height, RelativeSource={RelativeSource AncestorType=s:Toolbox}}"
                      ItemWidth="{Binding Path=ItemSize.Width, RelativeSource={RelativeSource AncestorType=s:Toolbox}}"/>
                 </ItemsPanelTemplate>
