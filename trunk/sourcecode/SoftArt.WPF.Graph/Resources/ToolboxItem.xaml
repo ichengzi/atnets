@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:s="clr-namespace:SoftArt.WPF.Graph">
     <Style TargetType="{x:Type s:ToolboxItem}">
-        <Setter Property="Control.Padding" Value="10"/>
+        <Setter Property="Control.Padding" Value="5"/>
         <Setter Property="ContentControl.HorizontalContentAlignment" Value="Stretch"/>
         <Setter Property="ContentControl.VerticalContentAlignment" Value="Stretch"/>
         <Setter Property="ToolTip" Value="{Binding ToolTip}"/>
@@ -17,7 +17,7 @@
                        SnapsToDevicePixels="true"/>
                         <ContentPresenter Content="{TemplateBinding ContentControl.Content}"
                               Margin="{TemplateBinding Padding}"
-                              SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+                              SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}"/>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="true">
