@@ -3,12 +3,6 @@
                     xmlns:s="clr-namespace:SoftArt.WPF.Graph;assembly=SoftArt.WPF.Graph"
                     xmlns:c="clr-namespace:SoftArt.WPF.Graph.Controls;assembly=SoftArt.WPF.Graph">
    <s:Toolbox x:Key="SymbolStencils" ItemSize="60,60">
-        <s:Toolbox.Resources>
-            <Style TargetType="{x:Type Image}">
-                <Setter Property="IsHitTestVisible" Value="False"/>
-                <Setter Property="Stretch" Value="Fill"/>
-            </Style>
-        </s:Toolbox.Resources>
         <ItemsControl.Items>
             <!--<Image IsHitTestVisible="False" Stretch="Fill" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Customization/Images/attention.png"/>
             <Image IsHitTestVisible="False" Stretch="Fill" Source="Images/info.png"/>
@@ -38,7 +32,7 @@
                     </ControlTemplate>
                 </s:DesignerItem.ConnectorDecoratorTemplate>
             </Image>-->
-            <Image ToolTip="16HUB" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/16HUB.png">
+            <Image ToolTip="16HUB" Stretch="Fill" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/16HUB.png">
             </Image>
             <Image ToolTip="PC机" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/PC机.png">
             </Image>
@@ -64,17 +58,17 @@
             </Image>
             <Image ToolTip="配线柜" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/配线柜.png">
             </Image>
-            <Image ToolTip="配线架" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/配线架.png">
+            <Image ToolTip="配线架" IsHitTestVisible="False" Stretch="Fill" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/配线架.png">
             </Image>
-            <Image ToolTip="配线架2" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/配线架2.png">
+            <Image ToolTip="配线架2" IsHitTestVisible="False" Stretch="Fill" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/配线架2.png">
             </Image>
-            <Image ToolTip="千M交换机" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/千M交换机.png">
+            <Image ToolTip="千M交换机" IsHitTestVisible="False" Stretch="Fill" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/千M交换机.png">
             </Image>
-            <Image ToolTip="视频交换机" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/视频交换机.png">
+            <Image ToolTip="视频交换机" IsHitTestVisible="False" Stretch="Fill" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/视频交换机.png">
             </Image>
-            <Image ToolTip="双机" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/双机.png">
+            <Image ToolTip="双机" IsHitTestVisible="False" Stretch="Fill" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/双机.png">
             </Image>
-            <Image ToolTip="网络打印机" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/网络打印机.png">
+            <Image ToolTip="网络打印机" Stretch="Fill" IsHitTestVisible="False" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/网络打印机.png">
             </Image>
         </ItemsControl.Items>
     </s:Toolbox>
