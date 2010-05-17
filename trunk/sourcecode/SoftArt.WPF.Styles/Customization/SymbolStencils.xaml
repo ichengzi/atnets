@@ -32,43 +32,43 @@
                     </ControlTemplate>
                 </s:DesignerItem.ConnectorDecoratorTemplate>
             </Image>-->
-            <Image ToolTip="16HUB" Stretch="Fill" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/16HUB.png">
+            <Image ToolTip="16HUB" Stretch="Uniform" IsHitTestVisible="False" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/16HUB.png">
             </Image>
-            <Image ToolTip="PC机" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/PC机.png">
+            <Image ToolTip="PC机" Stretch="Uniform" IsHitTestVisible="False" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/PC机.png">
             </Image>
-            <Image ToolTip="RJ45" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/RJ45.png">
+            <Image ToolTip="RJ45" Stretch="Uniform" IsHitTestVisible="False" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/RJ45.png">
             </Image>
-            <Image ToolTip="UPS" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/UPS.png">
+            <Image ToolTip="UPS" Stretch="Uniform" IsHitTestVisible="False" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/UPS.png">
+            </Image> 
+            <Image ToolTip="电话" Stretch="Uniform" IsHitTestVisible="False" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/电话.png">
             </Image>
-            <Image ToolTip="电话" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/电话.png">
+            <Image ToolTip="防火墙" Stretch="Uniform" IsHitTestVisible="False" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/防火墙.png">
             </Image>
-            <Image ToolTip="防火墙" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/防火墙.png">
+            <Image ToolTip="分支机构" Stretch="Uniform" IsHitTestVisible="False" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/分支机构.png">
             </Image>
-            <Image ToolTip="分支机构" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/分支机构.png">
+            <Image ToolTip="服务器" Stretch="Uniform" IsHitTestVisible="False" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/服务器.png">
             </Image>
-            <Image ToolTip="服务器" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/服务器.png">
+            <Image ToolTip="光纤分配盘" Stretch="Uniform" IsHitTestVisible="False" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/光纤分配盘.png">
             </Image>
-            <Image ToolTip="光纤分配盘" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/光纤分配盘.png">
+            <Image ToolTip="光纤接口" Stretch="Uniform" IsHitTestVisible="False" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/光纤接口.png">
             </Image>
-            <Image ToolTip="光纤接口" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/光纤接口.png">
+            <Image ToolTip="交换机" Stretch="Uniform" IsHitTestVisible="False" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/交换机.png">
             </Image>
-            <Image ToolTip="交换机" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/交换机.png">
+            <Image ToolTip="客户机" Stretch="Uniform" IsHitTestVisible="False" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/客户机.png">
             </Image>
-            <Image ToolTip="客户机" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/客户机.png">
+            <Image ToolTip="配线柜" Stretch="Uniform" IsHitTestVisible="False" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/配线柜.png">
             </Image>
-            <Image ToolTip="配线柜" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/配线柜.png">
+            <Image ToolTip="配线架" IsHitTestVisible="False" Stretch="Uniform" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/配线架.png">
             </Image>
-            <Image ToolTip="配线架" IsHitTestVisible="False" Stretch="Fill" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/配线架.png">
+            <Image ToolTip="配线架2" IsHitTestVisible="False" Stretch="Uniform" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/配线架2.png">
             </Image>
-            <Image ToolTip="配线架2" IsHitTestVisible="False" Stretch="Fill" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/配线架2.png">
+            <Image ToolTip="千M交换机" IsHitTestVisible="False" Stretch="Uniform" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/千M交换机.png">
             </Image>
-            <Image ToolTip="千M交换机" IsHitTestVisible="False" Stretch="Fill" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/千M交换机.png">
+            <Image ToolTip="视频交换机" IsHitTestVisible="False" Stretch="Uniform" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/视频交换机.png">
             </Image>
-            <Image ToolTip="视频交换机" IsHitTestVisible="False" Stretch="Fill" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/视频交换机.png">
+            <Image ToolTip="双机" IsHitTestVisible="False" Stretch="Uniform" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/双机.png">
             </Image>
-            <Image ToolTip="双机" IsHitTestVisible="False" Stretch="Fill" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/双机.png">
-            </Image>
-            <Image ToolTip="网络打印机" Stretch="Fill" IsHitTestVisible="False" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/网络打印机.png">
+            <Image ToolTip="网络打印机" Stretch="Uniform" IsHitTestVisible="False" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/网络打印机.png">
             </Image>
         </ItemsControl.Items>
     </s:Toolbox>
