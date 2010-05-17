@@ -32,11 +32,11 @@
                     </ControlTemplate>
                 </s:DesignerItem.ConnectorDecoratorTemplate>
             </Image>
-            <Image IsHitTestVisible="False" Stretch="Fill" ToolTip="Test">
+            <!--<Image IsHitTestVisible="False" Stretch="Fill" ToolTip="Test">
                 <Image.Source>
                     <ImageSource u
                 </Image.Source>
-            </Image>
+            </Image>-->
         </ItemsControl.Items>
     </s:Toolbox>
 </ResourceDictionary>
