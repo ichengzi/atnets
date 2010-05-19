@@ -39,13 +39,18 @@ namespace SoftArt.WPF.Graph
                 string xamlString = XamlWriter.Save(this.Content);
                 DragObject dataObject = new DragObject();
                 dataObject.Xaml = xamlString;
-
-                WrapPanel panel = VisualTreeHelper.GetParent(this) as WrapPanel;
-                if (panel != null)
+                Grid grid = this.Content as Grid;
+                if (grid != null)
                 {
-                    // desired size for DesignerCanvas is the stretched Toolbox item size
-                    double scale = 1.3;
-                    dataObject.DesiredSize = new Size(panel.ItemWidth * scale, panel.ItemHeight * scale);
+                    RowDefinition row1 = grid.RowDefinitions[0];
+                    RowDefinition row2 = grid.RowDefinitions[1];
+                    double height = row1.ActualHeight + row2.ActualHeight;
+                    this.Height = height;
+                    dataObject.DesiredSize = new Size(this.ActualWidth, this.Height);
+                }
+                else
+                {
+                    dataObject.DesiredSize = new Size(this.ActualWidth, this.ActualHeight);
                 }
 
                 DragDrop.DoDragDrop(this, dataObject, DragDropEffects.Copy);

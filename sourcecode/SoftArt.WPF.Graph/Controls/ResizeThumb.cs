@@ -127,6 +127,7 @@ namespace SoftArt.WPF.Graph.Controls
                 double delta = (groupItemTop - groupTop) * (scale - 1);
 
                 Canvas.SetTop(groupItem, groupItemTop + delta);
+                Console.WriteLine(scale);
                 groupItem.Height = groupItem.ActualHeight * scale;
             }
         }
