@@ -225,6 +225,7 @@ namespace SoftArt.WPF.Graph
                 {
                     newItem = new DesignerItem();
                     newItem.Content = content;
+
                     Point position = e.GetPosition(this);
 
                     if (dragObject.DesiredSize.HasValue)
