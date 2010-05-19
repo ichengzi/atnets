@@ -240,11 +240,11 @@
              </ad:DockingManager>
         </ContentControl>
         <StatusBar Grid.Row="1" x:Name="statusBar" FontSize="10"> 
-            <Label Content="X:" />
+            <TextBlock Text="X:" />
             <TextBlock Text="{Binding Path=MousePoint.X,Converter={StaticResource pointConverter}}">
                          </TextBlock>
             <Separator/>
-            <Label Content="Y:" />
+            <TextBlock Text="Y:" />
             <TextBlock Text="{Binding Path=MousePoint.Y,Converter={StaticResource pointConverter}}"/>
         </StatusBar>
         </Grid>
