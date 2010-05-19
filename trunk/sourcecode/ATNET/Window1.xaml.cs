@@ -43,9 +43,14 @@ namespace ATNET
 
             Title = "ATNET 机房管理系统 - Softart";
             this.ContentRendered += new EventHandler(Window1_ContentRendered);
+        }
 
-            //this.IsEnabled = false;
-
+        private void DockingManager_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (this.DockingManager.SelectedItem != null)
+            {
+                CanvasDocumentService.SetDocumentSelected((CanvasDocument)this.DockingManager.SelectedItem);
+            }
         }
         /// <summary>
         /// 获取Document的管理类
@@ -73,6 +78,8 @@ namespace ATNET
         {
             PropertyBrowser propertyBrowser = new PropertyBrowser();
             winFormHost.Child = propertyBrowser;
+
+            this.DockingManager.SelectionChanged += new SelectionChangedEventHandler(DockingManager_SelectionChanged);
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)

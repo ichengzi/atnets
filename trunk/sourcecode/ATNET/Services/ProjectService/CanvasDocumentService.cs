@@ -115,6 +115,8 @@ namespace ATNET.Services.ProjectService
                 {
                     mainWindow.DockingManager.SelectedItem = doc;
                     currentCanvas = doc.Canvas;
+                    //显示鼠标坐标
+                    mainWindow.statusBar.DataContext = currentCanvas;
                     break;
                 }
             }
