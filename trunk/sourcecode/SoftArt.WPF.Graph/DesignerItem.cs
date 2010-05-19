@@ -123,6 +123,8 @@ namespace SoftArt.WPF.Graph
             this.Loaded += new RoutedEventHandler(DesignerItem_Loaded);
         }
 
+       
+
         public DesignerItem()
             : this(Guid.NewGuid())
         {
