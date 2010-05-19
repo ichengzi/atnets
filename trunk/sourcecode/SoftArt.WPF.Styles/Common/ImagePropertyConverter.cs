@@ -8,15 +8,24 @@ namespace SoftArt.WPF.Styles
 {
     public class ImagePropertyConverter:IValueConverter
     {
+        private static double rate = 1;
         #region IValueConverter 成员
 
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             if (value is double)
             {
-                Console.WriteLine(value.ToString());
+                if (parameter.ToString() == "H")
+                {
+                    return 45 / rate;
+                }
+                else
+                {
+                    rate = (double)value / 60;
+                    return 60;
+                }
             }
-            return value;
+            return 0;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
