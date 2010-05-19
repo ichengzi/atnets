@@ -4,7 +4,7 @@
                     xmlns:c="clr-namespace:SoftArt.WPF.Graph.Controls;assembly=SoftArt.WPF.Graph"
                     xmlns:local="clr-namespace:SoftArt.WPF.Styles">
 
-   <s:Toolbox x:Key="SymbolStencils" ItemSize="60,60">
+   <s:Toolbox x:Key="SymbolStencils">
         <s:Toolbox.Resources>
             <Style TargetType="{x:Type TextBlock}" x:Key="tbTextStyle">
                 <Setter Property="Foreground" Value="Black"/>
@@ -46,15 +46,16 @@
                     </ControlTemplate>
                 </s:DesignerItem.ConnectorDecoratorTemplate>
             </Image>-->
-            <Grid>
+            <Grid VerticalAlignment="Center">
                 <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Image Grid.Row="0" Style="{StaticResource imageStyle}" ToolTip="16HUB" Source="pack://application:,,,/SoftArt.WPF.Styles;component/Resources/16HUB.png">
                 </Image>
                 <TextBlock Text="16HUB" Style="{StaticResource tbTextStyle}" Grid.Row="1"/>
             </Grid>
+ 
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
