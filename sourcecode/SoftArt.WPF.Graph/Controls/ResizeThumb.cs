@@ -34,23 +34,6 @@ namespace SoftArt.WPF.Graph.Controls
                 {
                     if (item != null && item.ParentID == Guid.Empty)
                     {
-                        switch (base.VerticalAlignment)
-                        {
-                            case VerticalAlignment.Bottom:
-                                dragDeltaVertical = Math.Min(-e.VerticalChange, minDeltaVertical);
-                                scale = (item.ActualHeight - dragDeltaVertical) / item.ActualHeight;
-                                DragBottom(scale, item, designer.SelectionService);
-                                break;
-                            case VerticalAlignment.Top:
-                                double top = Canvas.GetTop(item);
-                                dragDeltaVertical = Math.Min(Math.Max(-minTop, e.VerticalChange), minDeltaVertical);
-                                scale = (item.ActualHeight - dragDeltaVertical) / item.ActualHeight;
-                                DragTop(scale, item, designer.SelectionService);
-                                break;
-                            default:
-                                break;
-                        }
-
                         switch (base.HorizontalAlignment)
                         {
                             case HorizontalAlignment.Left:
@@ -63,6 +46,23 @@ namespace SoftArt.WPF.Graph.Controls
                                 dragDeltaHorizontal = Math.Min(-e.HorizontalChange, minDeltaHorizontal);
                                 scale = (item.ActualWidth - dragDeltaHorizontal) / item.ActualWidth;
                                 DragRight(scale, item, designer.SelectionService);
+                                break;
+                            default:
+                                break;
+                        }
+
+                        switch (base.VerticalAlignment)
+                        {
+                            case VerticalAlignment.Bottom:
+                                dragDeltaVertical = Math.Min(-e.VerticalChange, minDeltaVertical);
+                                scale = (item.ActualHeight - dragDeltaVertical) / item.ActualHeight;
+                                DragBottom(scale, item, designer.SelectionService);
+                                break;
+                            case VerticalAlignment.Top:
+                                double top = Canvas.GetTop(item);
+                                dragDeltaVertical = Math.Min(Math.Max(-minTop, e.VerticalChange), minDeltaVertical);
+                                scale = (item.ActualHeight - dragDeltaVertical) / item.ActualHeight;
+                                DragTop(scale, item, designer.SelectionService);
                                 break;
                             default:
                                 break;
@@ -127,7 +127,6 @@ namespace SoftArt.WPF.Graph.Controls
                 double delta = (groupItemTop - groupTop) * (scale - 1);
 
                 Canvas.SetTop(groupItem, groupItemTop + delta);
-                Console.WriteLine(scale);
                 groupItem.Height = groupItem.ActualHeight * scale;
             }
         }

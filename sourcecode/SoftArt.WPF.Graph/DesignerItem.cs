@@ -191,5 +191,35 @@ namespace SoftArt.WPF.Graph
                 canvas.CurrentItem = this;
             }
         }
+
+        protected override void OnMouseDoubleClick(MouseButtonEventArgs e)
+        {
+            base.OnMouseDoubleClick(e);
+
+            TextBox tb = this.Content as TextBox;
+            if (tb != null)
+            {
+                if (tb.IsHitTestVisible == false)
+                {
+                    tb.IsHitTestVisible = true;
+                }
+            }
+        }
+
+        protected override void OnKeyDown(KeyEventArgs e)
+        {
+            base.OnKeyDown(e);
+
+            if (e.Key == Key.Enter&&e.KeyboardDevice.Modifiers==ModifierKeys.None)
+            {
+                TextBox tb = this.Content as TextBox;
+                if (tb != null)
+                {
+                    //改变textbox的IsHitTestVisible属性
+                    tb.IsHitTestVisible = false;
+                    this.Focus();
+                }
+            }
+        }
     }
 }

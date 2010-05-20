@@ -65,11 +65,22 @@
         </Setter>
     </Style>
 
+    <Style x:Key="MyFocusVisual">
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Rectangle Margin="-2" StrokeThickness="1" Stroke="Red" StrokeDashArray="1 2"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <!-- DesignerItem Style -->
     <Style TargetType="{x:Type s:DesignerItem}">
         <Setter Property="MinWidth" Value="25"/>
         <Setter Property="MinHeight" Value="25"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="FocusVisualStyle" Value="{StaticResource MyFocusVisual}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type s:DesignerItem}">

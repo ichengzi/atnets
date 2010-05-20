@@ -1,7 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:s="clr-namespace:SoftArt.WPF.Graph;assembly=SoftArt.WPF.Graph"
-                    xmlns:c="clr-namespace:SoftArt.WPF.Graph.Controls;assembly=SoftArt.WPF.Graph">
+                    xmlns:c="clr-namespace:SoftArt.WPF.Graph.Controls;assembly=SoftArt.WPF.Graph"
+                    xmlns:local="clr-namespace:SoftArt.WPF.Styles">
 
     <Brush x:Key="ItemStroke">#FFD69436</Brush>
     <LinearGradientBrush x:Key="ItemBrush" StartPoint="0,0" EndPoint="0,1">
@@ -263,16 +264,49 @@
         <Setter Property="Stroke" Value="Transparent"/>
     </Style>
 
+    <!--TextBox-->
+    <Style TargetType="{x:Type local:GraphTextBox}" x:Key="baseTbStyle">
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+        <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="Padding" Value="2"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="AllowDrop" Value="true"/>
+        <Setter Property="ToolTip" Value="{Binding Text}"/>
+        <Setter Property="IsHitTestVisible" Value="False"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+    </Style>
+    
+    <!--Process-->
+    <Style TargetType="{x:Type local:GraphTextBox}" BasedOn="{StaticResource baseTbStyle}" x:Key="processTbStyle">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:GraphTextBox}">
+                    <Grid>
+                        <Path Style="{StaticResource Process}"/>
+                        <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
     <s:Toolbox x:Key="FlowChartStencils" ItemSize="60,50" SnapsToDevicePixels="True"
              ScrollViewer.HorizontalScrollBarVisibility="Disabled">
         <ItemsControl.Items>
 
+            <local:GraphTextBox Style="{StaticResource processTbStyle}" Text="Process"/>
             <Path Style="{StaticResource Process}" ToolTip="Process">
-                <s:DesignerItem.DragThumbTemplate>
+                <!--<s:DesignerItem.DragThumbTemplate>
                     <ControlTemplate>
                         <Path Style="{StaticResource Process_DragThumb}"/>
                     </ControlTemplate>
-                </s:DesignerItem.DragThumbTemplate>
+                </s:DesignerItem.DragThumbTemplate>-->
             </Path>
 
             <Path Style="{StaticResource Decision}" ToolTip="Decision">
