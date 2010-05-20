@@ -126,7 +126,6 @@ namespace SoftArt.WPF.Graph
                 figure.Segments.Add(new PolyLineSegment(pathPoints, true));
                 geometry.Figures.Add(figure);
             }
-
             return geometry;
         }
 
