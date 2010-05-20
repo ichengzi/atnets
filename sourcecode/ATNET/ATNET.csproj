@@ -84,6 +84,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Services\MenuService\ContextMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="StartWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -156,6 +160,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Project\CommonProject.cs" />
+    <Compile Include="Services\MenuService\CustomContextMenu.cs" />
+    <Compile Include="Services\MenuService\MenuService.cs" />
     <Compile Include="Services\ParseService\ParseProject.cs" />
     <Compile Include="Services\ProjectService\CanvasDocumentService.cs" />
     <Compile Include="Services\ProjectService\CanvasService.cs" />
