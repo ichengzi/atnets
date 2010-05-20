@@ -32,6 +32,16 @@ namespace ATNET
         private void CanvasDocument_Loaded(object sender, RoutedEventArgs e)
         {
             this.mainCanvas.ContextMenu = (ContextMenu)MenuService.ContextMenuResource["canvas"];
+            this.mainCanvas.SelectedItemChangedEvent += new DesignerCanvas.SelectedItemChangedEventHandle(mainCanvas_SelectedItemChangedEvent);
+        }
+
+        private void mainCanvas_SelectedItemChangedEvent(object sender, ISelectable item)
+        {
+            DesignerItem designerItem = item as DesignerItem;
+            if (designerItem != null)
+            {
+                designerItem.ContextMenu=(ContextMenu)MenuService.ContextMenuResource["item"];
+            }
         }
         /// <summary>
         /// 获取Document中的Canvas
