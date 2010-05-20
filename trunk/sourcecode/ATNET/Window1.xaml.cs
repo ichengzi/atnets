@@ -25,6 +25,7 @@ using ATNET.Services.ProjectService;
 using ATNET.Gui.Pads.ProjectBrowser;
 using AvalonDock;
 using ATNET.Gui.Pads.PropertyBrowser;
+using ATNET.Services.MenuService;
 
 
 namespace ATNET
@@ -76,6 +77,7 @@ namespace ATNET
 
         private void Window1_ContentRendered(object sender, EventArgs e)
         {
+            MenuService.MenuServiceInit();
             PropertyBrowser propertyBrowser = new PropertyBrowser();
             winFormHost.Child = propertyBrowser;
 

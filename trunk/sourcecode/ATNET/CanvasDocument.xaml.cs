@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using AvalonDock;
 using SoftArt.WPF.Styles.Common;
 using SoftArt.WPF.Graph;
+using ATNET.Services.MenuService;
 
 namespace ATNET
 {
@@ -25,6 +26,12 @@ namespace ATNET
         public CanvasDocument()
         {
             InitializeComponent();
+            this.Loaded += new RoutedEventHandler(CanvasDocument_Loaded);
+        }
+
+        private void CanvasDocument_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.mainCanvas.ContextMenu = (ContextMenu)MenuService.ContextMenuResource["canvas"];
         }
         /// <summary>
         /// 获取Document中的Canvas

@@ -26,13 +26,6 @@
                 <Setter Property="Height" Value="16"/>
             </Style.Setters>
         </Style>
-        <!--<Style TargetType="MenuItem">
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="Blue"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>-->
         <Image x:Key="newToolImage" Style="{StaticResource toolImage}" Source="icons/new.png"  ToolTip="新建"/>
         <Image x:Key="addToolImage" Style="{StaticResource toolImage}" Source="icons/add.png"  ToolTip="添加新项"/>
         <Image x:Key="openToolImage" Style="{StaticResource toolImage}" Source="icons/open.png" ToolTip="打开"/>
@@ -58,16 +51,7 @@
         <Image x:Key="helpMenuImage" Style="{StaticResource menuImage}" Source="icons/help.png"  ToolTip="帮助"/>
 
         <Image x:Key="closeViewImage" Style="{StaticResource menuImage}" Source="icons/close.png"  ToolTip="关闭形状窗口"/>
-        <ContextMenu x:Key="itemContextMenu">
-            <MenuItem Header="复制" Command="{x:Static ApplicationCommands.Copy}"/>
-            <MenuItem Header="剪切" Command="{x:Static ApplicationCommands.Cut}"/>
-            <MenuItem Header="删除" Command="{x:Static ApplicationCommands.Delete}"/>
-            <Separator />
-            <MenuItem Header="进入下一层" />       
-        </ContextMenu>
-        <ContextMenu x:Key="canvasContextMenu">
-            <MenuItem Header="粘贴" Command="{x:Static ApplicationCommands.Paste}"/>
-        </ContextMenu>
+        
     </Window.Resources>
 
     <DockPanel LastChildFill="True">
