@@ -296,231 +296,395 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <!--Decision-->
+    <Style TargetType="{x:Type local:GraphTextBox}" BasedOn="{StaticResource baseTbStyle}" x:Key="decisionTbStyle">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:GraphTextBox}">
+                    <Grid>
+                        <Path Style="{StaticResource Decision}"/>
+                        <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--Document-->
+    <Style TargetType="{x:Type local:GraphTextBox}" BasedOn="{StaticResource baseTbStyle}" x:Key="documentTbStyle">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:GraphTextBox}">
+                    <Grid>
+                        <Path Style="{StaticResource Document}"/>
+                        <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--Data-->
+    <Style TargetType="{x:Type local:GraphTextBox}" BasedOn="{StaticResource baseTbStyle}" x:Key="dataTbStyle">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:GraphTextBox}">
+                    <Grid>
+                        <Path Style="{StaticResource Data}"/>
+                        <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--Start-->
+    <Style TargetType="{x:Type local:GraphTextBox}" BasedOn="{StaticResource baseTbStyle}" x:Key="startTbStyle">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:GraphTextBox}">
+                    <Grid>
+                        <Path Style="{StaticResource Start}"/>
+                        <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <!--Paper Tape-->
+    <Style TargetType="{x:Type local:GraphTextBox}" BasedOn="{StaticResource baseTbStyle}" x:Key="paperTbStyle">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:GraphTextBox}">
+                    <Grid>
+                        <Path Style="{StaticResource PaperTape}"/>
+                        <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--Predefined-->
+    <Style TargetType="{x:Type local:GraphTextBox}" BasedOn="{StaticResource baseTbStyle}" x:Key="predefinedTbStyle">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:GraphTextBox}">
+                    <Grid>
+                        <Path Style="{StaticResource Predefined}"/>
+                        <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--Stored Data-->
+    <Style TargetType="{x:Type local:GraphTextBox}" BasedOn="{StaticResource baseTbStyle}" x:Key="storedTbStyle">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:GraphTextBox}">
+                    <Grid>
+                        <Path Style="{StaticResource StoredData}"/>
+                        <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--Internal Storage-->
+    <Style TargetType="{x:Type local:GraphTextBox}" BasedOn="{StaticResource baseTbStyle}" x:Key="internalTbStyle">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:GraphTextBox}">
+                    <Grid>
+                        <Path Style="{StaticResource InternalStorage}"/>
+                        <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--Sequential Data-->
+    <Style TargetType="{x:Type local:GraphTextBox}" BasedOn="{StaticResource baseTbStyle}" x:Key="sequentialTbStyle">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:GraphTextBox}">
+                    <Grid>
+                        <Path Style="{StaticResource SequentialData}"/>
+                        <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--Direct Data-->
+    <Style TargetType="{x:Type local:GraphTextBox}" BasedOn="{StaticResource baseTbStyle}" x:Key="directTbStyle">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:GraphTextBox}">
+                    <Grid>
+                        <Path Style="{StaticResource DirectData}"/>
+                        <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--Manual Input-->
+    <Style TargetType="{x:Type local:GraphTextBox}" BasedOn="{StaticResource baseTbStyle}" x:Key="manualTbStyle">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:GraphTextBox}">
+                    <Grid>
+                        <Path Style="{StaticResource ManualInput}"/>
+                        <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <!--Card-->
+    <Style TargetType="{x:Type local:GraphTextBox}" BasedOn="{StaticResource baseTbStyle}" x:Key="cardTbStyle">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:GraphTextBox}">
+                    <Grid>
+                        <Path Style="{StaticResource Card}"/>
+                        <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <!--Delay-->
+    <Style TargetType="{x:Type local:GraphTextBox}" BasedOn="{StaticResource baseTbStyle}" x:Key="delayTbStyle">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:GraphTextBox}">
+                    <Grid>
+                        <Path Style="{StaticResource Delay}"/>
+                        <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--Terminator-->
+    <Style TargetType="{x:Type local:GraphTextBox}" BasedOn="{StaticResource baseTbStyle}" x:Key="terminatorTbStyle">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:GraphTextBox}">
+                    <Grid>
+                        <Path Style="{StaticResource Terminator}"/>
+                        <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--Display-->
+    <Style TargetType="{x:Type local:GraphTextBox}" BasedOn="{StaticResource baseTbStyle}" x:Key="displayTbStyle">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:GraphTextBox}">
+                    <Grid>
+                        <Path Style="{StaticResource Display}"/>
+                        <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <!--Loop Limit-->
+    <Style TargetType="{x:Type local:GraphTextBox}" BasedOn="{StaticResource baseTbStyle}" x:Key="loopTbStyle">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:GraphTextBox}">
+                    <Grid>
+                        <Path Style="{StaticResource LoopLimit}"/>
+                        <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--Preparation-->
+    <Style TargetType="{x:Type local:GraphTextBox}" BasedOn="{StaticResource baseTbStyle}" x:Key="preparationTbStyle">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:GraphTextBox}">
+                    <Grid>
+                        <Path Style="{StaticResource Preparation}"/>
+                        <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <!--Manual Operation-->
+    <Style TargetType="{x:Type local:GraphTextBox}" BasedOn="{StaticResource baseTbStyle}" x:Key="operationTbStyle">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:GraphTextBox}">
+                    <Grid>
+                        <Path Style="{StaticResource ManualOperation}"/>
+                        <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--Off Page Reference-->
+    <Style TargetType="{x:Type local:GraphTextBox}" BasedOn="{StaticResource baseTbStyle}" x:Key="offTbStyle">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:GraphTextBox}">
+                    <Grid>
+                        <Path Style="{StaticResource OffPageReference}"/>
+                        <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <s:Toolbox x:Key="FlowChartStencils" ItemSize="60,50" SnapsToDevicePixels="True"
              ScrollViewer.HorizontalScrollBarVisibility="Disabled">
         <ItemsControl.Items>
-
-            <local:GraphTextBox Style="{StaticResource processTbStyle}" Text="Process"/>
-            <Path Style="{StaticResource Process}" ToolTip="Process">
-                <!--<s:DesignerItem.DragThumbTemplate>
-                    <ControlTemplate>
-                        <Path Style="{StaticResource Process_DragThumb}"/>
-                    </ControlTemplate>
-                </s:DesignerItem.DragThumbTemplate>-->
-            </Path>
-
-            <Path Style="{StaticResource Decision}" ToolTip="Decision">
-                <s:DesignerItem.DragThumbTemplate>
-                    <ControlTemplate>
-                        <Path Style="{StaticResource Decision_DragThumb}"/>
-                    </ControlTemplate>
-                </s:DesignerItem.DragThumbTemplate>
-            </Path>
-
-            <Path Style="{StaticResource Document}" ToolTip="Document">
-                <s:DesignerItem.DragThumbTemplate>
-                    <ControlTemplate>
-                        <Path Style="{StaticResource Document_DragThumb}"/>
-                    </ControlTemplate>
-                </s:DesignerItem.DragThumbTemplate>
-                <s:DesignerItem.ConnectorDecoratorTemplate>
-                    <ControlTemplate>
-                        <c:RelativePositionPanel Margin="-4">
-                            <s:Connector Orientation="Top" c:RelativePositionPanel.RelativePosition="0.5,0"/>
-                            <s:Connector Orientation="Left" c:RelativePositionPanel.RelativePosition="0,0.5"/>
-                            <s:Connector Orientation="Right" c:RelativePositionPanel.RelativePosition="1,0.5"/>
-                            <s:Connector Orientation="Bottom" c:RelativePositionPanel.RelativePosition="0.5,0.93"/>
-                        </c:RelativePositionPanel>
-                    </ControlTemplate>
-                </s:DesignerItem.ConnectorDecoratorTemplate>
-            </Path>
-
-            <Path Style="{StaticResource Data}" ToolTip="Data">
-                <s:DesignerItem.DragThumbTemplate>
-                    <ControlTemplate>
-                        <Path Style="{StaticResource Data_DragThumb}"/>
-                    </ControlTemplate>
-                </s:DesignerItem.DragThumbTemplate>
-                <s:DesignerItem.ConnectorDecoratorTemplate>
-                    <ControlTemplate>
-                        <c:RelativePositionPanel Margin="-4">
-                            <s:Connector Orientation="Top" c:RelativePositionPanel.RelativePosition="0.5,0"/>
-                            <s:Connector Orientation="Left" c:RelativePositionPanel.RelativePosition="0.09,0.5"/>
-                            <s:Connector Orientation="Right" c:RelativePositionPanel.RelativePosition="0.91,0.5"/>
-                            <s:Connector Orientation="Bottom" c:RelativePositionPanel.RelativePosition="0.5,1"/>
-                        </c:RelativePositionPanel>
-                    </ControlTemplate>
-                </s:DesignerItem.ConnectorDecoratorTemplate>
-            </Path>
-
-            <Path Style="{StaticResource Start}" ToolTip="Start">
-                <s:DesignerItem.DragThumbTemplate>
-                    <ControlTemplate>
-                        <Path Style="{StaticResource Start_DragThumb}"/>
-                    </ControlTemplate>
-                </s:DesignerItem.DragThumbTemplate>
-            </Path>
-
-            <Path Style="{StaticResource PaperTape}" ToolTip="Paper Tape">
-                <s:DesignerItem.DragThumbTemplate>
-                    <ControlTemplate>
-                        <Path Style="{StaticResource PaperTape_DragThumb}"/>
-                    </ControlTemplate>
-                </s:DesignerItem.DragThumbTemplate>
-                <s:DesignerItem.ConnectorDecoratorTemplate>
-                    <ControlTemplate>
-                        <c:RelativePositionPanel Margin="-4">
-                            <s:Connector Orientation="Top" c:RelativePositionPanel.RelativePosition="0.5,0.07"/>
-                            <s:Connector Orientation="Left" c:RelativePositionPanel.RelativePosition="0,0.5"/>
-                            <s:Connector Orientation="Right" c:RelativePositionPanel.RelativePosition="1,0.5"/>
-                            <s:Connector Orientation="Bottom" c:RelativePositionPanel.RelativePosition="0.5,0.93"/>
-                        </c:RelativePositionPanel>
-                    </ControlTemplate>
-                </s:DesignerItem.ConnectorDecoratorTemplate>
-            </Path>
-
-            <Path Style="{StaticResource Predefined}" ToolTip="Predefined">
-                <s:DesignerItem.DragThumbTemplate>
-                    <ControlTemplate>
-                        <Path Style="{StaticResource Predefined_DragThumb}"/>
-                    </ControlTemplate>
-                </s:DesignerItem.DragThumbTemplate>
-            </Path>
-
-            <Path Style="{StaticResource StoredData}" ToolTip="Stored Data">
-                <s:DesignerItem.DragThumbTemplate>
-                    <ControlTemplate>
-                        <Path Style="{StaticResource StoredData_DragThumb}"/>
-                    </ControlTemplate>
-                </s:DesignerItem.DragThumbTemplate>
-                <s:DesignerItem.ConnectorDecoratorTemplate>
-                    <ControlTemplate>
-                        <c:RelativePositionPanel Margin="-4">
-                            <s:Connector Orientation="Top" c:RelativePositionPanel.RelativePosition="0.5,0"/>
-                            <s:Connector Orientation="Left" c:RelativePositionPanel.RelativePosition="0,0.5"/>
-                            <s:Connector Orientation="Right" c:RelativePositionPanel.RelativePosition="0.9,0.5"/>
-                            <s:Connector Orientation="Bottom" c:RelativePositionPanel.RelativePosition="0.5,1"/>
-                        </c:RelativePositionPanel>
-                    </ControlTemplate>
-                </s:DesignerItem.ConnectorDecoratorTemplate>
-            </Path>
-
-            <Path Style="{StaticResource InternalStorage}" ToolTip="Internal Storage">
-                <s:DesignerItem.DragThumbTemplate>
-                    <ControlTemplate>
-                        <Path Style="{StaticResource InternalStorage_DragThumb}"/>
-                    </ControlTemplate>
-                </s:DesignerItem.DragThumbTemplate>
-            </Path>
-
-            <Path Style="{StaticResource SequentialData}" ToolTip="Sequential Data">
-                <s:DesignerItem.DragThumbTemplate>
-                    <ControlTemplate>
-                        <Path Style="{StaticResource SequentialData_DragThumb}"/>
-                    </ControlTemplate>
-                </s:DesignerItem.DragThumbTemplate>
-            </Path>
-
-            <Path Style="{StaticResource DirectData}" ToolTip="Direct Data">
-                <s:DesignerItem.DragThumbTemplate>
-                    <ControlTemplate>
-                        <Path Style="{StaticResource DirectData_DragThumb}"/>
-                    </ControlTemplate>
-                </s:DesignerItem.DragThumbTemplate>
-            </Path>
-
-            <Path Style="{StaticResource ManualInput}" ToolTip="Manual Input">
-                <s:DesignerItem.DragThumbTemplate>
-                    <ControlTemplate>
-                        <Path Style="{StaticResource ManualInput_DragThumb}"/>
-                    </ControlTemplate>
-                </s:DesignerItem.DragThumbTemplate>
-                <s:DesignerItem.ConnectorDecoratorTemplate>
-                    <ControlTemplate>
-                        <c:RelativePositionPanel Margin="-4">
-                            <s:Connector Orientation="Top" c:RelativePositionPanel.RelativePosition="0.5,0.12"/>
-                            <s:Connector Orientation="Left" c:RelativePositionPanel.RelativePosition="0,0.5"/>
-                            <s:Connector Orientation="Right" c:RelativePositionPanel.RelativePosition="1,0.5"/>
-                            <s:Connector Orientation="Bottom" c:RelativePositionPanel.RelativePosition="0.5,1"/>
-                        </c:RelativePositionPanel>
-                    </ControlTemplate>
-                </s:DesignerItem.ConnectorDecoratorTemplate>
-            </Path>
-
-            <Path Style="{StaticResource Card}" ToolTip="Card">
-                <s:DesignerItem.DragThumbTemplate>
-                    <ControlTemplate>
-                        <Path Style="{StaticResource Card_DragThumb}"/>
-                    </ControlTemplate>
-                </s:DesignerItem.DragThumbTemplate>
-            </Path>
-
-            <Path Style="{StaticResource Delay}" ToolTip="Delay">
-                <s:DesignerItem.DragThumbTemplate>
-                    <ControlTemplate>
-                        <Path Style="{StaticResource Delay_DragThumb}"/>
-                    </ControlTemplate>
-                </s:DesignerItem.DragThumbTemplate>
-            </Path>
-
-            <Path Style="{StaticResource Terminator}" ToolTip="Terminator">
-                <s:DesignerItem.DragThumbTemplate>
-                    <ControlTemplate>
-                        <Path Style="{StaticResource Terminator_DragThumb}"/>
-                    </ControlTemplate>
-                </s:DesignerItem.DragThumbTemplate>
-            </Path>
-
-            <Path Style="{StaticResource Display}" ToolTip="Display">
-                <s:DesignerItem.DragThumbTemplate>
-                    <ControlTemplate>
-                        <Path Style="{StaticResource Display_DragThumb}"/>
-                    </ControlTemplate>
-                </s:DesignerItem.DragThumbTemplate>
-            </Path>
-
-            <Path Style="{StaticResource LoopLimit}" ToolTip="Loop Limit">
-                <s:DesignerItem.DragThumbTemplate>
-                    <ControlTemplate>
-                        <Path Style="{StaticResource LoopLimit_DragThumb}"/>
-                    </ControlTemplate>
-                </s:DesignerItem.DragThumbTemplate>
-            </Path>
-
-            <Path Style="{StaticResource Preparation}" ToolTip="Preparation">
-                <s:DesignerItem.DragThumbTemplate>
-                    <ControlTemplate>
-                        <Path Style="{StaticResource Preparation_DragThumb}"/>
-                    </ControlTemplate>
-                </s:DesignerItem.DragThumbTemplate>
-            </Path>
-
-            <Path Style="{StaticResource ManualOperation}" ToolTip="Manual Operation">
-                <s:DesignerItem.DragThumbTemplate>
-                    <ControlTemplate>
-                        <Path Style="{StaticResource ManualOperation_DragThumb}"/>
-                    </ControlTemplate>
-                </s:DesignerItem.DragThumbTemplate>
-                <s:DesignerItem.ConnectorDecoratorTemplate>
-                    <ControlTemplate>
-                        <c:RelativePositionPanel Margin="-4">
-                            <s:Connector Orientation="Top" c:RelativePositionPanel.RelativePosition="0.5,0"/>
-                            <s:Connector Orientation="Left" c:RelativePositionPanel.RelativePosition="0.1,0.5"/>
-                            <s:Connector Orientation="Right" c:RelativePositionPanel.RelativePosition="0.9,0.5"/>
-                            <s:Connector Orientation="Bottom" c:RelativePositionPanel.RelativePosition="0.5,1"/>
-                        </c:RelativePositionPanel>
-                    </ControlTemplate>
-                </s:DesignerItem.ConnectorDecoratorTemplate>
-            </Path>
-
-            <Path Style="{StaticResource OffPageReference}" ToolTip="Off Page Reference">
-                <s:DesignerItem.DragThumbTemplate>
-                    <ControlTemplate>
-                        <Path Style="{StaticResource OffPageReference_DragThumb}"/>
-                    </ControlTemplate>
-                </s:DesignerItem.DragThumbTemplate>
-            </Path>
-
+            <local:GraphTextBox Style="{StaticResource processTbStyle}"/>
+            <local:GraphTextBox Style="{StaticResource decisionTbStyle}"/>
+            <local:GraphTextBox Style="{StaticResource documentTbStyle}"/>
+            <local:GraphTextBox Style="{StaticResource dataTbStyle}"/>
+            <local:GraphTextBox Style="{StaticResource startTbStyle}"/>
+            <local:GraphTextBox Style="{StaticResource paperTbStyle}"/>
+            <local:GraphTextBox Style="{StaticResource predefinedTbStyle}"/>
+            <local:GraphTextBox Style="{StaticResource storedTbStyle}"/>
+            <local:GraphTextBox Style="{StaticResource internalTbStyle}"/>
+            <local:GraphTextBox Style="{StaticResource sequentialTbStyle}"/>
+            <local:GraphTextBox Style="{StaticResource directTbStyle}"/>
+            <local:GraphTextBox Style="{StaticResource manualTbStyle}"/>
+            <local:GraphTextBox Style="{StaticResource cardTbStyle}"/>
+            <local:GraphTextBox Style="{StaticResource delayTbStyle}"/>
+            <local:GraphTextBox Style="{StaticResource terminatorTbStyle}"/>
+            <local:GraphTextBox Style="{StaticResource displayTbStyle}"/>
+            <local:GraphTextBox Style="{StaticResource loopTbStyle}"/>
+            <local:GraphTextBox Style="{StaticResource preparationTbStyle}"/>
+            <local:GraphTextBox Style="{StaticResource operationTbStyle}"/>
+            <local:GraphTextBox Style="{StaticResource offTbStyle}"/>
         </ItemsControl.Items>
     </s:Toolbox>
 </ResourceDictionary>
