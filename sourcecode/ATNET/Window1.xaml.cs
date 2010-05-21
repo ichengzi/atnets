@@ -164,13 +164,19 @@ namespace ATNET
 
         private void openProjectMenuItem_Click(object sender, RoutedEventArgs e)
         {
+            //打开已有的工程
+            //“打开工程”窗口
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.InitialDirectory = "projects";
             openFileDialog.DefaultExt = "atnprj";
             openFileDialog.Filter = "Atnet Project files (*.atnprj)|*.atnprj";
             openFileDialog.ShowDialog();
-            ProjectService.LoadProject(openFileDialog.FileName);
-            ShowProjectTree();
+            if (openFileDialog.FileName != null && openFileDialog.FileName != "") 
+            {
+                ProjectService.LoadProject(openFileDialog.FileName);
+                ShowProjectTree();
+            }
+            
         }
     }
 }
