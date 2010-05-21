@@ -50,8 +50,8 @@ namespace SoftArt.WPF.Graph
         {
             this.designerCanvas = designer;
             this.sourceConnector = sourceConnector;
-            drawingPen = new Pen(Brushes.LightSlateGray, 1);
-            drawingPen.LineJoin = PenLineJoin.Round;
+            drawingPen = new Pen(Brushes.YellowGreen, 0.5);//LightSlateGray
+            drawingPen.LineJoin = PenLineJoin.Miter;
             this.Cursor = Cursors.Cross;
         }
 
@@ -103,7 +103,8 @@ namespace SoftArt.WPF.Graph
             // without a background the OnMouseMove event would not be fired
             // Alternative: implement a Canvas as a child of this adorner, like
             // the ConnectionAdorner does.
-            dc.DrawRectangle(Brushes.Transparent, null, new Rect(RenderSize));
+            Rect rect = new Rect(RenderSize);
+            dc.DrawRectangle(Brushes.Transparent, null, rect);
         }
 
         private PathGeometry GetPathGeometry(Point position)

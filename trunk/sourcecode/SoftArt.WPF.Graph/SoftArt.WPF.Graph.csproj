@@ -68,6 +68,7 @@
     <Compile Include="DesignerCanvas.Commands.cs" />
     <Compile Include="DesignerCanvas.cs" />
     <Compile Include="DesignerItem.cs" />
+    <Compile Include="HitTestingService.cs" />
     <Compile Include="IGroupable.cs" />
     <Compile Include="ISelected.cs" />
     <Compile Include="PathFinderHelper.cs" />

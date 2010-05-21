@@ -226,9 +226,14 @@ namespace SoftArt.WPF.Graph
                     isSelected = value;
                     OnPropertyChanged("IsSelected");
                     if (isSelected)
+                    {
                         ShowAdorner();
+                    }
                     else
+                    {
                         HideAdorner();
+                        PathHitTestingService.UpdatePath(isSelected);
+                    }
                 }
             }
         }
@@ -256,6 +261,7 @@ namespace SoftArt.WPF.Graph
                     if (this.IsSelected)
                     {
                         designer.SelectionService.RemoveFromSelection(this);
+                        PathHitTestingService.HitTesting(this, e.GetPosition(this));
                     }
                     else
                     {
@@ -263,6 +269,7 @@ namespace SoftArt.WPF.Graph
                     }
                 else if (!this.IsSelected)
                 {
+                    PathHitTestingService.HitTesting(this, e.GetPosition(this));
                     designer.SelectionService.SelectItem(this);
                 }
 
