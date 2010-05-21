@@ -174,8 +174,6 @@ namespace SoftArt.WPF.Graph
             base.OnMouseDown(e);
             if (e.Source == this)
             {
-         
-                HitTesting(e.GetPosition(this));
                 // in case that this click is the start of a 
                 // drag operation we cache the start point
                 this.rubberbandSelectionStartPoint = new Point?(e.GetPosition(this));
@@ -187,57 +185,6 @@ namespace SoftArt.WPF.Graph
                 e.Handled = true;
             }
         }
-
-        private List<DependencyObject> hitResultsList = new List<DependencyObject>();
-
-        private void HitTesting(Point hitPoint)
-        {
-            // Expand the hit test area by creating a geometry centered on the hit test point.
-            EllipseGeometry expandedHitTestArea = new EllipseGeometry(hitPoint, 10.0, 10.0);
-            // Clear the contents of the list used for hit test results.
-            hitResultsList.Clear();
-            // Set up a callback to receive the hit test result enumeration.
-            VisualTreeHelper.HitTest(this, null,
-                new HitTestResultCallback(hitTestResultCallback),
-                new GeometryHitTestParameters(expandedHitTestArea));
-
-            // Perform actions on the hit test results list.
-            if (hitResultsList.Count > 0)
-            {
-                System.Windows.Shapes.Path path = hitResultsList[0] as System.Windows.Shapes.Path;
-                if (path != null)
-                {
-                    path.Stroke = Brushes.Red;
-                }
-            }
-
-
-        }
-
-        // Return the result of the hit test to the callback.
-        public HitTestResultBehavior hitTestResultCallback(HitTestResult result)
-        {
-            // Retrieve the results of the hit test.
-            IntersectionDetail intersectionDetail = ((GeometryHitTestResult)result).IntersectionDetail;
-            switch (intersectionDetail)
-            {
-                case IntersectionDetail.FullyContains:
-                    // Add the hit test result to the list that will be processed after the enumeration.
-                    hitResultsList.Add(result.VisualHit);        
-                    return HitTestResultBehavior.Continue;
-                case IntersectionDetail.Intersects:
-                    hitResultsList.Add(result.VisualHit);
-                    // Set the behavior to return visuals at all z-order levels.
-                    return HitTestResultBehavior.Continue;
-                case IntersectionDetail.FullyInside:
-                    hitResultsList.Add(result.VisualHit);
-                    // Set the behavior to return visuals at all z-order levels.
-                    return HitTestResultBehavior.Continue;
-                default:
-                    return HitTestResultBehavior.Stop;
-            }
-        }
-
 
         protected override void OnMouseMove(MouseEventArgs e)
         {

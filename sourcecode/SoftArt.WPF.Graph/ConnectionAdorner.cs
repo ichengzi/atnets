@@ -9,6 +9,7 @@ using System.Windows.Media;
 
 namespace SoftArt.WPF.Graph
 {
+    
     public class ConnectionAdorner:Adorner
     {
         private DesignerCanvas designerCanvas;
@@ -78,7 +79,7 @@ namespace SoftArt.WPF.Graph
 
             InitializeDragThumbs();
 
-            drawingPen = new Pen(Brushes.LightSlateGray, 1);
+            drawingPen = new Pen(Brushes.LightSlateGray, 0.5);
             drawingPen.LineJoin = PenLineJoin.Round;
         }
 
@@ -238,4 +239,5 @@ namespace SoftArt.WPF.Graph
             HitDesignerItem = null;
         }
     }
+     
 }
