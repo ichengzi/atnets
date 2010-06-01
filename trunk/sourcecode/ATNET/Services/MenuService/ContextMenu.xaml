@@ -7,6 +7,8 @@
         <MenuItem Header="剪切" Command="{x:Static ApplicationCommands.Cut}"/>
         <MenuItem Header="删除" Command="{x:Static ApplicationCommands.Delete}"/>
         <Separator />
+        <MenuItem Header="制作标签" Command="{x:Static local:CustomContextMenu.AddLabel}"/>
+        <Separator />
         <MenuItem Header="进入下一层" />
     </local:CustomContextMenu>
 
