@@ -12,5 +12,9 @@ namespace ATNET
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            //SplashScreen splashScreen = new SplashScreen();
+        }
     }
 }
