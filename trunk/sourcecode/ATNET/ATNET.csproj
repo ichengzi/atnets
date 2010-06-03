@@ -80,6 +80,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Gui\Windows\Label\ChoseLabelWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="NewProjectWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -140,6 +144,9 @@
     <Compile Include="Gui\Pads\ProjectBrowser\TreeNode\DirectoryTreeNode.cs" />
     <Compile Include="Gui\Pads\PropertyBrowser\PropertyBrowser.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Gui\Windows\Label\ChoseLabelWindow.xaml.cs">
+      <DependentUpon>ChoseLabelWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="NewProjectWindow.xaml.cs">
       <DependentUpon>NewProjectWindow.xaml</DependentUpon>
