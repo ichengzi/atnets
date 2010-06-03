@@ -31,7 +31,7 @@ namespace WpfTest
         void Window1_Loaded(object sender, RoutedEventArgs e)
         {
             //CreateTree();
-            CreateCustomTree();
+            //CreateCustomTree();
         }
 
         private void CreateTree()
