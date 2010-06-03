@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Drawing.Printing;
 
 namespace ATNET.Gui.Windows
 {
@@ -21,6 +22,27 @@ namespace ATNET.Gui.Windows
         public ChoseLabelWindow()
         {
             InitializeComponent();
+            this.Loaded += new RoutedEventHandler(ChoseLabelWindow_Loaded);
+        }
+
+        private void ChoseLabelWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            IList<string> prints = GetPrintList();
+            foreach (string print in prints)
+            {
+                cmbPrint.Items.Add(print);
+            }
+        }
+
+        private IList<string> GetPrintList()
+        {
+            IList<string> printList = new List<string>();
+
+            foreach (string name in PrinterSettings.InstalledPrinters)
+            {
+                printList.Add(name);
+            }
+            return printList;
         }
     }
 }
