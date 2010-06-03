@@ -84,6 +84,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Gui\Windows\Label\LabelWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="NewProjectWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -147,6 +151,9 @@
     </Compile>
     <Compile Include="Gui\Windows\Label\ChoseLabelWindow.xaml.cs">
       <DependentUpon>ChoseLabelWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\Windows\Label\LabelWindow.xaml.cs">
+      <DependentUpon>LabelWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="NewProjectWindow.xaml.cs">
       <DependentUpon>NewProjectWindow.xaml</DependentUpon>
@@ -236,6 +243,24 @@
     <Resource Include="icons\display.png" />
     <Resource Include="icons\property.png" />
     <Resource Include="project.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\view.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\print.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\choose.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\barcode.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\text.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\pic.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

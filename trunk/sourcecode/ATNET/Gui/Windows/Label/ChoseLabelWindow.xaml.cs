@@ -32,6 +32,11 @@ namespace ATNET.Gui.Windows
             {
                 cmbPrint.Items.Add(print);
             }
+
+            cmbPrint.SelectedIndex = 0;
+            cmbLabelType.SelectedIndex = 0;
+            cmbLabelName.Items.Add("Test1");
+            cmbLabelName.SelectedIndex = 0;
         }
 
         private IList<string> GetPrintList()
@@ -43,6 +48,18 @@ namespace ATNET.Gui.Windows
                 printList.Add(name);
             }
             return printList;
+        }
+
+        private void btnOK_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            LabelWindow window = new LabelWindow();
+            window.Show();
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

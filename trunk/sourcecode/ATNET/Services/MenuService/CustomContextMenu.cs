@@ -19,7 +19,7 @@ namespace ATNET.Services.MenuService
         private void AddLable_Excute(object sender, ExecutedRoutedEventArgs e)
         {
             ATNET.Gui.Windows.ChoseLabelWindow window = new ATNET.Gui.Windows.ChoseLabelWindow();
-            window.ShowDialog();
+            window.Show();
         }
     }
 }
