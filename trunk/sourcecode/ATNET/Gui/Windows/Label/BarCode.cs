@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using System.Windows;
 using System.Windows.Media;
 using System.Drawing.Text;
+using System.Windows.Input;
 
 namespace ATNET.Gui.Windows.Label
 {
@@ -15,6 +16,7 @@ namespace ATNET.Gui.Windows.Label
     public class BarCode:Grid
     {
         private System.Drawing.FontFamily barcodeFont;
+        private bool isMouseLeftButtonDown = false;
 
         private string barCodeString;
         /// <summary>
@@ -27,10 +29,33 @@ namespace ATNET.Gui.Windows.Label
 
         public BarCode()
         {
- 
+            this.PreviewMouseLeftButtonDown += new MouseButtonEventHandler(BarCode_PreviewMouseLeftButtonDown);
+            this.PreviewMouseMove += new MouseEventHandler(BarCode_PreviewMouseMove);
+            this.PreviewMouseLeftButtonUp += new MouseButtonEventHandler(BarCode_PreviewMouseLeftButtonUp);
         }
 
-        public BarCode(string barCodeString)
+        private void BarCode_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Cursor = Cursors.Cross;
+            this.isMouseLeftButtonDown = true;
+        }
+
+        private void BarCode_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            this.Cursor = Cursors.Arrow;
+            this.isMouseLeftButtonDown = false;
+        }
+
+        private void BarCode_PreviewMouseMove(object sender, MouseEventArgs e)
+        {
+            if (isMouseLeftButtonDown)
+            {
+          
+
+            }
+        }
+
+        public BarCode(string barCodeString):this()
         {
             this.barCodeString = barCodeString;
             InitializeBarCode();
