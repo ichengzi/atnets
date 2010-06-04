@@ -32,6 +32,7 @@ namespace WpfTest
             barString.HorizontalAlignment = HorizontalAlignment.Center;
             barString.VerticalAlignment = VerticalAlignment.Center;
             barString.FontSize = 50;
+            barString.TextChanged += new TextChangedEventHandler(TextBox_TextChanged);
             barString.Text = "2";
             barString.BorderBrush = Brushes.Transparent;
             barString.Background = Brushes.Transparent;
@@ -49,15 +50,18 @@ namespace WpfTest
             Grid.SetRow(barString, 1);
 
             mainGrid.Children.Add(grid);
-            barString.TextChanged += new TextChangedEventHandler(TextBox_TextChanged);
+
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox tb = sender as TextBox;
             Grid parent = tb.Parent as Grid;
-            TextBlock graph = parent.Children[0] as TextBlock;
-            graph.Text = tb.Text;
+            if (parent != null)
+            {
+                TextBlock graph = parent.Children[0] as TextBlock;
+                graph.Text = tb.Text;
+            }
         }
     }
 }
