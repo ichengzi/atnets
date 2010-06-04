@@ -149,6 +149,7 @@
     <Compile Include="Gui\Pads\PropertyBrowser\PropertyBrowser.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Gui\Windows\Label\BarCode.cs" />
     <Compile Include="Gui\Windows\Label\ChoseLabelWindow.xaml.cs">
       <DependentUpon>ChoseLabelWindow.xaml</DependentUpon>
     </Compile>

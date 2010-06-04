@@ -32,6 +32,9 @@ namespace WpfTest
         {
             //CreateTree();
             //CreateCustomTree();
+            this.Hide();
+            Window2 window = new Window2();
+            window.ShowDialog();
         }
 
         private void CreateTree()
@@ -74,5 +77,7 @@ namespace WpfTest
             icon.Source = bitmap;
             return icon;
         }
+
+  
     }
 }
