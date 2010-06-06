@@ -88,6 +88,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Gui\Windows\CustomProperty\ViewProperty.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="NewProjectWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -155,6 +159,9 @@
     </Compile>
     <Compile Include="Gui\Windows\Label\LabelWindow.xaml.cs">
       <DependentUpon>LabelWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\Windows\CustomProperty\ViewProperty.xaml.cs">
+      <DependentUpon>ViewProperty.xaml</DependentUpon>
     </Compile>
     <Compile Include="NewProjectWindow.xaml.cs">
       <DependentUpon>NewProjectWindow.xaml</DependentUpon>

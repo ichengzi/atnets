@@ -66,7 +66,8 @@ namespace ATNET
                     }
                 }
                 //建立新工程，进入主界面
-                IProject project=CommonProject.NewProject(projPath.Text + "\\" + projName.Text);
+                IProject project = CommonProject.NewProject(projPath.Text + "\\" + projName.Text);
+                
                 ProjectService.CurrentProject = project;
                 this.Close();
             }
