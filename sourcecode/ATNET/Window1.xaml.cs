@@ -72,6 +72,10 @@ namespace ATNET
         {
             //从配置文件中读出当前用户的界面风格
             dockingManager.Show(toolWindow, AvalonDock.DockableContentState.Docked);
+            if (ProjectService.CurrentProject == null)
+            {
+                addNewCanvas.IsEnabled = false;
+            }
             return true;
         }
 
@@ -149,7 +153,10 @@ namespace ATNET
             //“新工程”窗口
             NewProjectWindow newProjWindow = new NewProjectWindow();
             newProjWindow.ShowDialog();
-            ShowProjectTree();
+            if (ProjectService.CurrentProject != null)
+            {
+                ShowProjectTree();
+            }
         }
         /// <summary>
         /// 在主窗体上显示Project的Tree
@@ -177,6 +184,14 @@ namespace ATNET
                 ShowProjectTree();
             }
             
+        }
+
+        private void addNewCanvas_Click(object sender, RoutedEventArgs e)
+        {
+            //添加新的页面
+            //“添加页面”窗口
+            CanvasDocument newCanvas = new CanvasDocument();
+            ProjectService.CurrentProject.Items.Add(new Project.DirectoryProjectItem(ProjectService.CurrentProject));
         }
     }
 }
