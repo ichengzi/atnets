@@ -5,6 +5,7 @@ using System.Text;
 using ATNET.Services.ParseService;
 using System.Xml.Linq;
 using System.IO;
+using Microsoft.Win32;
 
 namespace ATNET.Project
 {
@@ -32,7 +33,10 @@ namespace ATNET.Project
 
         protected override void Save(string fileName)
         {
-            fileName = fileName + ".atnprj";
+            if (fileName.IndexOf(".atnprj") == -1)
+            {
+                fileName = fileName + ".atnprj";
+            }
             IProject project = new CommonProject(fileName);
             XElement xElement = new XElement("Project",
                 new XElement("Name", project.Name),
@@ -40,7 +44,23 @@ namespace ATNET.Project
                 new XElement("Items", ""));
             xElement.Save(fileName);
         }
-
+        public override void SaveAs(string fileName)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = "projects";
+            openFileDialog.DefaultExt = "atnprj";
+            openFileDialog.Filter = "Atnet Project files (*.atnprj)|*.atnprj";
+            openFileDialog.ShowDialog();
+            if (openFileDialog.FileName != null && openFileDialog.FileName != "")
+            {
+                IProject project = new CommonProject(openFileDialog.FileName);
+                XElement xElement = new XElement("Project",
+                    new XElement("Name", project.Name),
+                    new XElement("GuidID", project.GuidID),
+                    new XElement("Items", ""));
+                xElement.Save(openFileDialog.FileName);
+            }
+        }
         /// <summary>
         /// 建立一个新的工程
         /// </summary>

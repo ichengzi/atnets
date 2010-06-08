@@ -194,7 +194,34 @@ namespace ATNET
             CanvasDocument newCanvas = new CanvasDocument();
 
             ProjectService.CurrentProject.Items.Add(new Project.DirectoryProjectItem(ProjectService.CurrentProject));
-            CanvasDocumentService.AddCanvasDocument(ProjectService.CurrentProject.CanvasDocument);
+
+        }
+
+
+        private void saveCurrentProject_Click(object sender, RoutedEventArgs e)
+        {
+            //保存当前项目
+            //“保存项目”窗口
+            if (ProjectService.CurrentProject != null)
+            {
+                if (!ProjectService.CurrentProject.IsSaved && ProjectService.CurrentProject.Name != null)
+                {
+                    ProjectService.CurrentProject.Save();
+                }
+            }
+
+        }
+
+        private void saveCurrentProjectAs_Click(object sender, RoutedEventArgs e)
+        {
+            //另存当前项目
+            //“另存项目”窗口
+            if (ProjectService.CurrentProject != null)
+            {
+                ProjectService.CurrentProject.SaveAs("");
+              
+            }
+
         }
     }
 }

@@ -61,10 +61,10 @@
                 <MenuItem Header="新建页面" x:Name="addNewCanvas" Icon="{StaticResource newMenuImage}" Click="addNewCanvas_Click" />
                 <MenuItem Header="打开项目" x:Name="openProjectMenuItem" Icon="{StaticResource openMenuImage}" Click="openProjectMenuItem_Click"/>
                 <Separator/>
-                <MenuItem Header="保存项目"/>
-                <MenuItem Header="项目另存为"/>
+                <MenuItem Header="保存项目" x:Name="saveCurrentProject" Click="saveCurrentProject_Click" />
+                <MenuItem Header="项目另存为" x:Name="saveCurrentProjectAs" Click="saveCurrentProjectAs_Click" />
                 <Separator/>
-                <MenuItem Header="关闭当前页" Icon="{StaticResource closeMenuImage}"/>
+                <MenuItem Header="关闭当前页" Icon="{StaticResource closeMenuImage}" />
                 <MenuItem Header="保存当前页" Icon="{StaticResource saveMenuImage}" Command="{x:Static ApplicationCommands.Save}"/>
                 <MenuItem Header="打印" Click="MenuItem_Click" Icon="{StaticResource printMenuImage}"/>
                 <MenuItem Header="最近访问的项目"/>
