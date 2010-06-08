@@ -4,5 +4,7 @@
     Title="Window1" Height="500" Width="300"  WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow">
     <Grid x:Name="mainGrid">
         <!--<TextBox Width="100" Height="30" Text="1" TextChanged="TextBox_TextChanged"/>-->
+        <Button x:Name="btn" Content="Button" Width="200" Height="50" Background="Red" BorderBrush="Blue"/>
+        <Canvas x:Name="canvas"/>
     </Grid>
 </Window>

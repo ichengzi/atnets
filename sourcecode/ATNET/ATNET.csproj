@@ -157,6 +157,7 @@
     <Compile Include="Gui\Windows\Label\ChoseLabelWindow.xaml.cs">
       <DependentUpon>ChoseLabelWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Gui\Windows\Label\DraggedAdorner.cs" />
     <Compile Include="Gui\Windows\Label\LabelWindow.xaml.cs">
       <DependentUpon>LabelWindow.xaml</DependentUpon>
     </Compile>

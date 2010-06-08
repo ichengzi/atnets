@@ -32,9 +32,12 @@ namespace WpfTest
         {
             //CreateTree();
             //CreateCustomTree();
-            this.Hide();
-            Window2 window = new Window2();
-            window.ShowDialog();
+            //this.Hide();
+            //Window2 window = new Window2();
+            //window.ShowDialog();
+            VisualBrush brush = new VisualBrush(btn);
+            canvas.Background = brush;
+         
         }
 
         private void CreateTree()

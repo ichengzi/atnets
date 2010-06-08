@@ -13,6 +13,7 @@ using System.Windows.Shapes;
 using System.Drawing.Text;
 using SoftArt.WPF.Graph;
 using ATNET.Gui.Windows.Label;
+using System.IO;
 
 namespace ATNET.Gui.Windows
 {
@@ -29,6 +30,8 @@ namespace ATNET.Gui.Windows
         private Point? dragStartPoint = null;
         private BarCode barCode;
 
+        private Visual selectedBrush = null;
+
         private void LabelWindow_Closed(object sender, EventArgs e)
         {
             foreach (Window window in App.Current.Windows)
@@ -43,6 +46,11 @@ namespace ATNET.Gui.Windows
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             dragStartPoint = new Point?(Mouse.GetPosition((Button)sender));
+            if (selectedBrush == null)
+            {
+                Button btn = sender as Button;
+                selectedBrush = btn;
+            }
         }
 
         private void Canvas_Drop(object sender, DragEventArgs e)
@@ -55,6 +63,7 @@ namespace ATNET.Gui.Windows
             Canvas.SetLeft(bc, e.GetPosition(this.mainCanvas).X);
 
             dragStartPoint = null;
+            selectedBrush = null;
         }
 
         private void Button_PreviewMouseMove(object sender, MouseEventArgs e)
@@ -65,6 +74,15 @@ namespace ATNET.Gui.Windows
                 this.barCode = new BarCode("1234567");
                 dataObject.SetData(this.barCode);
                 DragDrop.DoDragDrop((Button)sender, dataObject, DragDropEffects.Copy);
+            }
+        }
+
+        private void mainCanvas_PreviewMouseMove(object sender, MouseEventArgs e)
+        {
+            if (selectedBrush != null)
+            {
+                var adonerLayer = AdornerLayer.GetAdornerLayer(this.mainCanvas);
+                DraggedAdorner draggedAdorner = new DraggedAdorner(adonerLayer,(UIElement)selectedBrush);
             }
         }
 
