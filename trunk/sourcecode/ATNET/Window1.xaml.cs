@@ -171,7 +171,7 @@ namespace ATNET
 
         private void openProjectMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            //打开已有的工程
+            //打开已有的工程 
             //“打开工程”窗口
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.InitialDirectory = "projects";
@@ -181,6 +181,7 @@ namespace ATNET
             if (openFileDialog.FileName != null && openFileDialog.FileName != "") 
             {
                 ProjectService.LoadProject(openFileDialog.FileName);
+                addNewCanvas.IsEnabled = true;
                 ShowProjectTree();
             }
             
@@ -191,7 +192,9 @@ namespace ATNET
             //添加新的页面
             //“添加页面”窗口
             CanvasDocument newCanvas = new CanvasDocument();
+
             ProjectService.CurrentProject.Items.Add(new Project.DirectoryProjectItem(ProjectService.CurrentProject));
+            CanvasDocumentService.AddCanvasDocument(ProjectService.CurrentProject.CanvasDocument);
         }
     }
 }
