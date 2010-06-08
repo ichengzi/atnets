@@ -45,7 +45,8 @@
         </ToolBarTray>
         <ScrollViewer Style="{StaticResource scrollViewerRuler}" HorizontalScrollBarVisibility="Visible" 
                               VerticalScrollBarVisibility="Visible" Margin="0" x:Name="mainScrollViewer" Background="Red">
-            <Canvas x:Name="mainCanvas" Background="{StaticResource canvasBrushResource}" Margin="39,39,160,120" AllowDrop="True" Drop="Canvas_Drop">
+            <Canvas x:Name="mainCanvas" Background="{StaticResource canvasBrushResource}" Margin="39,39,160,120" AllowDrop="True"
+                    PreviewMouseMove="mainCanvas_PreviewMouseMove" Drop="Canvas_Drop">
 
             </Canvas>
         </ScrollViewer>
