@@ -22,15 +22,34 @@ namespace ATNET.Gui.Windows
     /// </summary>
     public partial class LabelWindow : Window
     {
+        private Point? dragStartPoint = null;
+        private Vector initialMouseOffset;
+        private BarCode barCode;
+        private DraggedAdorner draggedAdorner = null;
+
+        private Visual selectedBrush = null;
+        
         public LabelWindow()
         {
             InitializeComponent();
             this.Closed += new EventHandler(LabelWindow_Closed);
+            foreach (UIElement children in toolBar.Items)
+            {
+                if (children is Button)
+                {
+                    ((Button)children).PreviewMouseLeftButtonDown += new MouseButtonEventHandler(Button_PreviewMouseLeftButtonDown);
+                }
+            }
         }
-        private Point? dragStartPoint = null;
-        private BarCode barCode;
 
-        private Visual selectedBrush = null;
+        private void Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (selectedBrush == null)
+            {
+                Button btn = sender as Button;
+                selectedBrush = btn;
+            }
+        }
 
         private void LabelWindow_Closed(object sender, EventArgs e)
         {
@@ -40,16 +59,6 @@ namespace ATNET.Gui.Windows
                 {
                     window.Close();
                 }
-            }
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            dragStartPoint = new Point?(Mouse.GetPosition((Button)sender));
-            if (selectedBrush == null)
-            {
-                Button btn = sender as Button;
-                selectedBrush = btn;
             }
         }
 
@@ -64,26 +73,86 @@ namespace ATNET.Gui.Windows
 
             dragStartPoint = null;
             selectedBrush = null;
+
+            RemoveDraggedAdorner();
+            e.Handled = true;
         }
 
-        private void Button_PreviewMouseMove(object sender, MouseEventArgs e)
+        public static bool IsMovementBigEnough(Point initialMousePosition, Point currentPosition)
+        {
+            return (Math.Abs(currentPosition.X - initialMousePosition.X) >= SystemParameters.MinimumHorizontalDragDistance ||
+                 Math.Abs(currentPosition.Y - initialMousePosition.Y) >= SystemParameters.MinimumVerticalDragDistance);
+        }
+
+        private void ToolBar_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            dragStartPoint = new Point?(Mouse.GetPosition(this));
+        }
+
+        private void ToolBar_PreviewMouseMove(object sender, MouseEventArgs e)
         {
             if (dragStartPoint.HasValue)
             {
-                DataObject dataObject = new DataObject();
-                this.barCode = new BarCode("1234567");
-                dataObject.SetData(this.barCode);
-                DragDrop.DoDragDrop((Button)sender, dataObject, DragDropEffects.Copy);
+                if (IsMovementBigEnough(dragStartPoint.Value, e.GetPosition(this)))
+                {
+                    Button btn = selectedBrush as Button;
+                    this.initialMouseOffset = this.dragStartPoint.Value - btn.TranslatePoint(new Point(0, 0), this);
+
+                    DataObject dataObject = new DataObject();
+                    this.barCode = new BarCode("1234567");
+                    dataObject.SetData(this.barCode);
+                    DragDrop.DoDragDrop(this, dataObject, DragDropEffects.Copy);
+                }
             }
         }
 
-        private void mainCanvas_PreviewMouseMove(object sender, MouseEventArgs e)
+        private void mainCanvas_PreviewDragEnter(object sender, DragEventArgs e)
         {
-            if (selectedBrush != null)
+            BarCode bc = e.Data.GetData(typeof(BarCode)) as BarCode;
+            if (bc != null)
             {
-                var adonerLayer = AdornerLayer.GetAdornerLayer(this.mainCanvas);
-                DraggedAdorner draggedAdorner = new DraggedAdorner(adonerLayer,(UIElement)selectedBrush);
+                ShowDraggedAdorner(e.GetPosition(this));
             }
+            e.Handled = true;
+        }
+
+        private void mainCanvas_PreviewDragOver(object sender, DragEventArgs e)
+        {
+            BarCode bc = e.Data.GetData(typeof(BarCode)) as BarCode;
+            if (bc != null)
+            {
+                ShowDraggedAdorner(e.GetPosition(this));
+            }
+            e.Handled = true;
+        }
+
+        private void ShowDraggedAdorner(Point currentPoint)
+        {
+            if (this.draggedAdorner == null)
+            {
+                var adornerLayer = AdornerLayer.GetAdornerLayer(this.mainCanvas);
+                this.draggedAdorner = new DraggedAdorner(adornerLayer, this.mainCanvas);
+            }
+            double leftChange = currentPoint.X - this.dragStartPoint.Value.X + this.initialMouseOffset.X;
+            double topChange = currentPoint.Y - this.dragStartPoint.Value.Y + this.initialMouseOffset.Y;
+            Console.WriteLine("Left:" + leftChange);
+            Console.WriteLine("Top:" + topChange);
+            this.draggedAdorner.SetPosition(leftChange, topChange);
+        }
+
+        private void RemoveDraggedAdorner()
+        {
+            if (this.draggedAdorner != null)
+            {
+                this.draggedAdorner.Detach();
+                this.draggedAdorner = null;
+            }
+        }
+
+        private void mainCanvas_PreviewDragLeave(object sender, DragEventArgs e)
+        {
+            RemoveDraggedAdorner();
+            e.Handled = true;
         }
 
     }

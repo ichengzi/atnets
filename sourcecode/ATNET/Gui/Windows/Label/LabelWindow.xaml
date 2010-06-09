@@ -12,7 +12,7 @@
     </Window.Resources>
     <DockPanel>
         <ToolBarTray DockPanel.Dock="Top" >
-            <ToolBar Height="25">
+            <ToolBar x:Name="toolBar" Height="25" PreviewMouseLeftButtonDown="ToolBar_PreviewMouseLeftButtonDown" PreviewMouseMove="ToolBar_PreviewMouseMove">
                 <Button Style="{StaticResource toolButtonStyle}" ToolTip="标签设置">
                     <Image Source="pack://Application:,,,/ATNET;component/icons/setting.png"/>
                 </Button>
@@ -26,7 +26,7 @@
                 <Button Style="{StaticResource toolButtonStyle}" ToolTip="选取">
                     <Image Source="pack://Application:,,,/ATNET;component/icons/choose.ico"/>
                 </Button>
-                <Button Style="{StaticResource toolButtonStyle}" ToolTip="条形码" Click="Button_Click" PreviewMouseMove="Button_PreviewMouseMove">
+                <Button Style="{StaticResource toolButtonStyle}" ToolTip="条形码">
                     <Image Source="pack://Application:,,,/ATNET;component/icons/barcode.png"/>
                 </Button>
                 <Button Style="{StaticResource toolButtonStyle}" ToolTip="文字">
@@ -46,7 +46,8 @@
         <ScrollViewer Style="{StaticResource scrollViewerRuler}" HorizontalScrollBarVisibility="Visible" 
                               VerticalScrollBarVisibility="Visible" Margin="0" x:Name="mainScrollViewer" Background="Red">
             <Canvas x:Name="mainCanvas" Background="{StaticResource canvasBrushResource}" Margin="39,39,160,120" AllowDrop="True"
-                    PreviewMouseMove="mainCanvas_PreviewMouseMove" Drop="Canvas_Drop">
+                    PreviewDragOver="mainCanvas_PreviewDragOver" PreviewDragEnter="mainCanvas_PreviewDragEnter"
+                    PreviewDragLeave="mainCanvas_PreviewDragLeave" PreviewDrop="Canvas_Drop">
 
             </Canvas>
         </ScrollViewer>
