@@ -35,7 +35,7 @@ namespace ATNET
             if (btn.Content.ToString() == "浏览")
             {
                 FolderBrowserDialog dialog = new FolderBrowserDialog();
-                dialog.RootFolder = Environment.SpecialFolder.MyDocuments;
+                dialog.RootFolder = Environment.SpecialFolder.DesktopDirectory;
                 dialog.ShowDialog();
                 projPath.Text = dialog.SelectedPath;
             }
