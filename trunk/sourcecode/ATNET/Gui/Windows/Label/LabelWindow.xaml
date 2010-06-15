@@ -26,7 +26,7 @@
                 <Button Style="{StaticResource toolButtonStyle}" ToolTip="选取">
                     <Image Source="pack://Application:,,,/ATNET;component/icons/choose.ico"/>
                 </Button>
-                <Button Style="{StaticResource toolButtonStyle}" ToolTip="条形码">
+                <Button Style="{StaticResource toolButtonStyle}" ToolTip="条形码" x:Name="btnBarcode">
                     <Image Source="pack://Application:,,,/ATNET;component/icons/barcode.png"/>
                 </Button>
                 <Button Style="{StaticResource toolButtonStyle}" ToolTip="文字">

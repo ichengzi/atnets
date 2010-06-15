@@ -131,12 +131,12 @@ namespace ATNET.Gui.Windows
             if (this.draggedAdorner == null)
             {
                 var adornerLayer = AdornerLayer.GetAdornerLayer(this.mainCanvas);
-                this.draggedAdorner = new DraggedAdorner(adornerLayer, this.mainCanvas);
+                DataTemplate template = new DataTemplate();
+                template.VisualTree = new FrameworkElementFactory(typeof(TextBlock));
+                this.draggedAdorner = new DraggedAdorner(adornerLayer, this.mainCanvas, template);
             }
             double leftChange = currentPoint.X - this.dragStartPoint.Value.X + this.initialMouseOffset.X;
             double topChange = currentPoint.Y - this.dragStartPoint.Value.Y + this.initialMouseOffset.Y;
-            Console.WriteLine("Left:" + leftChange);
-            Console.WriteLine("Top:" + topChange);
             this.draggedAdorner.SetPosition(leftChange, topChange);
         }
 
