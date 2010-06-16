@@ -132,7 +132,11 @@ namespace ATNET.Gui.Windows
             {
                 var adornerLayer = AdornerLayer.GetAdornerLayer(this.mainCanvas);
                 DataTemplate template = new DataTemplate();
-                template.VisualTree = new FrameworkElementFactory(typeof(TextBlock));
+                FrameworkElementFactory fef = new FrameworkElementFactory(typeof(Button));
+                fef.SetValue(Button.WidthProperty, 100);
+                fef.SetValue(Button.HeightProperty, 50);
+                fef.SetValue(Button.BackgroundProperty, Brushes.Red);
+                template.VisualTree = fef;
                 this.draggedAdorner = new DraggedAdorner(adornerLayer, this.mainCanvas, template);
             }
             double leftChange = currentPoint.X - this.dragStartPoint.Value.X + this.initialMouseOffset.X;
