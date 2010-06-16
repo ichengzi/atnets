@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Media;
 using System.Drawing.Text;
 using System.Windows.Input;
+using System.Windows.Documents;
 
 namespace ATNET.Gui.Windows.Label
 {
@@ -17,7 +18,7 @@ namespace ATNET.Gui.Windows.Label
     {
         private System.Drawing.FontFamily barcodeFont;
         private bool isMouseLeftButtonDown = false;
-
+        private Point? startPoint;
         private string barCodeString;
         /// <summary>
         /// 条形码显示的字符
@@ -36,22 +37,41 @@ namespace ATNET.Gui.Windows.Label
 
         private void BarCode_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            this.CaptureMouse();
             this.Cursor = Cursors.Cross;
             this.isMouseLeftButtonDown = true;
+            Canvas canvas = this.Parent as Canvas;
+            if (canvas != null)
+            {
+                this.startPoint = e.GetPosition(canvas);
+                ShowAdorner();
+            }
         }
 
         private void BarCode_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            this.ReleaseMouseCapture();
             this.Cursor = Cursors.Arrow;
             this.isMouseLeftButtonDown = false;
+            //this.startPoint = null;
+            RemoveAdorner();
         }
 
         private void BarCode_PreviewMouseMove(object sender, MouseEventArgs e)
         {
             if (isMouseLeftButtonDown)
             {
-          
-
+                Canvas canvas = this.Parent as Canvas;
+                Point pt;
+                if (canvas != null)
+                {
+                    pt = e.GetPosition(canvas);
+                    double top = pt.Y - startPoint.Value.Y;
+                    double left = pt.X - startPoint.Value.X;
+                    Canvas.SetTop(this, top);
+                    Canvas.SetLeft(this, left);
+                }
+                
             }
         }
 
@@ -59,6 +79,34 @@ namespace ATNET.Gui.Windows.Label
         {
             this.barCodeString = barCodeString;
             InitializeBarCode();
+        }
+
+        private void ShowAdorner()
+        {
+
+            AdornerLayer layer = AdornerLayer.GetAdornerLayer(this);
+            if (layer != null)
+            {
+                LabelAdorner adorner = new LabelAdorner(this);
+                if (adorner != null)
+                {
+                    layer.Add(adorner);
+                }
+            }
+
+        }
+
+        private void RemoveAdorner()
+        {
+            AdornerLayer layer = AdornerLayer.GetAdornerLayer(this);
+            if (layer != null)
+            {
+                LabelAdorner adorner = new LabelAdorner(this);
+                if (adorner != null)
+                {
+                    layer.Remove(adorner);
+                }
+            }
         }
 
         private void InitializeBarCode()
