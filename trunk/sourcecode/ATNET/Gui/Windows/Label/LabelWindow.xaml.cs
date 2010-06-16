@@ -75,6 +75,16 @@ namespace ATNET.Gui.Windows
             selectedBrush = null;
 
             RemoveDraggedAdorner();
+
+            //AdornerLayer adorberLayer = AdornerLayer.GetAdornerLayer(bc);
+            //if (adorberLayer != null)
+            //{
+            //    LabelAdorner adorner = new LabelAdorner(bc);
+            //    if (adorner != null)
+            //    {
+            //        adorberLayer.Add(adorner);
+            //    }
+            //}
             e.Handled = true;
         }
 
@@ -111,7 +121,7 @@ namespace ATNET.Gui.Windows
             BarCode bc = e.Data.GetData(typeof(BarCode)) as BarCode;
             if (bc != null)
             {
-                ShowDraggedAdorner(e.GetPosition(this));
+                //ShowDraggedAdorner(e.GetPosition(this));
             }
             e.Handled = true;
         }
@@ -121,7 +131,7 @@ namespace ATNET.Gui.Windows
             BarCode bc = e.Data.GetData(typeof(BarCode)) as BarCode;
             if (bc != null)
             {
-                ShowDraggedAdorner(e.GetPosition(this));
+                //ShowDraggedAdorner(e.GetPosition(this));
             }
             e.Handled = true;
         }
@@ -133,9 +143,9 @@ namespace ATNET.Gui.Windows
                 var adornerLayer = AdornerLayer.GetAdornerLayer(this.mainCanvas);
                 DataTemplate template = new DataTemplate();
                 FrameworkElementFactory fef = new FrameworkElementFactory(typeof(Button));
-                fef.SetValue(Button.WidthProperty, 100);
-                fef.SetValue(Button.HeightProperty, 50);
-                fef.SetValue(Button.BackgroundProperty, Brushes.Red);
+                //fef.SetValue(Button.WidthProperty, 100);
+                //fef.SetValue(Button.HeightProperty, 50);
+                //fef.SetValue(Button.BackgroundProperty, Brushes.Red);
                 template.VisualTree = fef;
                 this.draggedAdorner = new DraggedAdorner(adornerLayer, this.mainCanvas, template);
             }
@@ -157,6 +167,32 @@ namespace ATNET.Gui.Windows
         {
             RemoveDraggedAdorner();
             e.Handled = true;
+        }
+
+        private void mainCanvas_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void mainCanvas_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void mainCanvas_PreviewMouseMove(object sender, MouseEventArgs e)
+        {
+            
+        }
+
+        private void CancelSelectedItem()
+        {
+            foreach (UIElement element in this.mainCanvas.Children)
+            {
+                if (element is BarCode)
+                {
+ 
+                }
+            }
         }
 
     }

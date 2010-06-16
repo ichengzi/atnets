@@ -47,7 +47,8 @@
                               VerticalScrollBarVisibility="Visible" Margin="0" x:Name="mainScrollViewer" Background="Red">
             <Canvas x:Name="mainCanvas" Background="{StaticResource canvasBrushResource}" Margin="39,39,160,120" AllowDrop="True"
                     PreviewDragOver="mainCanvas_PreviewDragOver" PreviewDragEnter="mainCanvas_PreviewDragEnter"
-                    PreviewDragLeave="mainCanvas_PreviewDragLeave" PreviewDrop="Canvas_Drop">
+                    PreviewDragLeave="mainCanvas_PreviewDragLeave" PreviewDrop="Canvas_Drop" PreviewMouseLeftButtonDown="mainCanvas_PreviewMouseLeftButtonDown"
+                    PreviewMouseLeftButtonUp="mainCanvas_PreviewMouseLeftButtonUp" PreviewMouseMove="mainCanvas_PreviewMouseMove">
 
             </Canvas>
         </ScrollViewer>
