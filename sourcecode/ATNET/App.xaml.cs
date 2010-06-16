@@ -14,7 +14,7 @@ namespace ATNET
     {
         public App()
         {
-            SplashScreen splashScreen = new SplashScreen("icons/add.png");
+            SplashScreen splashScreen = new SplashScreen("icons/SplashScreen.png");
             
             splashScreen.Show(true);
         }
