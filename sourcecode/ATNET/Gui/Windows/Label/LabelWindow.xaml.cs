@@ -66,11 +66,12 @@ namespace ATNET.Gui.Windows
         {
             BarCode bc = e.Data.GetData(typeof(BarCode)) as BarCode;
             if (bc == null) return;
-
-            mainCanvas.Children.Add(bc);
-            Canvas.SetTop(bc, e.GetPosition(this.mainCanvas).Y);
-            Canvas.SetLeft(bc, e.GetPosition(this.mainCanvas).X);
-
+            if (mainCanvas.Children.Count == 0)
+            {
+                mainCanvas.Children.Add(bc);
+                Canvas.SetTop(bc, e.GetPosition(this.mainCanvas).Y);
+                Canvas.SetLeft(bc, e.GetPosition(this.mainCanvas).X);
+            }
             dragStartPoint = null;
             selectedBrush = null;
 
