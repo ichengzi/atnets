@@ -127,6 +127,7 @@ namespace ATNET.Gui.Windows.Label
             barGraph.FontSize = 50;
             barGraph.Text = barCodeString;
             TextBox barString = new TextBox();
+            barString.PreviewMouseDoubleClick += new MouseButtonEventHandler(barString_PreviewMouseDoubleClick);
             barString.HorizontalAlignment = HorizontalAlignment.Center;
             barString.VerticalAlignment = VerticalAlignment.Center;
             barString.FontSize = 50;
@@ -146,6 +147,13 @@ namespace ATNET.Gui.Windows.Label
             Grid.SetRow(barGraph, 0);
             Grid.SetColumn(barString, 0);
             Grid.SetRow(barString, 1);
+        }
+
+        private void barString_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+            this.ReleaseMouseCapture();
+            tb.SelectionLength = tb.Text.Length;
         }
 
         private void barString_TextChanged(object sender, TextChangedEventArgs e)
