@@ -168,6 +168,11 @@ namespace ATNET.Gui.Windows
                     catch { }
                 }
             }
+            else
+            {
+                selectedBrush = null;
+            }
+            e.Handled = true;
         }
 
         private void mainCanvas_PreviewDragEnter(object sender, DragEventArgs e)
@@ -278,7 +283,7 @@ namespace ATNET.Gui.Windows
             if (asyncInformation.Completed)
             {
                 this.mainCanvas.Background = (Brush)App.Current.FindResource("canvasBrushResource");
-                MessageBox.Show(asyncInformation.Status, "打印完成");
+                MessageBox.Show("标签打印完成", "打印完成");
             }
         }
 
