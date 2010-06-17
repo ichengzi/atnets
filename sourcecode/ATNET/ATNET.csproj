@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ReachFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -53,6 +56,9 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="UIAutomationProvider">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationTypes">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
     <Reference Include="WindowsBase">
@@ -188,6 +194,8 @@
     <Compile Include="Services\MenuService\CustomContextMenu.cs" />
     <Compile Include="Services\MenuService\MenuService.cs" />
     <Compile Include="Services\ParseService\ParseProject.cs" />
+    <Compile Include="Services\PrintService\WPFContent.cs" />
+    <Compile Include="Services\PrintService\XpsPrintHelper.cs" />
     <Compile Include="Services\ProjectService\CanvasDocumentService.cs" />
     <Compile Include="Services\ProjectService\CanvasService.cs" />
     <Compile Include="Services\ProjectService\ProjectEventHandler.cs" />

@@ -4,10 +4,11 @@
     Title="制作标签" Height="480" Width="600" WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen" Topmost="True">
     <Window.Resources>
         <Style TargetType="{x:Type Button}" x:Key="toolButtonStyle">
-            <Setter Property="Height" Value="20"/>
-            <Setter Property="Width" Value="20"/>
+            <Setter Property="Height" Value="32"/>
+            <Setter Property="Width" Value="32"/>
             <Setter Property="BorderBrush" Value="Transparent"/>
             <Setter Property="Margin" Value="2,0,0,0"/>
+            <Setter Property="Padding" Value="2"/>
         </Style>
     </Window.Resources>
     <DockPanel>
@@ -19,7 +20,7 @@
                 <Button Style="{StaticResource toolButtonStyle}" ToolTip="打印预览">
                     <Image Source="pack://Application:,,,/ATNET;component/icons/view.ico"/>
                 </Button>
-                <Button Style="{StaticResource toolButtonStyle}" ToolTip="打印">
+                <Button Style="{StaticResource toolButtonStyle}" ToolTip="打印" x:Name="btnPrint" Click="btnPrint_Click">
                     <Image Source="pack://Application:,,,/ATNET;component/icons/print.ico"/>
                 </Button>
                 <Separator/>
