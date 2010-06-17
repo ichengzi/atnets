@@ -14,6 +14,8 @@ using System.Drawing.Text;
 using SoftArt.WPF.Graph;
 using ATNET.Gui.Windows.Label;
 using System.IO;
+using ATNET.Services.PrintService;
+using System.Printing;
 
 namespace ATNET.Gui.Windows
 {
@@ -193,6 +195,39 @@ namespace ATNET.Gui.Windows
                 {
  
                 }
+            }
+        }
+
+        private void btnPrint_Click(object sender, RoutedEventArgs e)
+        {
+            this.Topmost = false;
+            this.mainCanvas.Background = Brushes.White;
+            // Display Printer dialog for user to
+            // choose the printer to output to.
+            XpsPrintHelper printHelper = new XpsPrintHelper(this.mainCanvas);
+            PrintDialog printDialog = printHelper.GetPrintDialog();
+            if (printDialog == null)
+                return;     //user selected cancel
+            PrintQueue printQueue = printDialog.PrintQueue;
+            printHelper.OnAsyncPrintChange += new XpsPrintHelper.AsyncPrintChangeHandler(AsyncPrintEvent);
+            printHelper.PrintVisualAsync(printQueue);
+
+            this.Topmost = true;
+            this.mainCanvas.Background = (Brush)App.Current.Resources.FindName("canvasBrushResource");
+        }
+
+
+        // -------------------------- AsyncPrintEvent -------------------------
+        /// <summary>
+        ///   Called as the asynchronous save proceeds.</summary>
+        /// <param name="saveHelper"></param>
+        /// <param name="asyncInformation">
+        ///   Progress information about the asynchronous save.</param>
+        private void AsyncPrintEvent(object printHelper, AsyncPrintEventArgs asyncInformation)
+        {
+            if (asyncInformation.Completed)
+            {
+                MessageBox.Show(asyncInformation.Status, "打印完成");
             }
         }
 
