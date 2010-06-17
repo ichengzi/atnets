@@ -46,11 +46,8 @@ namespace ATNET.Gui.Windows
 
         private void Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (selectedBrush == null)
-            {
-                Button btn = sender as Button;
-                selectedBrush = btn;
-            }
+            Button btn = sender as Button;
+            selectedBrush = btn;
         }
 
         private void LabelWindow_Closed(object sender, EventArgs e)
@@ -66,13 +63,30 @@ namespace ATNET.Gui.Windows
 
         private void Canvas_Drop(object sender, DragEventArgs e)
         {
-            BarCode bc = e.Data.GetData(typeof(BarCode)) as BarCode;
-            if (bc == null) return;
-            if (mainCanvas.Children.Count == 0)
+            UIElement element = null;
+            if (e.Data.GetData(typeof(BarCode)).GetType()== typeof(BarCode))
             {
-                mainCanvas.Children.Add(bc);
-                Canvas.SetTop(bc, e.GetPosition(this.mainCanvas).Y);
-                Canvas.SetLeft(bc, e.GetPosition(this.mainCanvas).X);
+                element = e.Data.GetData(typeof(BarCode)) as BarCode;
+            }
+            else if (e.Data.GetData(typeof(TextBlock)).GetType() == typeof(TextBlock))
+            {
+                element = e.Data.GetData(typeof(TextBlock)) as TextBlock;
+            }
+            else if (e.Data.GetData(typeof(Line)).GetType() == typeof(Line))
+            {
+                element = e.Data.GetData(typeof(Line)) as Line;
+            }
+            else if (e.Data.GetData(typeof(Rectangle)).GetType() == typeof(Rectangle))
+            {
+                element = e.Data.GetData(typeof(Rectangle)) as Rectangle;
+            }
+
+            if (element == null) return;
+            if (mainCanvas.Children.Count >= 0)
+            {
+                mainCanvas.Children.Add(element);
+                Canvas.SetTop(element, e.GetPosition(this.mainCanvas).Y);
+                Canvas.SetLeft(element, e.GetPosition(this.mainCanvas).X);
             }
             dragStartPoint = null;
             selectedBrush = null;
@@ -104,17 +118,54 @@ namespace ATNET.Gui.Windows
 
         private void ToolBar_PreviewMouseMove(object sender, MouseEventArgs e)
         {
-            if (dragStartPoint.HasValue)
+            if (dragStartPoint.HasValue && e.LeftButton == MouseButtonState.Pressed)
             {
                 if (IsMovementBigEnough(dragStartPoint.Value, e.GetPosition(this)))
                 {
                     Button btn = selectedBrush as Button;
                     this.initialMouseOffset = this.dragStartPoint.Value - btn.TranslatePoint(new Point(0, 0), this);
-
                     DataObject dataObject = new DataObject();
-                    this.barCode = new BarCode("1234567");
-                    dataObject.SetData(this.barCode);
-                    DragDrop.DoDragDrop(this, dataObject, DragDropEffects.Copy);
+                    if (btn.Name == "btnBarcode")
+                    {
+                        BarCode barCode = new BarCode("1234567");
+                        dataObject.SetData(barCode);
+                    }
+                    else if (btn.Name == "btnText")
+                    {
+                        TextBlock tb = new TextBlock();
+                        tb.AllowDrop = true;
+                        tb.Text = "12345678";
+                        dataObject.SetData(tb);
+                    }
+                    else if (btn.Name == "btnLine")
+                    {
+                        Line line = new Line();
+                        line.Height = 1;
+                        line.Width = 100;
+                        line.X1 = 10;
+                        line.X2 = 110;
+                        line.Y1 = 20;
+                        line.Y2 = 10;
+                        line.Fill = Brushes.Black;
+                        dataObject.SetData(line);
+                    }
+                    else if (btn.Name == "btnRect")
+                    {
+                        Rectangle rectangle = new Rectangle();
+                        rectangle.Height = 50;
+                        rectangle.Width = 100;
+                        rectangle.Fill = Brushes.Transparent;
+                        dataObject.SetData(rectangle);
+                    }
+                    else if (btn.Name == "btnImg")
+                    {
+
+                    }
+                    try
+                    {
+                        DragDrop.DoDragDrop(this.toolBar, dataObject, DragDropEffects.All);
+                    }
+                    catch { }
                 }
             }
         }
@@ -213,7 +264,6 @@ namespace ATNET.Gui.Windows
             printHelper.PrintVisualAsync(printQueue);
 
             this.Topmost = true;
-            this.mainCanvas.Background = (Brush)App.Current.Resources.FindName("canvasBrushResource");
         }
 
 
@@ -227,6 +277,7 @@ namespace ATNET.Gui.Windows
         {
             if (asyncInformation.Completed)
             {
+                this.mainCanvas.Background = (Brush)App.Current.FindResource("canvasBrushResource");
                 MessageBox.Show(asyncInformation.Status, "打印完成");
             }
         }

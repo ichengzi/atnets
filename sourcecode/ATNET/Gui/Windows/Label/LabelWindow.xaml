@@ -4,11 +4,15 @@
     Title="制作标签" Height="480" Width="600" WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen" Topmost="True">
     <Window.Resources>
         <Style TargetType="{x:Type Button}" x:Key="toolButtonStyle">
-            <Setter Property="Height" Value="32"/>
-            <Setter Property="Width" Value="32"/>
+            <Setter Property="Height" Value="18"/>
+            <Setter Property="Width" Value="18"/>
             <Setter Property="BorderBrush" Value="Transparent"/>
             <Setter Property="Margin" Value="2,0,0,0"/>
             <Setter Property="Padding" Value="2"/>
+        </Style>
+        <Style TargetType="Image">
+            <Setter Property="Height" Value="16"/>
+            <Setter Property="Width" Value="16"/>
         </Style>
     </Window.Resources>
     <DockPanel>
@@ -30,16 +34,16 @@
                 <Button Style="{StaticResource toolButtonStyle}" ToolTip="条形码" x:Name="btnBarcode">
                     <Image Source="pack://Application:,,,/ATNET;component/icons/barcode.png"/>
                 </Button>
-                <Button Style="{StaticResource toolButtonStyle}" ToolTip="文字">
+                <Button Style="{StaticResource toolButtonStyle}" ToolTip="文字" x:Name="btnText">
                     <Image Source="pack://Application:,,,/ATNET;component/icons/text.ico"/>
                 </Button>
-                <Button Style="{StaticResource toolButtonStyle}" ToolTip="线条">
+                <Button Style="{StaticResource toolButtonStyle}" ToolTip="线条" x:Name="btnLine">
                     <Rectangle Width="15" Height="1" HorizontalAlignment="Center" Stroke="Black" VerticalAlignment="Center" Fill="Transparent"/>
                 </Button>
-                <Button Style="{StaticResource toolButtonStyle}" ToolTip="矩形">
+                <Button Style="{StaticResource toolButtonStyle}" ToolTip="矩形" x:Name="btnRect">
                     <Rectangle Width="15" Height="10" HorizontalAlignment="Center" Stroke="Black" VerticalAlignment="Center" Fill="Transparent"/>
                 </Button>
-                <Button Style="{StaticResource toolButtonStyle}" ToolTip="图片">
+                <Button Style="{StaticResource toolButtonStyle}" ToolTip="图片" x:Name="btnImg">
                     <Image Source="pack://Application:,,,/ATNET;component/icons/pic.ico"/>
                 </Button>
             </ToolBar>
