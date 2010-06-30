@@ -71,7 +71,7 @@ namespace ATNET.Services.ProjectService
             }
             if (isAdd)
             {
-                canvasDocuments.Add(document);
+                //canvasDocuments.Add(document);
                 Window1 mainWindow = GetMainWindow();
                 mainWindow.DockingManager.Items.Add(document);
             }
