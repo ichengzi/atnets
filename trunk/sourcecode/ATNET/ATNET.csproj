@@ -191,6 +191,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Project\CommonProject.cs" />
+    <Compile Include="Services\FileService\FileTypeRegister.cs" />
     <Compile Include="Services\MenuService\CustomContextMenu.cs" />
     <Compile Include="Services\MenuService\MenuService.cs" />
     <Compile Include="Services\ParseService\ParseProject.cs" />
