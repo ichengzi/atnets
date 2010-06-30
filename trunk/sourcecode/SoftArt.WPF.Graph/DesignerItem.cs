@@ -16,6 +16,7 @@ namespace SoftArt.WPF.Graph
     {
         #region ID
         private Guid id;
+        [Browser("GUID","GUID")]
         public Guid ID
         {
             get { return id; }
@@ -23,6 +24,7 @@ namespace SoftArt.WPF.Graph
         #endregion
 
         #region ParentID
+        [Browser("ParentID", "ParentID")]
         public Guid ParentID
         {
             get { return (Guid)GetValue(ParentIDProperty); }
