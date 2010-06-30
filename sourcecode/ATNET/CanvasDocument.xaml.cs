@@ -15,6 +15,7 @@ using AvalonDock;
 using SoftArt.WPF.Styles.Common;
 using SoftArt.WPF.Graph;
 using ATNET.Services.MenuService;
+using ATNET.Gui.Windows;
 
 namespace ATNET
 {
@@ -42,6 +43,8 @@ namespace ATNET
             {
                 designerItem.ContextMenu=(ContextMenu)MenuService.ContextMenuResource["item"];
             }
+            CustomProperty property = new CustomProperty(designerItem);
+            ((Window1)App.Current.MainWindow).PropertyBrowser.SelectedObject = property;
         }
         /// <summary>
         /// 获取Document中的Canvas

@@ -4,6 +4,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using SoftArt.WPF.Graph.Controls;
 using System;
+using SoftArt.WPF.Graph.Entity;
 
 namespace SoftArt.WPF.Graph
 {
@@ -22,6 +23,12 @@ namespace SoftArt.WPF.Graph
             get { return id; }
         }
         #endregion
+        [Browser("设备类型", "Type")]
+        public tblEuipType EuipType
+        {
+            get { return this.EuipType; }
+            set { this.EuipType = value; }
+        }
 
         #region ParentID
         [Browser("ParentID", "ParentID")]

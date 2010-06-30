@@ -133,22 +133,6 @@
       <DependentUpon>CanvasDocument.xaml</DependentUpon>
     </Compile>
     <Compile Include="CanvasMousePointConverter.cs" />
-    <Compile Include="Entity\tblCables.cs" />
-    <Compile Include="Entity\tblCableType.cs" />
-    <Compile Include="Entity\tblCompany.cs" />
-    <Compile Include="Entity\tblContainers.cs" />
-    <Compile Include="Entity\tblContainerType.cs" />
-    <Compile Include="Entity\tblDataDictionary.cs" />
-    <Compile Include="Entity\tblEuipments.cs" />
-    <Compile Include="Entity\tblEuipType.cs" />
-    <Compile Include="Entity\tblInnerColumn.cs" />
-    <Compile Include="Entity\tblLabels.cs" />
-    <Compile Include="Entity\tblLabelType.cs" />
-    <Compile Include="Entity\tblLogs.cs" />
-    <Compile Include="Entity\tblModule.cs" />
-    <Compile Include="Entity\tblRoleRight.cs" />
-    <Compile Include="Entity\tblRoles.cs" />
-    <Compile Include="Entity\tblUsers.cs" />
     <Compile Include="Gui\Components\ExtTreeNode.cs" />
     <Compile Include="Gui\Components\ExtTreeView.cs" />
     <Compile Include="Gui\Pads\ProjectBrowser\ProjectBrowser.xaml.cs">
