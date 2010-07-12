@@ -24,7 +24,14 @@ namespace  SoftArt.WPF.Graph.Entity
 	    /// <summary>
 	    /// 实体 tblEuipType
 	    /// </summary>
-		public tblEuipType(){}
+        public tblEuipType()
+        {
+            //初始化类型
+            this._etypeid = "1";
+            this._etypename = "类型1";
+            this._creator = "张三";
+            this._createdate = DateTime.Now;
+        }
 		#endregion
 
 		#region 私有变量
@@ -41,6 +48,7 @@ namespace  SoftArt.WPF.Graph.Entity
 		/// 主键 ETypeID (必填字段)
 		/// </summary>
         [DataObjectField(true)]
+        [Browser("TypeID","类型ID")]
 		public string ETypeID
 		{
 			set{ _etypeid=value;}
@@ -50,6 +58,7 @@ namespace  SoftArt.WPF.Graph.Entity
 		/// ETypeName (必填字段)
 		/// </summary>
         [DataObjectField(false)]
+        [Browser("TypeName", "类型名称")]
 		public string ETypeName
 		{
 			set{ _etypename=value;}

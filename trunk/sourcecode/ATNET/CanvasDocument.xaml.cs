@@ -43,8 +43,8 @@ namespace ATNET
             {
                 designerItem.ContextMenu=(ContextMenu)MenuService.ContextMenuResource["item"];
             }
-            CustomProperty property = new CustomProperty(designerItem);
-            ((Window1)App.Current.MainWindow).PropertyBrowser.SelectedObject = property;
+            CustomProperty property = new CustomProperty(designerItem.EuipType);
+            ((Window1)App.Current.MainWindow).PropertyBrowser.SelectedObject = designerItem.EuipType;
         }
         /// <summary>
         /// 获取Document中的Canvas

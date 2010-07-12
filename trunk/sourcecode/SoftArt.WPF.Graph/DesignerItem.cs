@@ -23,15 +23,15 @@ namespace SoftArt.WPF.Graph
             get { return id; }
         }
         #endregion
-        [Browser("设备类型", "Type")]
+        private tblEuipType equipType;
         public tblEuipType EuipType
         {
-            get { return this.EuipType; }
-            set { this.EuipType = value; }
+            get { return this.equipType; }
+            set { this.equipType = value; }
         }
 
         #region ParentID
-        [Browser("ParentID", "ParentID")]
+        //[Browser("ParentID", "ParentID")]
         public Guid ParentID
         {
             get { return (Guid)GetValue(ParentIDProperty); }
@@ -51,7 +51,6 @@ namespace SoftArt.WPF.Graph
         #endregion
 
         #region IsSelected Property
-
         public bool IsSelected
         {
             get { return (bool)GetValue(IsSelectedProperty); }
@@ -137,6 +136,9 @@ namespace SoftArt.WPF.Graph
         public DesignerItem()
             : this(Guid.NewGuid())
         {
+            this.equipType = new tblEuipType();
+            this.equipType.ETypeID = "1";
+            this.equipType.ETypeName = "类型1";
         }
 
 

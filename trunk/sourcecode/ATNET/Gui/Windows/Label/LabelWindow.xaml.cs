@@ -34,6 +34,7 @@ namespace ATNET.Gui.Windows
         public LabelWindow()
         {
             InitializeComponent();
+            this.AllowDrop = false;
             this.Closed += new EventHandler(LabelWindow_Closed);
             foreach (UIElement children in toolBar.Items)
             {
@@ -84,6 +85,7 @@ namespace ATNET.Gui.Windows
             if (element == null) return;
             if (mainCanvas.Children.Count >= 0)
             {
+                Console.WriteLine(element);
                 mainCanvas.Children.Add(element);
                 Canvas.SetTop(element, e.GetPosition(this.mainCanvas).Y);
                 Canvas.SetLeft(element, e.GetPosition(this.mainCanvas).X);
@@ -116,6 +118,7 @@ namespace ATNET.Gui.Windows
             dragStartPoint = new Point?(Mouse.GetPosition(this));
         }
 
+        private int dragCount = 0;//ToolBar_PreviewMouseMove会被触发两次，剔除其中一次
         private void ToolBar_PreviewMouseMove(object sender, MouseEventArgs e)
         {
             if (dragStartPoint.HasValue && e.LeftButton == MouseButtonState.Pressed)
@@ -123,7 +126,9 @@ namespace ATNET.Gui.Windows
                 if (IsMovementBigEnough(dragStartPoint.Value, e.GetPosition(this)))
                 {
                     Button btn = selectedBrush as Button;
+                    if (btn == null) return;
                     this.initialMouseOffset = this.dragStartPoint.Value - btn.TranslatePoint(new Point(0, 0), this);
+                
                     DataObject dataObject = new DataObject();
                     if (btn.Name == "btnBarcode")
                     {
@@ -163,7 +168,12 @@ namespace ATNET.Gui.Windows
                     }
                     try
                     {
-                        DragDrop.DoDragDrop(this.toolBar, dataObject, DragDropEffects.All);
+                        dragCount++;
+                        if (dragCount == 2)
+                        {
+                            DragDrop.DoDragDrop(this.toolBar, dataObject, DragDropEffects.Copy);
+                            dragCount = 0;
+                        }
                     }
                     catch { }
                 }
