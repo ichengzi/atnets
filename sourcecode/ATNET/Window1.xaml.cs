@@ -41,7 +41,6 @@ namespace ATNET
             InitializeComponent();
 
             InitMainWindowConfig();
-
             Title = "ATNET 机房管理系统 - Softart";
             this.ContentRendered += new EventHandler(Window1_ContentRendered);
         }
