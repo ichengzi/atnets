@@ -17,8 +17,8 @@ namespace ATNET
     /// </summary>
     public partial class App : Application
     {
-        private ILog log;
-        public ILog Log
+        private static ILog log;
+        public static ILog Log
         {
             get { return log; }
         }
