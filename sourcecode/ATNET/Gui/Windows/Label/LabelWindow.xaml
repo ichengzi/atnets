@@ -17,7 +17,7 @@
     </Window.Resources>
     <DockPanel>
         <ToolBarTray DockPanel.Dock="Top" >
-            <ToolBar x:Name="toolBar" Height="25" PreviewMouseLeftButtonDown="ToolBar_PreviewMouseLeftButtonDown" PreviewMouseMove="ToolBar_PreviewMouseMove">
+            <ToolBar x:Name="toolBar" Height="25">
                 <Button Style="{StaticResource toolButtonStyle}" ToolTip="标签设置">
                     <Image Source="pack://Application:,,,/ATNET;component/icons/setting.png"/>
                 </Button>
@@ -50,11 +50,7 @@
         </ToolBarTray>
         <ScrollViewer Style="{StaticResource scrollViewerRuler}" HorizontalScrollBarVisibility="Visible" 
                               VerticalScrollBarVisibility="Visible" Margin="0" x:Name="mainScrollViewer" Background="Red">
-            <Canvas x:Name="mainCanvas" Background="{StaticResource canvasBrushResource}" Margin="39,39,160,120" AllowDrop="True"
-                    PreviewDragOver="mainCanvas_PreviewDragOver" PreviewDragEnter="mainCanvas_PreviewDragEnter"
-                    PreviewDragLeave="mainCanvas_PreviewDragLeave" PreviewDrop="Canvas_Drop" PreviewMouseLeftButtonDown="mainCanvas_PreviewMouseLeftButtonDown"
-                    PreviewMouseLeftButtonUp="mainCanvas_PreviewMouseLeftButtonUp" PreviewMouseMove="mainCanvas_PreviewMouseMove">
-
+            <Canvas x:Name="mainCanvas" Background="{StaticResource canvasBrushResource}" Margin="39,39,160,120" AllowDrop="True">
             </Canvas>
         </ScrollViewer>
     </DockPanel>
