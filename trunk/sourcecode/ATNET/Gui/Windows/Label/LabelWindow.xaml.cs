@@ -26,29 +26,140 @@ namespace ATNET.Gui.Windows
     {
         private Point? dragStartPoint = null;
         private Vector initialMouseOffset;
-        private BarCode barCode;
+        //private BarCode barCode;
         private DraggedAdorner draggedAdorner = null;
 
-        private Visual selectedBrush = null;
-        
+        //private Visual selectedBrush = null;
+
+        private Button selectedButton = null;//当前选中的button
+        private UIElement selectedElement = null;//当前画布中选中的Visual
         public LabelWindow()
         {
             InitializeComponent();
             this.AllowDrop = false;
             this.Closed += new EventHandler(LabelWindow_Closed);
-            foreach (UIElement children in toolBar.Items)
-            {
-                if (children is Button)
-                {
-                    ((Button)children).PreviewMouseLeftButtonDown += new MouseButtonEventHandler(Button_PreviewMouseLeftButtonDown);
-                }
-            }
+            //注册button事件
+            this.btnBarcode.Click += new RoutedEventHandler(btn_Click);
+            this.btnText.Click += new RoutedEventHandler(btn_Click);
+            this.btnRect.Click += new RoutedEventHandler(btn_Click);
+            this.btnLine.Click += new RoutedEventHandler(btn_Click);
+            this.btnImg.Click += new RoutedEventHandler(btn_Click);
+
+            this.mainCanvas.PreviewMouseMove += new MouseEventHandler(mainCanvas_PreviewMouseMove);
+            this.mainCanvas.PreviewMouseLeftButtonDown += new MouseButtonEventHandler(mainCanvas_PreviewMouseLeftButtonDown);
         }
 
-        private void Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void btn_Click(object sender, RoutedEventArgs e)
         {
             Button btn = sender as Button;
-            selectedBrush = btn;
+            selectedButton = btn;
+        }
+
+        private void mainCanvas_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (selectedButton == null) return;
+            if (selectedButton.Name == "btnBarcode")
+            {
+                BarCode barCode = new BarCode("1234567");
+                selectedElement = barCode;
+            }
+            else if (selectedButton.Name == "btnText")
+            {
+                TextBlock tb = new TextBlock();
+                tb.Text = "1234567";
+                selectedElement = tb;
+            }
+            else if (selectedButton.Name == "btnRect")
+            {
+                Rectangle rectangle = new Rectangle();
+                rectangle.Height = 50;
+                rectangle.Width = 100;
+                rectangle.Fill = Brushes.Red;
+                selectedElement = rectangle;
+            }
+            else if (selectedButton.Name == "btnLine")
+            {
+                Line line = new Line();
+                line.Height = 1;
+                line.Width = 100;
+                //line.X1 = 10;
+                //line.X2 = 110;
+                //line.Y1 = 20;
+                //line.Y2 = 10;
+                line.StrokeThickness = 10;
+                line.Fill = Brushes.Black;
+                selectedElement = line;
+            }
+            else if (selectedButton.Name == "btnImg")
+            {
+                Image img = new Image();
+                img.Width = 100;
+                img.Height = 100;
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri("../../../icons/barcode.png", UriKind.Relative);
+                bitmap.EndInit();
+                img.Source = bitmap;
+                img.Stretch = Stretch.Fill;
+                selectedElement = img;
+            }
+            mainCanvas.Children.Add(selectedElement);
+            selectedElement.PreviewMouseLeftButtonDown += new MouseButtonEventHandler(selectedElement_PreviewMouseLeftButtonDown);
+            selectedElement.PreviewMouseLeftButtonUp += new MouseButtonEventHandler(selectedElement_PreviewMouseLeftButtonUp);
+            Canvas.SetTop(selectedElement, e.GetPosition(this.mainCanvas).Y);
+            Canvas.SetLeft(selectedElement, e.GetPosition(this.mainCanvas).X);
+
+            selectedButton = null;
+        }
+
+        private void selectedElement_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            //throw new NotImplementedException();
+        }
+
+        private void selectedElement_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            dragStartPoint = new Point?(Mouse.GetPosition(this.mainCanvas));
+            Type type = sender.GetType();
+            if (type == typeof(BarCode))
+            {
+
+            }
+            else if (type == typeof(TextBlock))
+            {
+               
+            }
+            else if (type == typeof(Rectangle))
+            {
+
+            }
+            else if (type == typeof(Line))
+            {
+
+            }
+            else if (type == typeof(Image))
+            {
+
+            }
+
+        }
+
+        private void mainCanvas_PreviewMouseMove(object sender, MouseEventArgs e)
+        {
+            if (selectedButton != null)
+            {
+                this.mainCanvas.Cursor = Cursors.Cross;
+                if (e.LeftButton == MouseButtonState.Pressed)
+                {
+                    Canvas.SetTop(selectedElement, e.GetPosition(this.mainCanvas).Y);
+                    Canvas.SetLeft(selectedElement, e.GetPosition(this.mainCanvas).X);
+                }
+            }
+            else
+            {
+                this.mainCanvas.Cursor = Cursors.Arrow;
+                dragStartPoint = null;
+            }
         }
 
         private void LabelWindow_Closed(object sender, EventArgs e)
@@ -61,7 +172,7 @@ namespace ATNET.Gui.Windows
                 }
             }
         }
-
+/*
         private void Canvas_Drop(object sender, DragEventArgs e)
         {
             UIElement element = null;
@@ -92,18 +203,7 @@ namespace ATNET.Gui.Windows
             }
             dragStartPoint = null;
             selectedBrush = null;
-
             RemoveDraggedAdorner();
-
-            //AdornerLayer adorberLayer = AdornerLayer.GetAdornerLayer(bc);
-            //if (adorberLayer != null)
-            //{
-            //    LabelAdorner adorner = new LabelAdorner(bc);
-            //    if (adorner != null)
-            //    {
-            //        adorberLayer.Add(adorner);
-            //    }
-            //}
             e.Handled = true;
         }
 
@@ -205,65 +305,15 @@ namespace ATNET.Gui.Windows
             e.Handled = true;
         }
 
-        private void ShowDraggedAdorner(Point currentPoint)
-        {
-            if (this.draggedAdorner == null)
-            {
-                var adornerLayer = AdornerLayer.GetAdornerLayer(this.mainCanvas);
-                DataTemplate template = new DataTemplate();
-                FrameworkElementFactory fef = new FrameworkElementFactory(typeof(Button));
-                //fef.SetValue(Button.WidthProperty, 100);
-                //fef.SetValue(Button.HeightProperty, 50);
-                //fef.SetValue(Button.BackgroundProperty, Brushes.Red);
-                template.VisualTree = fef;
-                this.draggedAdorner = new DraggedAdorner(adornerLayer, this.mainCanvas, template);
-            }
-            double leftChange = currentPoint.X - this.dragStartPoint.Value.X + this.initialMouseOffset.X;
-            double topChange = currentPoint.Y - this.dragStartPoint.Value.Y + this.initialMouseOffset.Y;
-            this.draggedAdorner.SetPosition(leftChange, topChange);
-        }
-
-        private void RemoveDraggedAdorner()
-        {
-            if (this.draggedAdorner != null)
-            {
-                this.draggedAdorner.Detach();
-                this.draggedAdorner = null;
-            }
-        }
-
+       
+      
         private void mainCanvas_PreviewDragLeave(object sender, DragEventArgs e)
         {
             RemoveDraggedAdorner();
             e.Handled = true;
         }
 
-        private void mainCanvas_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
-        private void mainCanvas_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
-        private void mainCanvas_PreviewMouseMove(object sender, MouseEventArgs e)
-        {
-            
-        }
-
-        private void CancelSelectedItem()
-        {
-            foreach (UIElement element in this.mainCanvas.Children)
-            {
-                if (element is BarCode)
-                {
- 
-                }
-            }
-        }
-
+*/
         private void btnPrint_Click(object sender, RoutedEventArgs e)
         {
             this.Topmost = false;
