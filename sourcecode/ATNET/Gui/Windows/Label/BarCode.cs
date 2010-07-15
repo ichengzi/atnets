@@ -18,7 +18,7 @@ namespace ATNET.Gui.Windows.Label
     {
         private System.Drawing.FontFamily barcodeFont;
         private bool isMouseLeftButtonDown = false;
-        private Point? startPoint;
+        //private Point? startPoint;
         private string barCodeString;
         /// <summary>
         /// 条形码显示的字符
@@ -43,7 +43,6 @@ namespace ATNET.Gui.Windows.Label
             Canvas canvas = this.Parent as Canvas;
             if (canvas != null)
             {
-                this.startPoint = e.GetPosition(canvas);
                 ShowAdorner();
             }
         }
@@ -53,7 +52,6 @@ namespace ATNET.Gui.Windows.Label
             this.ReleaseMouseCapture();
             this.Cursor = Cursors.Arrow;
             this.isMouseLeftButtonDown = false;
-            //this.startPoint = null;
             RemoveAdorner();
         }
 
@@ -66,8 +64,8 @@ namespace ATNET.Gui.Windows.Label
                 if (canvas != null)
                 {
                     pt = e.GetPosition(canvas);
-                    double top = pt.Y - startPoint.Value.Y;
-                    double left = pt.X - startPoint.Value.X;
+                    double top = pt.Y - this.ActualHeight / 2;
+                    double left = pt.X - this.ActualWidth / 2;
                     Canvas.SetTop(this, top);
                     Canvas.SetLeft(this, left);
                 }
