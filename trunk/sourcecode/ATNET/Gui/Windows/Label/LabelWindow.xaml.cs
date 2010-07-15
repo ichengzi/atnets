@@ -25,9 +25,11 @@ namespace ATNET.Gui.Windows
     public partial class LabelWindow : Window
     {
         private Point? dragStartPoint = null;
-        private Vector initialMouseOffset;
+        //private Vector initialMouseOffset;
         //private BarCode barCode;
-        private DraggedAdorner draggedAdorner = null;
+        //private DraggedAdorner draggedAdorner = null;
+
+        private bool isMouseLeftButtonDown = false;
 
         //private Visual selectedBrush = null;
 
@@ -80,14 +82,16 @@ namespace ATNET.Gui.Windows
             else if (selectedButton.Name == "btnLine")
             {
                 Line line = new Line();
-                line.Height = 1;
-                line.Width = 100;
-                //line.X1 = 10;
-                //line.X2 = 110;
-                //line.Y1 = 20;
-                //line.Y2 = 10;
-                line.StrokeThickness = 10;
-                line.Fill = Brushes.Black;
+                //line.Height = 1;
+                //line.Width = 100;
+                line.X1 = 10;
+                line.X2 = 110;
+                line.Y1 = 20;
+                line.Y2 = 20;
+                line.StrokeThickness = 2;
+                line.Stroke = Brushes.Black;
+                line.HorizontalAlignment = HorizontalAlignment.Left;
+                line.VerticalAlignment = VerticalAlignment.Center;
                 selectedElement = line;
             }
             else if (selectedButton.Name == "btnImg")
@@ -104,44 +108,53 @@ namespace ATNET.Gui.Windows
                 selectedElement = img;
             }
             mainCanvas.Children.Add(selectedElement);
-            selectedElement.PreviewMouseLeftButtonDown += new MouseButtonEventHandler(selectedElement_PreviewMouseLeftButtonDown);
-            selectedElement.PreviewMouseLeftButtonUp += new MouseButtonEventHandler(selectedElement_PreviewMouseLeftButtonUp);
+            if (selectedElement.GetType() != typeof(BarCode))
+            {
+                selectedElement.PreviewMouseLeftButtonDown += new MouseButtonEventHandler(selectedElement_PreviewMouseLeftButtonDown);
+                selectedElement.PreviewMouseMove += new MouseEventHandler(selectedElement_PreviewMouseMove);
+                selectedElement.PreviewMouseLeftButtonUp += new MouseButtonEventHandler(selectedElement_PreviewMouseLeftButtonUp);
+            }
             Canvas.SetTop(selectedElement, e.GetPosition(this.mainCanvas).Y);
             Canvas.SetLeft(selectedElement, e.GetPosition(this.mainCanvas).X);
 
             selectedButton = null;
         }
 
+        private void selectedElement_PreviewMouseMove(object sender, MouseEventArgs e)
+        {
+            if (isMouseLeftButtonDown)
+            {
+                Canvas canvas = mainCanvas;
+                Point pt;
+                if (canvas != null)
+                {
+                    pt = e.GetPosition(canvas);
+                    double top = pt.Y - ((FrameworkElement)sender).ActualHeight / 2;
+                    double left = pt.X - ((FrameworkElement)sender).ActualWidth / 2;
+                    Canvas.SetTop((UIElement)sender, top);
+                    Canvas.SetLeft((UIElement)sender, left);
+                }
+
+            }
+        }
+
         private void selectedElement_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            //throw new NotImplementedException();
+            ((UIElement)sender).ReleaseMouseCapture();
+            this.mainCanvas.Cursor = Cursors.Arrow;
+            this.isMouseLeftButtonDown = false;
+            RemoveAdorner((UIElement)sender);
         }
 
         private void selectedElement_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            dragStartPoint = new Point?(Mouse.GetPosition(this.mainCanvas));
-            Type type = sender.GetType();
-            if (type == typeof(BarCode))
+            if (((UIElement)sender).CaptureMouse())
             {
-
+                this.mainCanvas.Cursor = Cursors.Cross;
+                this.isMouseLeftButtonDown = true;
+                Canvas canvas = mainCanvas;
+                ShowAdorner((UIElement)sender);
             }
-            else if (type == typeof(TextBlock))
-            {
-               
-            }
-            else if (type == typeof(Rectangle))
-            {
-
-            }
-            else if (type == typeof(Line))
-            {
-
-            }
-            else if (type == typeof(Image))
-            {
-
-            }
-
         }
 
         private void mainCanvas_PreviewMouseMove(object sender, MouseEventArgs e)
@@ -169,6 +182,34 @@ namespace ATNET.Gui.Windows
                 if (window.IsVisible == false)
                 {
                     window.Close();
+                }
+            }
+        }
+
+        private void ShowAdorner(UIElement element)
+        {
+
+            AdornerLayer layer = AdornerLayer.GetAdornerLayer(element);
+            if (layer != null)
+            {
+                LabelAdorner adorner = new LabelAdorner(element);
+                if (adorner != null)
+                {
+                    layer.Add(adorner);
+                }
+            }
+
+        }
+
+        private void RemoveAdorner(UIElement element)
+        {
+            AdornerLayer layer = AdornerLayer.GetAdornerLayer(element);
+            if (layer != null)
+            {
+                LabelAdorner adorner = new LabelAdorner(element);
+                if (adorner != null)
+                {
+                    layer.Remove(adorner);
                 }
             }
         }
