@@ -16,4 +16,21 @@
     <local:CustomContextMenu x:Key="canvas">
         <MenuItem Header="粘贴" Command="{x:Static ApplicationCommands.Paste}"/>
     </local:CustomContextMenu>
+    
+    <local:CustomContextMenu x:Key="labelCanvasConfig">
+        <MenuItem Header="复制" Command="{x:Static ApplicationCommands.Copy}"/>
+        <MenuItem Header="剪切" Command="{x:Static ApplicationCommands.Cut}"/>
+        <MenuItem Header="粘贴" Command="{x:Static ApplicationCommands.Paste}"/>
+        <MenuItem Header="删除" Command="{x:Static ApplicationCommands.Delete}"/>
+        <Separator/>
+        <MenuItem Header="标签设置"/>
+        <MenuItem Header="放大"/>
+        <MenuItem Header="缩小"/>
+        <MenuItem Header="标签旋转">
+            <MenuItem Header="正常显示"/>
+            <MenuItem Header="左旋90°"/>
+            <MenuItem Header="右旋90°"/>
+            <MenuItem Header="左旋180°"/>
+        </MenuItem>
+    </local:CustomContextMenu>
 </ResourceDictionary>
