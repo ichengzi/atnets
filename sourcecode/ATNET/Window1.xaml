@@ -171,9 +171,9 @@
                     <ComboBoxItem Content="400%" Tag="4.0"/>
                 </ComboBox>
             </ToolBar>
-            <ToolBar>
+            <!--<ToolBar>
                 <Button Content="ss"/>
-            </ToolBar>
+            </ToolBar>-->
         </ToolBarTray>
         <Grid >
             <Grid.RowDefinitions>
