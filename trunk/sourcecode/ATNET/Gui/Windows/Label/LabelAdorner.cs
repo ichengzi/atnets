@@ -23,9 +23,13 @@ namespace ATNET.Gui.Windows.Label
         protected override void OnRender(DrawingContext dc)
         {
             base.OnRender(dc);
-
-            Rect rect = new Rect(RenderSize);
-            dc.DrawRectangle(Brushes.Transparent, new Pen(Brushes.Red,1), rect);
+            Size rectSize = new Size(RenderSize.Width + 6, RenderSize.Height + 6);
+            Rect rect = new Rect(new Point(-3, -3), rectSize);
+            dc.DrawRectangle(Brushes.Transparent, new Pen(Brushes.Blue, 1), rect);
+            dc.DrawEllipse(Brushes.Red, new Pen(Brushes.Blue, 1), new Point(0, 0), 6, 6);
+            dc.DrawEllipse(Brushes.Red, new Pen(Brushes.Blue, 1), new Point(0, this.ActualHeight), 6, 6);
+            dc.DrawEllipse(Brushes.Red, new Pen(Brushes.Blue, 1), new Point(this.ActualWidth, this.ActualHeight), 6, 6);
+            dc.DrawEllipse(Brushes.Red, new Pen(Brushes.Blue, 1), new Point(this.ActualWidth, 0), 6, 6);
         }
 
         protected override void OnPreviewMouseMove(System.Windows.Input.MouseEventArgs e)
