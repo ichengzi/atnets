@@ -21,10 +21,10 @@
                 <ColumnDefinition Width="18"/>
                 <ColumnDefinition Width="18"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Content="展开" x:Name="btnExpand"   Click="btn_Click" ToolTip="展开"/>
-            <Button Grid.Column="1" Content="折叠"  x:Name="btnCollapse" Click="btn_Click" ToolTip="折叠"/>
-            <Button Grid.Column="2" Content="向上移动"  x:Name="btnMoveUp" Click="btn_Click" ToolTip="向上移动"/>
-            <Button Grid.Column="3" Content="向下移动"  x:Name="btnMoveDown" Click="btn_Click" ToolTip="向下移动"/>
+            <Button Grid.Column="0" Content="+" x:Name="btnExpand"   Click="btn_Click" ToolTip="展开"/>
+            <Button Grid.Column="1" Content="-"  x:Name="btnCollapse" Click="btn_Click" ToolTip="折叠"/>
+            <Button Grid.Column="2" Content="↑"  x:Name="btnMoveUp" Click="btn_Click" ToolTip="向上移动"/>
+            <Button Grid.Column="3" Content="↓"  x:Name="btnMoveDown" Click="btn_Click" ToolTip="向下移动"/>
         </Grid>
     </Grid>
 </UserControl>
